@@ -3,3 +3,16 @@
 1492327464154	Delete element
 1492327568972	Copy package
 1492327573384	Delete element
+1492328591332	Move package
+1492328605896	Move package
+1492328828043	Delete element
+1492328844324	Delete element
+1492328949394	Move compilation unit
+1492328956660	Move compilation unit
+1492328960572	Move compilation unit
+1492328962727	Move compilation unit
+1492329443910	Rename package 'controller'
+1492329477144	Rename package 'inventory'
+1492329583147	Rename package 'model'
+1492329617876	Rename package 'test'
+1492329626246	Rename package 'view'
