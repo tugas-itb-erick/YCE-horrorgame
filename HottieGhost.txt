@@ -20,13 +20,13 @@ Map
 	+print()
 
 Player 
-	-String name
-	-int hp
-	-Point position
-	-Inventory inventory
-	-boolean haveCandle
+	-String name (uda)
+	-int hp (uda)
+	-Point position (uda)
+	-Inventory inventory (uda)
+	-boolean haveCandle (uda)
 	-Weapon 
-	+takeItem() {
+	+takeItem() { 
 		inventory.addItem();
 	}
 	+dropItem()

@@ -26,10 +26,10 @@ public class Player {
 
   /** 
     * Constructor.
-    * @param name Nilai yang akan diisikan ke atribut name
-	* @param hp Nilai yang akan diisikan ke atribut hp
-	* @param x Nilai yang akan diisikan ke absis pada atribut position
-	* @param y Nilai yang akan diisikan ke ordinat pada atribut position
+    * @param name Nilai yang akan diisikan ke atribut name.
+	* @param hp Nilai yang akan diisikan ke atribut hp.
+	* @param x Nilai yang akan diisikan ke absis pada atribut position.
+	* @param y Nilai yang akan diisikan ke ordinat pada atribut position.
     */
 
 	public Player(String name, int hp, int x, int y) {
