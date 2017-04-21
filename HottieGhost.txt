@@ -1,0 +1,81 @@
+Ghost
+	-int hp
+	-int atk
+	-Point position
+	-int speed
+	+move()
+	+attack()
+- Kuntilanak
+	+move()
+	+attack()
+- Pocong
+	+move()
+	+attack()
+- Genderewo
+	+move()
+	+attack()
+
+Map
+	-matriks [int][int]
+	+print()
+
+Player 
+	-String name (uda)
+	-int hp (uda)
+	-Point position (uda)
+	-Inventory inventory (uda)
+	-boolean haveCandle (uda)
+	-Weapon 
+	+takeItem() { 
+		inventory.addItem();
+	}
+	+dropItem()
+	+useItem(Item) {
+		Item.use();
+	}
+	+changeWeapon()
+	+move()
+	+attack()
+
+Inventory
+	--maxInventory = 3
+	-Item [] item
+	+isFull()
+	+isItemHere()
+	+deleteitem()
+	+addItem()
+		+exception kalo inventory full
+	+print()
+
+Item
+	-boolean pickable
+	-name
+	+interaction
+
+- Clue Object
+	
+-- Pickable
+
+--- Weapon
+	-atk
+	-range
+
+---- Knife
+	+interaction
+
+---- Granat
+	+interaction
+
+--- Candle
+	+interaction
+
+-- Unpickable
+
+--- Wardrobe
+	+interaction
+
+--- TV
+	+interaction
+
+- Map Object
+	+interaction
