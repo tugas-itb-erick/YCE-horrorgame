@@ -73,7 +73,7 @@ public abstract class Ghost extends Creature {
 	  */
 
 	@Override
-	public void die(){
+	public void die() {
 		handler.getWorld().getEntityManager().deleteEntity(this);
 	}
 
@@ -101,7 +101,7 @@ public abstract class Ghost extends Creature {
 	  * @return Frame yang bersesuaian dengan ghost yang akan ditampilkan.
 	  */
 
-	private BufferedImage getCurrentAnimationFrame(){
+	private BufferedImage getCurrentAnimationFrame() {
 		if (xMove < 0) {
 			return ghostLeft.getCurrentFrame();
 		} else if (xMove > 0) {
