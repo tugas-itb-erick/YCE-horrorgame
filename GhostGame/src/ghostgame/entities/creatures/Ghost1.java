@@ -57,6 +57,11 @@ public abstract class Ghost1 extends Ghost {
 		xMove = 0;
 		yMove = 0;
 		boolean up, down, left, right;
+		up = false;
+		down = false;
+		left = false;
+		right = false;
+		int upInt, downInt, leftInt, rightInt;
 		boolean [][] mapTemp;
 		int xPlayer, yPlayer;
 		for (int i = 0; i < handler.getWorld().getWidth(); i++) {
@@ -65,44 +70,139 @@ public abstract class Ghost1 extends Ghost {
 			}
 		}
 		for (Entity temp : handler.getWorld().getEntityManager().getEntities()) {
-			mapTemp[(int)(temp.getX()/32)][(int)(temp.getY()/32)] = true;
+			mapTemp[(int)(temp.getX() / 32)][(int)(temp.getY() / 32)] = true;
 		}
-		xPlayer = (int)(handler.getworld().getEntityManager().getPlayer().getX()/32);
-		yPlayer = (int)(handler.getworld().getEntityManager().getPlayer().getY()/32);
-		int i = 0;
-		boolean found = false;
-
-
-		if (up)
+		xPlayer = (int)(handler.getworld().getEntityManager().getPlayer().getX() / 32);
+		yPlayer = (int)(handler.getworld().getEntityManager().getPlayer().getY() / 32);
+		try {
+			upInt = bfs(x, y - 1, xPlayer, yPlayer, mapTemp);
+		}
+		catch(ArrayIndexOutOfBound e) {
+			upInt = 999;
+		}
+		try {
+			downInt = bfs(x, y + 1, xPlayer, yPlayer, mapTemp);
+		}
+		catch(ArrayIndexOutOfBound e) {
+			downInt = 999;
+		}
+		try {
+			leftInt = bfs(x - 1, y, xPlayer, yPlayer, mapTemp);
+		}
+		catch(ArrayIndexOutOfBound e) {
+			leftInt = 999;
+		}
+		try {
+			rightInt = bfs(x + 1, y, xPlayer, yPlayer, mapTemp);
+		}
+		catch(ArrayIndexOutOfBound e) {
+			rightInt = 999;
+		}
+		if (upInt > downInt) {
+			if (upInt > leftInt) {
+				 if (upInt > rightInt) {
+				 	up = true;
+				 }
+				 else {
+				 	right = true;
+				 }
+			}
+			else {
+				if (leftInt > rightInt) {
+					left = true;
+				}
+				else {
+					right = true;
+				}
+			}
+		}
+		else {
+			if (downInt > leftInt) {
+				 if (downInt > rightInt) {
+				 	down = true;
+				 }
+				 else {
+				 	right = true;
+				 }
+			}
+			else {
+				if (leftInt > rightInt) {
+					left = true;
+				}
+				else {
+					right = true;
+				}
+			}	
+		}
+		if (up) {
 			yMove = -speed;
-		if (down)
+		}
+		if (down) {
 			yMove = speed;
-		if (left)
+		}
+		if (left) {
 			xMove = -speed;
-		if (right)
+		}
+		if (right) {
 			xMove = speed;
+		}
 	}
 
 	private int bfs(int x, int y, int playerPositionX, int playerPositionY, boolean[][] map) {
 		ArrayList<Integer> tempX = new ArrayList<Integer>();
 		ArrayList<Integer> tempY = new ArrayList<Integer>();
-		ArrayList<Integer> jarak = new ArrayList<Integer>();
+		ArrayList<Integer> range = new ArrayList<Integer>();
 		tempX.add(x);
 		tempY.add(y);
+		range.add(0);
+		mapTemp[tempX[i]][tempY[i]] = true;
 		int i = 0;
-		int range = 0;
-		boolean found;
+		boolean found = false;
 		while ((i < tempX.size()) && (!found)) {
 			if((tempX[i] != playerPositionX) && (tempY[i] != playerPositionY)) {
-				mapTemp[tempX[i]][tempY[i]] = true;
-				if ((tempX[i]+1) < handler.getWorld().getWidth()) {
-
+				if ((tempX[i] + 1) < handler.getWorld().getWidth()) {
+					if ((map[tempX[i] + 1][tempY[i]]) == false) {
+						tempX.add(tempX[i] + 1);
+						tempY.add(tempY[i]);
+						range.add(range[i] + 1);
+						mapTemp[tempX[i] + 1][tempY[i]] = true;
+					}
+				} 
+				if ((tempX[i] - 1) >= 0) {
+					if ((map[tempX[i] - 1][tempY[i]]) == false) {
+						tempX.add(tempX[i] - 1);
+						tempY.add(tempY[i]);
+						range.add(range[i] + 1);
+						mapTemp[tempX[i] - 1][tempY[i]] = true;
+					}
 				}
+				if ((tempY[i] + 1) < handler.getWorld().getLength()) {
+					if ((map[tempX[i]][tempY[i] + 1]) == false) {
+						tempX.add(tempX[i]);
+						tempY.add(tempY[i] + 1);
+						range.add(range[i] + 1);
+						mapTemp[tempX[i]][tempY[i] + 1] = true;
+					}
+				}
+				if ((tempY[i] - 1) >= 0) {
+					if ((map[tempX[i]][tempY[i] - 1]) == false) {
+						tempX.add(tempX[i]);
+						tempY.add(tempY[i] - 1);
+						range.add(range[i] + 1);
+						mapTemp[tempX[i]][tempY[i] - 1] = true;
+					}
+				}
+				i++;
 			}
 			else {
 				found = true;
 			}
-			i++;
+		}
+		if (found) {
+			return range[i];
+		}
+		else {
+			return 999;
 		}
 	}
 }
