@@ -1,5 +1,7 @@
 package ghostgame.entities.creatures;
 
-public class CreatureView {
+import ghostgame.entities.EntityView;
+
+public abstract class CreatureView extends EntityView {
 
 }
