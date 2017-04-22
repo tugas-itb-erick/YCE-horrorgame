@@ -38,7 +38,9 @@ public class Item {
 
   protected Rectangle bounds;
   
-  protected int x, y, count;
+  protected int x;
+  protected int y;
+  protected int count;
   protected boolean pickedUp;
 
   /**

@@ -10,7 +10,7 @@ package ghostgame.entities.statics;
 public abstract class StaticEntityController {
   
   /**
-    * Menngupdate kondisi objek StaticEntity untuk setiap satuan waktu.
+    * Mengupdate kondisi objek StaticEntity untuk setiap satuan waktu.
     */
 
 
