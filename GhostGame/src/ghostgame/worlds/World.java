@@ -75,6 +75,10 @@ public class World {
 		return t;
 	}
 	
+	public int[][] getTiles(){
+		return tiles;
+	}
+	
 	private void loadWorld(String path){
 		String file = Utils.loadFileAsString(path);
 		String[] tokens = file.split("\\s+");
