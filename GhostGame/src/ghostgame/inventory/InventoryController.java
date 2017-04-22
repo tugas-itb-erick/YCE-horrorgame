@@ -28,19 +28,19 @@ public class InventoryController {
     */
 
   public void tick() {
-    if(inventory.getHandler().getKeyManager().keyJustPressed(KeyEvent.VK_E)) {
+    if (inventory.getHandler().getKeyManager().keyJustPressed(KeyEvent.VK_E)) {
       inventory.setActive(!inventory.isActive());
     }
-    if(inventory.isActive()) {
-      if(inventory.getHandler().getKeyManager().keyJustPressed(KeyEvent.VK_W)) {
+    if (inventory.isActive()) {
+      if (inventory.getHandler().getKeyManager().keyJustPressed(KeyEvent.VK_W)) {
       	inventory.setSelectedItem(inventory.getSelectedItem() - 1);
       }
-      if(inventory.getHandler().getKeyManager().keyJustPressed(KeyEvent.VK_S)) {
+      if (inventory.getHandler().getKeyManager().keyJustPressed(KeyEvent.VK_S)) {
         inventory.setSelectedItem(inventory.getSelectedItem() + 1);
       }
-      if(inventory.getSelectedItem() < 0) {
+      if (inventory.getSelectedItem() < 0) {
       	inventory.setSelectedItem(inventory.getInventoryItems().size() - 1);
-      } else if(inventory.getSelectedItem() >= inventory.getInventoryItems().size()) {
+      } else if (inventory.getSelectedItem() >= inventory.getInventoryItems().size()) {
       	inventory.setSelectedItem(0);
       }
     }
@@ -52,8 +52,8 @@ public class InventoryController {
     */
 
   public void addItem(Item item) {
-    for(Item i : inventory.getInventoryItems()) {
-      if(i.getId() == item.getId()) {
+    for (Item i : inventory.getInventoryItems()) {
+      if (i.getId() == item.getId()) {
         i.setCount(i.getCount() + item.getCount());
         return;
       }
