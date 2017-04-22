@@ -49,6 +49,10 @@ public class EntityManager {
 		entities.add(e);
 	}
 	
+	public void deleteEntity(Entity e){
+		entities.remove(e);
+	}
+	
 	//GETTERS SETTERS
 
 	public Handler getHandler() {

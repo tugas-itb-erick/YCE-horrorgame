@@ -86,7 +86,7 @@ public class Player extends Creature {
 		}else{
 			return;
 		}
-		
+	 	
 		attackTimer = 0;
 		
 		for(Entity e : handler.getWorld().getEntityManager().getEntities()){
@@ -97,7 +97,6 @@ public class Player extends Creature {
 				return;
 			}
 		}
-		
 	}
 	
 	@Override
@@ -151,5 +150,4 @@ public class Player extends Creature {
 	public void setInventory(Inventory inventory) {
 		this.inventory = inventory;
 	}
-
 }

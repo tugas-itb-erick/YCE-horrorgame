@@ -29,19 +29,23 @@ public class Assets {
 		btn_start[0] = sheet.crop(width * 6, height * 4, width * 2, height);
 		btn_start[1] = sheet.crop(width * 6, height * 5, width * 2, height);
 		
-		player_down = new BufferedImage[2];
-		player_up = new BufferedImage[2];
-		player_left = new BufferedImage[2];
-		player_right = new BufferedImage[2];
+		player_down = new BufferedImage[3];
+		player_up = new BufferedImage[3];
+		player_left = new BufferedImage[3];
+		player_right = new BufferedImage[3];
 		
 		player_down[0] = sheet.crop(width * 4, 0, width, height);
 		player_down[1] = sheet.crop(width * 5, 0, width, height);
-		player_up[0] = sheet.crop(width * 6, 0, width, height);
-		player_up[1] = sheet.crop(width * 7, 0, width, height);
-		player_right[0] = sheet.crop(width * 4, height, width, height);
-		player_right[1] = sheet.crop(width * 5, height, width, height);
-		player_left[0] = sheet.crop(width * 6, height, width, height);
-		player_left[1] = sheet.crop(width * 7, height, width, height);
+		player_down[2] = sheet.crop(width * 6, 0, width, height);
+		player_up[0] = sheet.crop(width * 4, height, width, height);
+		player_up[1] = sheet.crop(width * 5, height, width, height);
+		player_up[2] = sheet.crop(width * 6, height, width, height);
+		player_right[0] = sheet.crop(width * 4, height * 1, width, height);
+		player_right[1] = sheet.crop(width * 5, height * 1, width, height);
+		player_right[2] = sheet.crop(width * 6, height * 1, width, height);
+		player_left[0] = sheet.crop(width * 4, height * 2, width, height);
+		player_left[1] = sheet.crop(width * 5, height * 2, width, height);
+		player_left[2] = sheet.crop(width * 6, height * 2, width, height);
 		
 		zombie_down = new BufferedImage[2];
 		zombie_up = new BufferedImage[2];
