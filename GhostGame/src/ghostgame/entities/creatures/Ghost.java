@@ -102,13 +102,13 @@ public abstract class Ghost extends Creature {
 	  */
 
 	private BufferedImage getCurrentAnimationFrame(){
-		if(xMove < 0){
+		if (xMove < 0) {
 			return ghostLeft.getCurrentFrame();
-		}else if(xMove > 0){
+		} else if (xMove > 0) {
 			return ghostRight.getCurrentFrame();
-		}else if(yMove < 0){
+		} else if (yMove < 0) {
 			return ghostUp.getCurrentFrame();
-		}else{
+		} else {
 			return ghostDown.getCurrentFrame();
 		}
 	}
