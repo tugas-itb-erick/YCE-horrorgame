@@ -1,67 +1,62 @@
 package ghostgame.gfx;
 
 import java.awt.Font;
+
 import java.awt.image.BufferedImage;
 
-public class Assets {
-	
-	private static final int width = 32, height = 32;
-	
-	public static Font font28;
-	
-	public static BufferedImage dirt, grass, stone, tree, rock;
-	public static BufferedImage wood;
-	public static BufferedImage[] player_down, player_up, player_left, player_right;
-	public static BufferedImage[] zombie_down, zombie_up, zombie_left, zombie_right;
-	public static BufferedImage[] btn_start;
-	public static BufferedImage inventoryScreen;
+/**
+  * File : Assets.java
+  * Kelas Assets adalah kelas untuk menyimpan gambar-gambar yang digunakan
+  * dalam permainan.
+  * @author 
+  */
 
-	public static void init(){
-		font28 = FontLoader.loadFont("res/fonts/slkscr.ttf", 28);
-		
-		SpriteSheet sheet = new SpriteSheet(ImageLoader.loadImage("/textures/sheet.png"));
-		
-		inventoryScreen = ImageLoader.loadImage("/textures/inventoryScreen.png");
-		
-		wood = sheet.crop(width, height, width, height);
-		
-		btn_start = new BufferedImage[2];
-		btn_start[0] = sheet.crop(width * 6, height * 4, width * 2, height);
-		btn_start[1] = sheet.crop(width * 6, height * 5, width * 2, height);
-		
-		player_down = new BufferedImage[2];
-		player_up = new BufferedImage[2];
-		player_left = new BufferedImage[2];
-		player_right = new BufferedImage[2];
-		
-		player_down[0] = sheet.crop(width * 4, 0, width, height);
-		player_down[1] = sheet.crop(width * 5, 0, width, height);
-		player_up[0] = sheet.crop(width * 6, 0, width, height);
-		player_up[1] = sheet.crop(width * 7, 0, width, height);
-		player_right[0] = sheet.crop(width * 4, height, width, height);
-		player_right[1] = sheet.crop(width * 5, height, width, height);
-		player_left[0] = sheet.crop(width * 6, height, width, height);
-		player_left[1] = sheet.crop(width * 7, height, width, height);
-		
-		zombie_down = new BufferedImage[2];
-		zombie_up = new BufferedImage[2];
-		zombie_left = new BufferedImage[2];
-		zombie_right = new BufferedImage[2];
-		
-		zombie_down[0] = sheet.crop(width * 4, height * 2, width, height);
-		zombie_down[1] = sheet.crop(width * 5, height * 2, width, height);
-		zombie_up[0] = sheet.crop(width * 6, height * 2, width, height);
-		zombie_up[1] = sheet.crop(width * 7, height * 2, width, height);
-		zombie_right[0] = sheet.crop(width * 4, height * 3, width, height);
-		zombie_right[1] = sheet.crop(width * 5, height * 3, width, height);
-		zombie_left[0] = sheet.crop(width * 6, height * 3, width, height);
-		zombie_left[1] = sheet.crop(width * 7, height * 3, width, height);
-		
-		dirt = sheet.crop(width, 0, width, height);
-		grass = sheet.crop(width * 2, 0, width, height);
-		stone = sheet.crop(width * 3, 0, width, height);
-		tree = sheet.crop(0, 0, width, height * 2);
-		rock = sheet.crop(0, height * 2, width, height);
-	}
-	
-}
+public class Assets {
+  
+  private static final int WIDTH = 32;
+  private static final int HEIGHT = 32;
+  
+  // Gambar untuk background main menu.
+  public static BufferedImage mainMenuBackground;
+  // Gambar untuk item.
+  public static BufferedImage knife;
+  public static BufferedImage grenade;
+  public static BufferedImage bed;
+  public static BufferedImage wardrobe;
+  public static BufferedImage key;
+  public static BufferedImage chair;
+  public static BufferedImage candle;
+  public static BufferedImage refrigerator;
+  public static BufferedImage television;
+  public static BufferedImage table;
+  public static BufferedImage sofa;
+  public static BufferedImage doorHorizontal;
+  public static BufferedImage doorVertical;
+  
+  /**
+    * I.S. objek terdefinsi.
+    * F.S. gambar yang akan mengimplementasikan setiap objek berhasil disimpan
+    * dalam program.
+    */
+  
+  public static void init() {
+  	//PATH ASSETS.PNG MASIH BELOM BENER
+    SpriteSheet sheet = new SpriteSheet(ImageLoader.loadImage("/textures/assets.png"));
+    // Keterangan : sheet.crop(X, Y, lebarGambar, panjangGambar)
+    // X dan Y adalah posisi ujung kiri atas gambar dalam file "assets.png".
+    mainMenuBackground = sheet.crop(0, HEIGHT * 5, WIDTH * 2, HEIGHT * 2);
+    knife = sheet.crop(0, 0, WIDTH, HEIGHT);
+    grenade = sheet.crop(0, HEIGHT, WIDTH, HEIGHT);
+    bed = sheet.crop(WIDTH, HEIGHT, WIDTH * 2, HEIGHT);
+    wardrobe = sheet.crop(0, HEIGHT * 2, WIDTH, HEIGHT * 2);
+    key = sheet.crop(WIDTH, HEIGHT * 2, WIDTH, HEIGHT);
+    chair = sheet.crop(WIDTH * 2, HEIGHT * 2, WIDTH, HEIGHT);
+    candle = sheet.crop(WIDTH * 3, HEIGHT, WIDTH, HEIGHT * 2);
+    refrigerator = sheet.crop(WIDTH, HEIGHT * 3, WIDTH, HEIGHT);
+    television = sheet.crop(WIDTH * 2, HEIGHT * 3, WIDTH, HEIGHT);
+    table = sheet.crop(WIDTH * 3, HEIGHT * 3, WIDTH, HEIGHT);
+    sofa = sheet.crop(0, HEIGHT * 4, WIDTH * 2, HEIGHT);
+    doorHorizontal = sheet.crop(WIDTH * 3, HEIGHT * 4, WIDTH, HEIGHT);
+    doorVertical = sheet.crop(WIDTH * 2, HEIGHT * 4, WIDTH, HEIGHT);
+  }
+} 
