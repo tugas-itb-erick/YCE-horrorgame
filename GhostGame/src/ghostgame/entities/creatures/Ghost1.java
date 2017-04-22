@@ -56,14 +56,53 @@ public abstract class Ghost1 extends Ghost {
 	public abstract void changeMovement() {
 		xMove = 0;
 		yMove = 0;
+		boolean up, down, left, right;
+		boolean [][] mapTemp;
+		int xPlayer, yPlayer;
+		for (int i = 0; i < handler.getWorld().getWidth(); i++) {
+			for (int j = 0; i < handler.getWorld().getHeight(); j++) {
+				mapoTemp[i][j] = handler.getWorld().getTile(i,j).isSolid();
+			}
+		}
+		for (Entity temp : handler.getWorld().getEntityManager().getEntities()) {
+			mapTemp[(int)(temp.getX()/32)][(int)(temp.getY()/32)] = true;
+		}
+		xPlayer = (int)(handler.getworld().getEntityManager().getPlayer().getX()/32);
+		yPlayer = (int)(handler.getworld().getEntityManager().getPlayer().getY()/32);
+		int i = 0;
+		boolean found = false;
 
-		if(up)
+
+		if (up)
 			yMove = -speed;
-		if(down)
+		if (down)
 			yMove = speed;
-		if(left)
+		if (left)
 			xMove = -speed;
-		if(right)
+		if (right)
 			xMove = speed;
+	}
+
+	private int bfs(int x, int y, int playerPositionX, int playerPositionY, boolean[][] map) {
+		ArrayList<Integer> tempX = new ArrayList<Integer>();
+		ArrayList<Integer> tempY = new ArrayList<Integer>();
+		ArrayList<Integer> jarak = new ArrayList<Integer>();
+		tempX.add(x);
+		tempY.add(y);
+		int i = 0;
+		int range = 0;
+		boolean found;
+		while ((i < tempX.size()) && (!found)) {
+			if((tempX[i] != playerPositionX) && (tempY[i] != playerPositionY)) {
+				mapTemp[tempX[i]][tempY[i]] = true;
+				if ((tempX[i]+1) < handler.getWorld().getWidth()) {
+
+				}
+			}
+			else {
+				found = true;
+			}
+			i++;
+		}
 	}
 }
