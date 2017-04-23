@@ -14,7 +14,7 @@ public class Item {
 	public static Item goldItem = new Item("Gold", 4);
 	
 	// Class Body
-	private static final int ITEMWIDTH = 32, ITEMHEIGHT = 32;
+	public static final int ITEMWIDTH = 32, ITEMHEIGHT = 32;
 	
 	private Handler handler;
 	private String name;
