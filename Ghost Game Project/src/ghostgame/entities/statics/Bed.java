@@ -7,15 +7,7 @@ package ghostgame.entities.statics;
   * @author Catherine Almira - 13515111
   */
 
-import ghostgame.gfx.Assets;
-
 import ghostgame.Handler;
-
-import ghostgame.items.Item;
-
-import ghostgame.items.ItemController;
-
-import ghostgame.items.ItemView;
 
 import ghostgame.tiles.Tile;
 
@@ -35,4 +27,10 @@ public class Bed extends StaticEntity {
 	  bounds.width = width - 6;
   	bounds.height = (int) (height - height / 2f);
   }
+
+	@Override
+	public void die() {
+		// TODO Auto-generated method stub
+		
+	}
 }

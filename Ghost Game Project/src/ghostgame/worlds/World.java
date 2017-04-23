@@ -2,13 +2,16 @@ package ghostgame.worlds;
 
 import java.awt.Graphics;
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.Scanner;
 
 import ghostgame.Handler;
 import ghostgame.entities.EntityManager;
 import ghostgame.entities.creatures.Player;
 import ghostgame.entities.statics.Rock;
+import ghostgame.entities.statics.StaticEntity;
 import ghostgame.entities.statics.Tree;
 import ghostgame.items.ItemManager;
 import ghostgame.tiles.Tile;
@@ -25,6 +28,24 @@ public class World {
 	private EntityManager entityManager;
 	// Item
 	private ItemManager itemManager;
+	
+	private void readStaticEntity() {
+		File filename = new File("/res/worlds/staticentity.txt");
+		try {
+			Scanner sc = new Scanner(filename);
+			while (sc.hasNext()) {
+				int id = sc.nextInt();
+				float x = sc.nextFloat();
+				float y = sc.nextFloat();
+				int width = sc.nextInt();
+				int height = sc.nextInt();
+				entityManager.addEntity(new StaticEntity(handler, id, 64 * x, 64 * y, Item.ITEMWIDTH * width, Item.ITEMHEIGHT * height));
+			}
+			sc.close();
+		} catch (IOException e) {
+			
+		}
+	}
 	
 	public World(Handler handler, String path){
 		this.handler = handler;
