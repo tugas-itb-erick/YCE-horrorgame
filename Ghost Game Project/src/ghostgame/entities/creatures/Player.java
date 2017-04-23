@@ -4,7 +4,6 @@ import java.util.Iterator;
 
 import ghostgame.Handler;
 import ghostgame.entities.Entity;
-import ghostgame.entities.statics.StaticEntity;
 import ghostgame.inventory.Inventory;
 
 public class Player extends Creature {
@@ -54,7 +53,7 @@ public class Player extends Creature {
 			if (e.getCollisionBounds(0f, 0f).intersects(getCollisionBounds(xOffset, yOffset))){
 				if (e instanceof Ghost) {
 					hurt(((Ghost) e).getAtk()); // player get hurt by ghost
-					it.remove(); // ghost died when collide player
+					//it.remove(); // ghost died when collide player
 				}
 				return true;
 			}
