@@ -2,15 +2,17 @@ package ghostgame.worlds;
 
 import java.awt.Graphics;
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.Scanner;
 
 import ghostgame.Handler;
 import ghostgame.entities.EntityManager;
 import ghostgame.entities.creatures.Ghost2;
 import ghostgame.entities.creatures.Player;
-import ghostgame.entities.statics.Rock;
-import ghostgame.entities.statics.Tree;
+import ghostgame.entities.statics.StaticEntity;
+import ghostgame.items.Item;
 import ghostgame.items.ItemManager;
 import ghostgame.tiles.Tile;
 import ghostgame.tiles.TileController;
@@ -27,17 +29,35 @@ public class World {
 	// Item
 	private ItemManager itemManager;
 	
+	public void readStaticEntity() {
+		File filename = new File("/res/worlds/staticentity.txt");
+		try {
+			Scanner sc = new Scanner(filename);
+			while (sc.hasNext()) {
+				int id = sc.nextInt();
+				float x = sc.nextFloat();
+				float y = sc.nextFloat();
+				int width = sc.nextInt();
+				int height = sc.nextInt();
+				entityManager.addEntity(new StaticEntity(handler, id, 64 * x, 64 * y, Item.ITEMWIDTH * width, Item.ITEMHEIGHT * height));
+			}
+			sc.close();
+		} catch (IOException e) {
+			
+		}
+	}
+	
 	public World(Handler handler, String path){
 		this.handler = handler;
 		entityManager = new EntityManager(handler, new Player(handler, 100, 100));
 		itemManager = new ItemManager(handler);
 		// Temporary entity code!
-		entityManager.addEntity(new Tree(handler, 64*2, 64*4));
+		/*entityManager.addEntity(new Tree(handler, 64*2, 64*4));
 		entityManager.addEntity(new Rock(handler, 64*3, 64*6));
 		entityManager.addEntity(new Ghost2(handler, 64*3, 64*4));
 		entityManager.addEntity(new Rock(handler, 64*6, 64*4));
 		entityManager.addEntity(new Rock(handler, 64*5, 64*5));
-		entityManager.addEntity(new Tree(handler, 64*10, 64*4));
+		entityManager.addEntity(new Tree(handler, 64*10, 64*4));*/
 		
 		loadWorld(path);
 		

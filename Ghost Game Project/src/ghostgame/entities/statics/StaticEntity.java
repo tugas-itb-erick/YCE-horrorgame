@@ -10,7 +10,9 @@ import ghostgame.entities.Entity;
  * @author Catherine Almira - 13515111
  */
 
-public abstract class StaticEntity extends Entity {
+public class StaticEntity extends Entity {
+	
+	private int id;
 	
   /**
    * Constructor dengan parameter untuk menciptakan StaticEntity.
@@ -21,10 +23,24 @@ public abstract class StaticEntity extends Entity {
    * @param height panjang gambar yang akan dicetak.
    */
 	
-	public StaticEntity(Handler handler, float x, float y, int width, int height){
+	public StaticEntity(Handler handler, int id, float x, float y, int width, int height){
 		super(handler, x, y, width, height);
+		this.id = id;
+		bounds.x = 3;
+	  bounds.y = (int) (height / 2f);
+	  bounds.width = width - 6;
+	  bounds.height = (int) (height - height / 2f);
 	}
 
+	/**
+	 * Mengembalikan id dari StaticEntity.
+	 * @return id dari StaticEntity.
+	 */
+	
+	public int getId() {
+		return id;
+	}
+	
 	@Override
 	public void hurt(int amt){
 		/*health -= amt;
