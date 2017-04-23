@@ -24,7 +24,7 @@ public class LostState extends State {
    * @param handler Menghubungkan world dengan lost state.
    */
 
-  public LostState(Handler handler) {
+  public LostState(final Handler handler) {
     super(handler);
     uiManager = new UIManager(handler);
     handler.getMouseManager().setUIManager(uiManager);
