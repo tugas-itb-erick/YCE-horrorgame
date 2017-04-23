@@ -44,15 +44,15 @@ public class Ghost3 extends Ghost {
 		boolean [][] mapTemp = new boolean[handler.getWorld().getWidth()][handler.getWorld().getHeight()] ;
 		int xPlayer, yPlayer;
 		for (int i = 0; i < handler.getWorld().getWidth(); i++) {
-			for (int j = 0; i < handler.getWorld().getHeight(); j++) {
+			for (int j = 0; j < handler.getWorld().getHeight(); j++) {
 				mapTemp[i][j] = handler.getWorld().getTile(i,j).isSolid();
 			}
 		}
 		for (Entity temp : handler.getWorld().getEntityManager().getEntities()) {
-			mapTemp[(int)(temp.getX() / 32)][(int)(temp.getY() / 32)] = true;
+			mapTemp[(int)(temp.getX() / 64)][(int)(temp.getY() / 64)] = true;
 		}
-		xPlayer = (int)(handler.getWorld().getEntityManager().getPlayer().getX() / 32);
-		yPlayer = (int)(handler.getWorld().getEntityManager().getPlayer().getY() / 32);
+		xPlayer = (int)(handler.getWorld().getEntityManager().getPlayer().getX() / 64);
+		yPlayer = (int)(handler.getWorld().getEntityManager().getPlayer().getY() / 64);
 		try {
 			upInt = bfs((int)x, (int)(y - 1), (int)xPlayer, (int)yPlayer, mapTemp);
 		} catch (ArrayIndexOutOfBoundsException e) {

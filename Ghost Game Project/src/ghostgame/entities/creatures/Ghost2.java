@@ -7,7 +7,7 @@ package ghostgame.entities.creatures;
   */
 
 import ghostgame.entities.Entity;
-
+import ghostgame.tiles.Tile;
 import ghostgame.Handler;
 
 import java.util.ArrayList;
@@ -43,32 +43,32 @@ public class Ghost2 extends Ghost {
 		boolean [][] mapTemp = new boolean[handler.getWorld().getWidth()][handler.getWorld().getHeight()] ;
 		int xPlayer, yPlayer;
 		for (int i = 0; i < handler.getWorld().getWidth(); i++) {
-			for (int j = 0; i < handler.getWorld().getHeight(); j++) {
+			for (int j = 0; j < handler.getWorld().getHeight(); j++) {
 				mapTemp[i][j] = handler.getWorld().getTile(i,j).isSolid();
 			}
 		}
 		for (Entity temp : handler.getWorld().getEntityManager().getEntities()) {
-			mapTemp[(int)(temp.getX() / 32)][(int)(temp.getY() / 32)] = true;
+			mapTemp[(int)(temp.getX() / Tile.TILEWIDTH)][(int)(temp.getY() / Tile.TILEHEIGHT)] = true;
 		}
-		xPlayer = (int)(handler.getWorld().getEntityManager().getPlayer().getX() / 32);
-		yPlayer = (int)(handler.getWorld().getEntityManager().getPlayer().getY() / 32);
+		xPlayer = (int)(handler.getWorld().getEntityManager().getPlayer().getX() / Tile.TILEWIDTH);
+		yPlayer = (int)(handler.getWorld().getEntityManager().getPlayer().getY() / Tile.TILEHEIGHT);
 		try {
-			upInt = bfs((int)x, (int)(y - 1), (int)xPlayer, (int)yPlayer, mapTemp);
+			upInt = bfs((int)x / Tile.TILEWIDTH, (int)(y / Tile.TILEHEIGHT) - 1, (int)xPlayer, (int)yPlayer, mapTemp);
 		} catch (ArrayIndexOutOfBoundsException e) {
 			upInt = 999;
 		}
 		try {
-			downInt = bfs((int)x, (int)(y + 1), (int)xPlayer, (int)yPlayer, mapTemp);
+			downInt = bfs((int)x / Tile.TILEWIDTH, (int)(y / Tile.TILEHEIGHT) + 1, (int)xPlayer, (int)yPlayer, mapTemp);
 		} catch (ArrayIndexOutOfBoundsException e) {
 			downInt = 999;
 		}
 		try {
-			leftInt = bfs((int)(x-1), (int)y, (int)xPlayer, (int)yPlayer, mapTemp);
+			leftInt = bfs((int)(x / Tile.TILEWIDTH) - 1, (int)y / Tile.TILEHEIGHT, (int)xPlayer, (int)yPlayer, mapTemp);
 		} catch (ArrayIndexOutOfBoundsException e) {
 			leftInt = 999;
 		}
 		try {
-			rightInt = bfs((int)(x+1), (int)y, (int)xPlayer, (int)yPlayer, mapTemp);
+			rightInt = bfs((int)(x / Tile.TILEWIDTH) + 1, (int)y / Tile.TILEHEIGHT, (int)xPlayer, (int)yPlayer, mapTemp);
 		} catch (ArrayIndexOutOfBoundsException e) {
 			rightInt = 999;
 		}
@@ -174,6 +174,7 @@ public class Ghost2 extends Ghost {
 				found = true;
 			}
 		}
+		//System.out.println(found);
 		if (found) {
 			return range.get(i);
 		} else {
