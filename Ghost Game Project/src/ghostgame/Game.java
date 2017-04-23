@@ -66,6 +66,8 @@ public class Game implements Runnable {
 	}
 	
 	private void tick() {
+		assert(keyManager != null);
+		
 		keyManager.tick();
 		
 		if(State.getState() != null)
@@ -73,6 +75,8 @@ public class Game implements Runnable {
 	}
 	
 	private void render() {
+		assert(display != null);
+		
 		bs = display.getCanvas().getBufferStrategy();
 		if(bs == null){
 			display.getCanvas().createBufferStrategy(3);
@@ -83,12 +87,10 @@ public class Game implements Runnable {
 		g.clearRect(0, 0, width, height);
 		g.setColor(Color.BLACK);
 		g.fillRect(0, 0, width, height);
-		//Draw Here!
 		
 		if(State.getState() != null)
 			State.getState().render(g);
 		
-		//End Drawing!
 		bs.show();
 		g.dispose();
 	}

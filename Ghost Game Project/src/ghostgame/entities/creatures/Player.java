@@ -4,16 +4,28 @@ import java.util.Iterator;
 
 import ghostgame.Handler;
 import ghostgame.entities.Entity;
-import ghostgame.entities.statics.StaticEntity;
 import ghostgame.inventory.Inventory;
+import ghostgame.states.State;
+
+/** 
+ * File : Player.java
+ * Kelas yang merepresentasikan pemain yang ada pada game ini
+ * @author Erick Wijaya - 13515057
+ */
 
 public class Player extends Creature {
 	
-	private boolean hasCandle;
 	private boolean hasWeapon;
 	private int sightX;
 	private int sightY;
 	private Inventory inventory;
+	
+	/**
+	  * Constructor dengan parameter.
+	  * @param handler Nilai yang menghubungkan World dengan Entity.
+	  * @param x Nilai absis (posisi) untuk Player.
+	  * @param y Nilai ordinat (posisi) untuk Player.
+	  */
 	
 	public Player(Handler handler, float x, float y) {
 		super(handler, x, y, Creature.DEFAULT_CREATURE_WIDTH, Creature.DEFAULT_CREATURE_HEIGHT);
@@ -24,17 +36,26 @@ public class Player extends Creature {
 		bounds.height = 19;
 		
 		inventory = new Inventory(handler);
-		hasCandle = false; // will change to = inv.contains(candle) n weapon
 		hasWeapon = false;
-		sightX = 2; //4,3 3,2 2,1
-		sightY = 1;
+		sightX = 0; //4,3 3,2 2,1
+		sightY = 0;
 	}
+	
+	/**
+	 * Mengubah current state menjadi lostState
+	 */
 	
 	@Override
 	public void die(){
 		System.out.println("You lose");
 		
+		//State.setState(handler.getGame().menuState);
 	}
+	
+	/**
+	 * Mengubah posisi player apabila bounds milik player tidak
+	 * bertabrakan dengan entitas lain. 
+	 */
 	
 	@Override
 	public void move() {
@@ -43,6 +64,13 @@ public class Player extends Creature {
 		if(!checkEntityCollisions(0f, yMove))
 			moveY();
 	}
+	
+	/**
+	 * Memeriksa apakah posisi player bersinggungan dengan entitas lain.
+	 * @param xOffset perubahan jarak absis player dari posisi terawal player.
+	 * @param yOffset perubahan jarak ordinat player dari posisi terawal player.
+	 * @return true apabila posisi player bersinggungan dengan entitas lain.
+	 */
 	
 	@Override
 	public boolean checkEntityCollisions(float xOffset, float yOffset) {
@@ -54,39 +82,100 @@ public class Player extends Creature {
 			if (e.getCollisionBounds(0f, 0f).intersects(getCollisionBounds(xOffset, yOffset))){
 				if (e instanceof Ghost) {
 					hurt(((Ghost) e).getAtk()); // player get hurt by ghost
-					it.remove(); // ghost died when collide player
+					//it.remove(); // ghost died when collide player
 				}
 				return true;
 			}
 		}
 		return false;
 	}
+	
+	/**
+	 * Mengembalikan inventory player.
+	 * @return inventory player.
+	 */
 
 	public Inventory getInventory() {
 		return inventory;
 	}
+	
+	/**
+	 * Mengubah inventory player.
+	 * @param inventory.
+	 */
 
 	public void setInventory(Inventory inventory) {
 		this.inventory = inventory;
 	}
 	
+	/**
+	 * Memeriksa apakah player memiliki candle pada inventory.
+	 * Bila ya, nilai SightX dan SightY diturunkan.
+	 * Bila tidak, nilai default.
+	 */
+	
 	public void checkCandle() {
-		// if inventory contains candle then set sight x and y
+		assert(inventory != null);
+		
+		if (inventory.containItem("Candle")) {
+			sightX = 2;
+			sightY = 1;
+		}
 	}
+	
+	/**
+	 * Memeriksa apakah player memiliki weapon pada inventory.
+	 * Bila ya, nilai hasWeapon diset menjadi true.
+	 * Bila tidak, nilai tetap.
+	 */
+	
+	public void checkWeapon() {
+		assert(inventory != null);
+		
+		hasWeapon = inventory.containItem("Knife");
+	}
+	
+	/**
+	 * Mengembalikan nilai jarak seberapa dekat penglihatan player terhadap absis.
+	 * @return sightX.
+	 */
 
 	public int getSightX() {
 		return sightX;
 	}
+	
+	/**
+	 * Mengubah nilai jarak seberapa dekat penglihatan player terhadap absis.
+	 * @param sightX
+	 */
 
 	public void setSightX(int sightX) {
 		this.sightX = sightX;
 	}
+	
+	/**
+	 * Mengembalikan nilai jarak seberapa dekat penglihatan player terhadap ordinat.
+	 * @return sightY.
+	 */
 
 	public int getSightY() {
 		return sightY;
 	}
+	
+	/**
+	 * Mengubah nilai jarak seberapa dekat penglihatan player terhadap ordinat.
+	 * @param sightY
+	 */
 
 	public void setSightY(int sightY) {
 		this.sightY = sightY;
+	}
+	
+	/**
+	 * Mengembalikan nilai hasWeapon.
+	 * @return nilai hasWeapon.
+	 */
+	public boolean isHasWeapon() {
+		return hasWeapon;
 	}
 }

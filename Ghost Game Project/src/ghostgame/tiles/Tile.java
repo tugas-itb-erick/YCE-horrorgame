@@ -1,5 +1,7 @@
 package ghostgame.tiles;
 
+
+
 public class Tile {
 	
 	// Static Instances
@@ -16,6 +18,9 @@ public class Tile {
 	public static final int TILEWIDTH = 64; 
 	public static final int TILEHEIGHT = 64;
 	
+	/**
+	 * 
+	 */
 	public Tile(String name, int id, boolean solid) {
 		this.name = name;
 		this.id = id;
@@ -24,22 +29,37 @@ public class Tile {
 		this.solid = solid;
 	}
 
+	/**
+	 * 
+	 */
 	public boolean isSolid() {
 		return solid;
 	}
 
+	/**
+	 * 
+	 */
 	public void setSolid(boolean solid) {
 		this.solid = solid;
 	}
 
+	/**
+	 * 
+	 */
 	public int getId() {
 		return id;
 	}
 
+	/**
+	 * 
+	 */
 	public String getName() {
 		return name;
 	}
 
+	/**
+	 * 
+	 */
 	public void setName(String name) {
 		this.name = name;
 	}

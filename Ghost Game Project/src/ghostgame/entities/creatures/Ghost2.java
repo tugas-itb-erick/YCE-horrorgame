@@ -72,29 +72,29 @@ public class Ghost2 extends Ghost {
 		} catch (ArrayIndexOutOfBoundsException e) {
 			rightInt = 999;
 		}
-		if (upInt >= downInt) {
-			if (upInt >= leftInt) {
-				 if (upInt >= rightInt) {
+		if (upInt <= downInt) {
+			if (upInt <= leftInt) {
+				 if (upInt <= rightInt) {
 				 	up = true;
 				 } else {
 				 	right = true;
 				 }
 			} else {
-				if (leftInt >= rightInt) {
+				if (leftInt <= rightInt) {
 					left = true;
 				} else {
 					right = true;
 				}
 			}
 		} else {
-			if (downInt >= leftInt) {
-				 if (downInt >= rightInt) {
+			if (downInt <= leftInt) {
+				 if (downInt <= rightInt) {
 				 	down = true;
 				 } else {
 				 	right = true;
 				 }
 			} else {
-				if (leftInt >= rightInt) {
+				if (leftInt <= rightInt) {
 					left = true;
 				} else {
 					right = true;

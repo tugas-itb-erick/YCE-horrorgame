@@ -34,7 +34,7 @@ public class World {
 		// Temporary entity code!
 		entityManager.addEntity(new Tree(handler, 64*2, 64*4));
 		entityManager.addEntity(new Rock(handler, 64*3, 64*6));
-		entityManager.addEntity(new Ghost2(handler, 64*3, 64*4));
+		entityManager.addEntity(new Ghost2(handler, 64*6, 64*3));
 		entityManager.addEntity(new Rock(handler, 64*6, 64*4));
 		entityManager.addEntity(new Rock(handler, 64*5, 64*5));
 		entityManager.addEntity(new Tree(handler, 64*10, 64*4));

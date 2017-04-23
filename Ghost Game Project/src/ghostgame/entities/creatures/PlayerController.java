@@ -38,6 +38,7 @@ public class PlayerController {
 	
 	public void tick() {
 		//Animations
+		player.checkCandle();
 		animDown.tick();
 		animUp.tick();
 		animRight.tick();
@@ -47,6 +48,7 @@ public class PlayerController {
 		player.move();
 		player.getHandler().getGameCamera().centerOnEntity(player);
 		// Attack
+		player.checkWeapon();
 		checkAttacks();
 		// Inventory
 		ic.tick();
@@ -81,7 +83,16 @@ public class PlayerController {
 			player.setxMove(player.getSpeed());
 	}
 	
+	/**
+	  * Memeriksa apakah ada entity lain yang berpotongan dengan rectangle yang diciptakan
+	  * player saat menyerang.
+	  * Jika ada, maka akan terserang, jika tidak, tidak terjadi apa-apa.
+	  */
+	
 	private void checkAttacks(){
+		if (!player.isHasWeapon())
+			return;
+		
 		attackTimer += System.currentTimeMillis() - lastAttackTimer;
 		lastAttackTimer = System.currentTimeMillis();
 		if(attackTimer < attackCooldown)
