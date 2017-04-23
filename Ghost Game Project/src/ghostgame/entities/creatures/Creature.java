@@ -20,6 +20,8 @@ public abstract class Creature extends Entity {
 		yMove = 0;
 	}
 	
+	public abstract void die();
+	
 	@Override
 	public void hurt(int amt) {
 		health -= amt;

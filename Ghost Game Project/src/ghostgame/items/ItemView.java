@@ -17,8 +17,11 @@ public class ItemView {
 	public void render(Item item, Graphics g, int x, int y){
 		BufferedImage texture;
 		switch (item.getId()) {
-			case 0: texture = Assets.wood; break;
-			case 1: texture = Assets.rock; break;
+			case 0: texture = Assets.key; break;
+			case 1: texture = Assets.candle; break;
+			case 2: texture = Assets.knife; break;
+			case 3: texture = Assets.rock; break;
+			case 4: texture = Assets.rock; break;
 			default: texture = Assets.wood; break;
 		}
 		g.drawImage(texture, x, y, item.getWidth(), item.getHeigth(), null);
