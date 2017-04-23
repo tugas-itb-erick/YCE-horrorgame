@@ -6,6 +6,9 @@ import java.util.Comparator;
 import java.util.Iterator;
 
 import ghostgame.Handler;
+import ghostgame.entities.creatures.Ghost;
+import ghostgame.entities.creatures.GhostController;
+import ghostgame.entities.creatures.GhostView;
 import ghostgame.entities.creatures.Player;
 import ghostgame.entities.creatures.PlayerController;
 import ghostgame.entities.creatures.PlayerView;
@@ -29,6 +32,7 @@ public class EntityManager {
 	};
 	private PlayerController pc;
 	private StaticEntityController sc;
+	private GhostController gc;
 	
 	public EntityManager(Handler handler, Player player) {
 		this.handler = handler;
@@ -37,6 +41,7 @@ public class EntityManager {
 		addEntity(player);
 		pc = new PlayerController(player, new PlayerView());
 		sc = new StaticEntityController(null, new StaticEntityView());
+		gc = new GhostController(null, new GhostView());
 	}
 	
 	public void tick(){
@@ -48,6 +53,9 @@ public class EntityManager {
 				//sc.tick();
 			}else if (e instanceof Player) {
 				pc.tick();
+			}else if (e instanceof Ghost) {
+				gc.setGhost((Ghost) e);
+				gc.tick();
 			}
 			if(!e.isActive())
 				it.remove();
@@ -64,6 +72,9 @@ public class EntityManager {
 				sc.render(g);
 			}else if (e instanceof Player) {
 				pc.render(g);
+			}else if (e instanceof Ghost) {
+				gc.setGhost((Ghost) e);
+				gc.render(g);
 			}
 		}
 		pc.postRender(g);
@@ -71,6 +82,10 @@ public class EntityManager {
 	
 	public void addEntity(Entity e) {
 		entities.add(e);
+	}
+	
+	public void deleteEntity(Entity e) {
+		entities.remove(e);
 	}
 	
 	//GETTERS SETTERS

@@ -7,28 +7,12 @@ package ghostgame.entities.creatures;
   */
 
 import ghostgame.entities.Entity;
-
-import ghostgame.gfx.Animation;
-
-import ghostgame.gfx.Assets;
-
-import ghosgame.entities.Ghost;
-
+import ghostgame.tiles.Tile;
 import ghostgame.Handler;
 
-import ghostgame.inventory.Inventory;
+import java.util.ArrayList;
 
-import ghostgame.inventory.InventoryController;
-
-import ghostgame.inventory.InventoryView;
-
-import java.awt.Graphics;
-
-import java.awt.image.BufferedImage;
-
-import java.awt.Rectangle;
-
-public abstract class Ghost2 extends Ghost {
+public class Ghost2 extends Ghost {
 	
 	/**
 	  * Constructor.
@@ -41,18 +25,160 @@ public abstract class Ghost2 extends Ghost {
 		super(handler, x, y);
 		//damage
 		atk = 2;
-		//Animatons
-		ghostDown = new Animation(500, Assets.Ghost2_down);
-		ghostUp = new Animation(500, Assets.Ghost2_up);
-		ghostLeft = new Animation(500, Assets.Ghost2_left);
-		ghostRight = new Animation(500, Assets.Ghost2_right);
 	}
 
 	/**
-	  * Fungsi abstrak untuk mengubah xMove atau yMove.
+	  * Fungsi untuk mengubah xMove atau yMove.
 	  */
 
-	private void changeMovement() {
+	public void changeMovement() {
+		xMove = 0;
+		yMove = 0;
+		boolean up, down, left, right;
+		up = false;
+		down = false;
+		left = false;
+		right = false;
+		int upInt, downInt, leftInt, rightInt;
+		boolean [][] mapTemp = new boolean[handler.getWorld().getWidth()][handler.getWorld().getHeight()] ;
+		int xPlayer, yPlayer;
+		for (int i = 0; i < handler.getWorld().getWidth(); i++) {
+			for (int j = 0; j < handler.getWorld().getHeight(); j++) {
+				mapTemp[i][j] = handler.getWorld().getTile(i,j).isSolid();
+			}
+		}
+		for (Entity temp : handler.getWorld().getEntityManager().getEntities()) {
+			mapTemp[(int)(temp.getX() / Tile.TILEWIDTH)][(int)(temp.getY() / Tile.TILEHEIGHT)] = true;
+		}
+		xPlayer = (int)(handler.getWorld().getEntityManager().getPlayer().getX() / Tile.TILEWIDTH);
+		yPlayer = (int)(handler.getWorld().getEntityManager().getPlayer().getY() / Tile.TILEHEIGHT);
+		try {
+			upInt = bfs((int)x / Tile.TILEWIDTH, (int)(y / Tile.TILEHEIGHT) - 1, (int)xPlayer, (int)yPlayer, mapTemp);
+		} catch (ArrayIndexOutOfBoundsException e) {
+			upInt = 999;
+		}
+		try {
+			downInt = bfs((int)x / Tile.TILEWIDTH, (int)(y / Tile.TILEHEIGHT) + 1, (int)xPlayer, (int)yPlayer, mapTemp);
+		} catch (ArrayIndexOutOfBoundsException e) {
+			downInt = 999;
+		}
+		try {
+			leftInt = bfs((int)(x / Tile.TILEWIDTH) - 1, (int)y / Tile.TILEHEIGHT, (int)xPlayer, (int)yPlayer, mapTemp);
+		} catch (ArrayIndexOutOfBoundsException e) {
+			leftInt = 999;
+		}
+		try {
+			rightInt = bfs((int)(x / Tile.TILEWIDTH) + 1, (int)y / Tile.TILEHEIGHT, (int)xPlayer, (int)yPlayer, mapTemp);
+		} catch (ArrayIndexOutOfBoundsException e) {
+			rightInt = 999;
+		}
+		if (upInt >= downInt) {
+			if (upInt >= leftInt) {
+				 if (upInt >= rightInt) {
+				 	up = true;
+				 } else {
+				 	right = true;
+				 }
+			} else {
+				if (leftInt >= rightInt) {
+					left = true;
+				} else {
+					right = true;
+				}
+			}
+		} else {
+			if (downInt >= leftInt) {
+				 if (downInt >= rightInt) {
+				 	down = true;
+				 } else {
+				 	right = true;
+				 }
+			} else {
+				if (leftInt >= rightInt) {
+					left = true;
+				} else {
+					right = true;
+				}
+			}	
+		}
+		if ((up) && (upInt < 5)) {
+			yMove = -speed;
+		}
+		if ((down) && (downInt < 5)) {
+			yMove = speed;
+		}
+		if ((left) && (leftInt < 5)) {
+			xMove = -speed;
+		}
+		if ((right) && (rightInt < 5)) {
+			xMove = speed;
+		}
+	}
 
+	/**
+	  * Mengembalikan jumlah jalan terdekat menuju posisi yang akan dituju.
+	  * @param x absis dri posisi awal.
+	  * @param y ordinat dari posisi awal.
+	  * @param playerPositionX absis dari posisi yang akan dituju.
+	  * @param playerPositionY ordinat dari posisi yang akan dituju.
+	  * @param map matriks yang berisi boolean yang dapat dilalui dan tidak.
+	  * @return Nilai jumlah jalan yang dihasilkan.
+	  */
+
+	private int bfs(int x, int y, int playerPositionX, int playerPositionY, boolean[][] map) {
+		ArrayList<Integer> tempX = new ArrayList<Integer>();
+		ArrayList<Integer> tempY = new ArrayList<Integer>();
+		ArrayList<Integer> range = new ArrayList<Integer>();
+		tempX.add(x);
+		tempY.add(y);
+		range.add(0);
+		int i = 0;
+		map[tempX.get(i)][tempY.get(i)] = true;
+		boolean found = false;
+		while ((i < tempX.size()) && (!found)) {
+			if ((tempX.get(i) != playerPositionX) && (tempY.get(i) != playerPositionY)) {
+				if ((tempX.get(i) + 1) < handler.getWorld().getWidth()) {
+					if ((map[tempX.get(i) + 1][tempY.get(i)]) == false) {
+						tempX.add(tempX.get(i) + 1);
+						tempY.add(tempY.get(i));
+						range.add(range.get(i) + 1);
+						map[tempX.get(i) + 1][tempY.get(i)] = true;
+					}
+				} 
+				if ((tempX.get(i) - 1) >= 0) {
+					if ((map[tempX.get(i) - 1][tempY.get(i)]) == false) {
+						tempX.add(tempX.get(i) - 1);
+						tempY.add(tempY.get(i));
+						range.add(range.get(i) + 1);
+						map[tempX.get(i) - 1][tempY.get(i)] = true;
+					}
+				}
+				if ((tempY.get(i) + 1) < handler.getWorld().getHeight()) {
+					if ((map[tempX.get(i)][tempY.get(i) + 1]) == false) {
+						tempX.add(tempX.get(i));
+						tempY.add(tempY.get(i) + 1);
+						range.add(range.get(i) + 1);
+						map[tempX.get(i)][tempY.get(i) + 1] = true;
+					}
+				}
+				if ((tempY.get(i) - 1) >= 0) {
+					if ((map[tempX.get(i)][tempY.get(i) - 1]) == false) {
+						tempX.add(tempX.get(i));
+						tempY.add(tempY.get(i) - 1);
+						range.add(range.get(i) + 1);
+						map[tempX.get(i)][tempY.get(i) - 1] = true;
+					}
+				}
+				i++;
+			} else {
+				found = true;
+			}
+		}
+		//System.out.println(found);
+		if (found) {
+			return range.get(i);
+		} else {
+			return 999;
+		}
 	}
 }
