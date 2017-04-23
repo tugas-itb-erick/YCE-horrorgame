@@ -108,17 +108,21 @@ public class Player extends Creature {
 		xMove = 0;
 		yMove = 0;
 
-		if(inventory.isActive())
+		if (inventory.isActive())
 			return;
 		
-		if(handler.getKeyManager().up)
+		if (handler.getKeyManager().up) {
 			yMove = -speed;
-		if(handler.getKeyManager().down)
+		}
+		if (handler.getKeyManager().down) {
 			yMove = speed;
-		if(handler.getKeyManager().left)
+		}
+		if (handler.getKeyManager().left) {
 			xMove = -speed;
-		if(handler.getKeyManager().right)
+		}
+		if (handler.getKeyManager().right) {
 			xMove = speed;
+		}
 	}
 
 	@Override

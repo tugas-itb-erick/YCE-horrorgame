@@ -1,54 +1,126 @@
 package ghostgame.inventory;
 
+import ghostgame.Handler;
+
+import ghostgame.items.Item;
+
 import java.util.ArrayList;
 
-import ghostgame.Handler;
-import ghostgame.items.Item;
+/**
+  * File : Inventory.java
+  * Kelas Inventory merupakan kelas real yang merepresentasikan 
+  * inventory dan interaksinya.
+  * @author Catherine Almira - 13515111
+  */
 
 public class Inventory {
 
-	private Handler handler;
-	private boolean active = false;
-	private ArrayList<Item> inventoryItems;
-	
-	private int selectedItem = 0;
-	
-	public Inventory(Handler handler){
-		this.handler = handler;
-		inventoryItems = new ArrayList<Item>();
-	}
+  private Handler handler;
+  private boolean active = false;
+  private Item activeItem;
+  private ArrayList<Item> inventoryItems;
+  
+  private int selectedItem = 0;
+  
+  /**
+    * Constructor dengan parameter.
+    * @param handler nilai handler dari inventory.
+    */
 
-	// GETTERS SETTERS
-	public Handler getHandler() {
-		return handler;
-	}
+  public Inventory(Handler handler) {
+    this.handler = handler;
+    inventoryItems = new ArrayList<Item>();
+    activeItem = null;
+  }
 
-	public void setHandler(Handler handler) {
-		this.handler = handler;
-	}
+  /**
+    * Mengembalikan nilai handler.
+    * @return handler.
+    */
 
-	public boolean isActive() {
-		return active;
-	}
+  public Handler getHandler() {
+    return handler;
+  }
 
-	public void setActive(boolean active) {
-		this.active = active;
-	}
+  /**
+    * Mengubah nilai handler.
+    * @param handler.
+    */
 
-	public ArrayList<Item> getInventoryItems() {
-		return inventoryItems;
-	}
+  public void setHandler(Handler handler) {
+    this.handler = handler;
+  }
 
-	public void setInventoryItems(ArrayList<Item> inventoryItems) {
-		this.inventoryItems = inventoryItems;
-	}
+  /**
+    * Mengembalikan status inventory apakah aktif atau tidak.
+    * @return true jika inventory aktif.
+    */
 
-	public int getSelectedItem() {
-		return selectedItem;
-	}
+  public Item getActiveItem() {
+    return activeItem;
+  }
 
-	public void setSelectedItem(int selectedItem) {
-		this.selectedItem = selectedItem;
-	}
-	
+  /**
+    * I.S. activeItem sembarang.
+    * F.S. activeItem terdefinisi sesuai dengan activeItem yang baru.
+    * @param activeItem nilai activeItem yang baru.
+    */
+
+  public void setActiveItem(Item activeItem) {
+    this.activeItem = activeItem;
+  }
+
+  /**
+    * Mengembalikan list item.
+    * @return list item.
+    */
+
+  public ArrayList<Item> getInventoryItems() {
+    return inventoryItems;
+  }
+
+  /**
+    * Mengubah list item.
+    * @param inventoryItems list item yang baru.
+    */
+
+  public void setInventoryItems(ArrayList<Item> inventoryItems) {
+    this.inventoryItems = inventoryItems;
+  }
+
+  /**
+    * Mengembalikan indeks selectedItem.
+    * @return indeks selectedItem.
+    */
+
+  public int getSelectedItem() {
+    return selectedItem;
+  }
+
+  /**
+    * Mengubah nilai selectedItem.
+    * @param selectedItem nilai selectedItem yang baru.
+    */
+
+  public void setSelectedItem(int selectedItem) {
+    this.selectedItem = selectedItem;
+  }
+  
+  /**
+    * Mengembalikan status inventory (aktif atau tidak).
+    * @return true jika inventory aktif (bisa diakses player).
+    */
+
+  public boolean isActive() {
+    return active;
+  }
+
+  /**
+    * Mengubah nilai keaktifan inventory.
+    * @param active status keaktifan inventory.
+    */
+
+  public void setActive(boolean active) {
+    this.active = active;
+  }
 }

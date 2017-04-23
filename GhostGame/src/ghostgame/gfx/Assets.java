@@ -85,7 +85,7 @@ public class Assets {
     player_left[0] = sheet.crop(WIDTH * 4, HEIGHT * 3, WIDTH, HEIGHT);
     player_left[1] = sheet.crop(WIDTH * 5, HEIGHT * 3, WIDTH, HEIGHT);
     player_left[2] = sheet.crop(WIDTH * 6, HEIGHT * 3, WIDTH, HEIGHT);
-    
+
     ghost1_down = new BufferedImage[2];
     ghost1_up = new BufferedImage[2];
     ghost1_left = new BufferedImage[2];
@@ -98,7 +98,7 @@ public class Assets {
     ghost1_right[1] = sheet.crop(WIDTH, HEIGHT * 2, WIDTH, HEIGHT);
     ghost1_left[0] = sheet.crop(0, HEIGHT * 3, WIDTH, HEIGHT);
     ghost1_left[1] = sheet.crop(WIDTH, HEIGHT * 3, WIDTH, HEIGHT);
-    
+
     ghost2_down = new BufferedImage[2];
     ghost2_up = new BufferedImage[2];
     ghost2_left = new BufferedImage[2];
@@ -111,7 +111,7 @@ public class Assets {
     ghost2_right[1] = sheet.crop(WIDTH * 3, HEIGHT * 2, WIDTH, HEIGHT);
     ghost2_left[0] = sheet.crop(WIDTH * 2, HEIGHT * 3, WIDTH, HEIGHT);
     ghost2_left[1] = sheet.crop(WIDTH * 3, HEIGHT * 3, WIDTH, HEIGHT);
-    
+
     ghost3_down = new BufferedImage[2];
     ghost3_up = new BufferedImage[2];
     ghost3_left = new BufferedImage[2];
