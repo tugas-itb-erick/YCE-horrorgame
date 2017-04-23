@@ -50,6 +50,8 @@ public class Ghost2 extends Ghost {
 		for (Entity temp : handler.getWorld().getEntityManager().getEntities()) {
 			mapTemp[(int)(temp.getX() / Tile.TILEWIDTH)][(int)(temp.getY() / Tile.TILEHEIGHT)] = true;
 		}
+		mapTemp[(int)(handler.getWorld().getEntityManager().getPlayer().getX() / Tile.TILEWIDTH)]
+		[(int)(handler.getWorld().getEntityManager().getPlayer().getY() / Tile.TILEHEIGHT)] = false;
 		xPlayer = (int)(handler.getWorld().getEntityManager().getPlayer().getX() / Tile.TILEWIDTH);
 		yPlayer = (int)(handler.getWorld().getEntityManager().getPlayer().getY() / Tile.TILEHEIGHT);
 		try {
@@ -129,52 +131,55 @@ public class Ghost2 extends Ghost {
 		ArrayList<Integer> tempX = new ArrayList<Integer>();
 		ArrayList<Integer> tempY = new ArrayList<Integer>();
 		ArrayList<Integer> range = new ArrayList<Integer>();
+		boolean[][] mapTemp = new boolean [map.length][map[map.length-1].length];
+		for (int i = 0; i < map.length; i++) {
+			mapTemp[i][i] = map[i][i];
+		}
 		tempX.add(x);
 		tempY.add(y);
 		range.add(0);
 		int i = 0;
-		map[tempX.get(i)][tempY.get(i)] = true;
+		mapTemp[tempX.get(i)][tempY.get(i)] = true;
 		boolean found = false;
 		while ((i < tempX.size()) && (!found)) {
-			if ((tempX.get(i) != playerPositionX) && (tempY.get(i) != playerPositionY)) {
+			if ((tempX.get(i) != playerPositionX) || (tempY.get(i) != playerPositionY)) {
 				if ((tempX.get(i) + 1) < handler.getWorld().getWidth()) {
-					if ((map[tempX.get(i) + 1][tempY.get(i)]) == false) {
+					if ((mapTemp[tempX.get(i) + 1][tempY.get(i)]) == false) {
 						tempX.add(tempX.get(i) + 1);
 						tempY.add(tempY.get(i));
 						range.add(range.get(i) + 1);
-						map[tempX.get(i) + 1][tempY.get(i)] = true;
+						mapTemp[tempX.get(i) + 1][tempY.get(i)] = true;
 					}
 				} 
 				if ((tempX.get(i) - 1) >= 0) {
-					if ((map[tempX.get(i) - 1][tempY.get(i)]) == false) {
+					if ((mapTemp[tempX.get(i) - 1][tempY.get(i)]) == false) {
 						tempX.add(tempX.get(i) - 1);
 						tempY.add(tempY.get(i));
 						range.add(range.get(i) + 1);
-						map[tempX.get(i) - 1][tempY.get(i)] = true;
+						mapTemp[tempX.get(i) - 1][tempY.get(i)] = true;
 					}
 				}
 				if ((tempY.get(i) + 1) < handler.getWorld().getHeight()) {
-					if ((map[tempX.get(i)][tempY.get(i) + 1]) == false) {
+					if ((mapTemp[tempX.get(i)][tempY.get(i) + 1]) == false) {
 						tempX.add(tempX.get(i));
 						tempY.add(tempY.get(i) + 1);
 						range.add(range.get(i) + 1);
-						map[tempX.get(i)][tempY.get(i) + 1] = true;
+						mapTemp[tempX.get(i)][tempY.get(i) + 1] = true;
 					}
 				}
 				if ((tempY.get(i) - 1) >= 0) {
-					if ((map[tempX.get(i)][tempY.get(i) - 1]) == false) {
+					if ((mapTemp[tempX.get(i)][tempY.get(i) - 1]) == false) {
 						tempX.add(tempX.get(i));
 						tempY.add(tempY.get(i) - 1);
 						range.add(range.get(i) + 1);
-						map[tempX.get(i)][tempY.get(i) - 1] = true;
+						mapTemp[tempX.get(i)][tempY.get(i) - 1] = true;
 					}
 				}
 				i++;
-			} else {
+ 			} else {
 				found = true;
 			}
 		}
-		//System.out.println(found);
 		if (found) {
 			return range.get(i);
 		} else {
