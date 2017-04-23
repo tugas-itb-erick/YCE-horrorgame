@@ -1,14 +1,11 @@
 package ghostgame.entities;
 
 import java.awt.Graphics;
-import java.awt.Rectangle;
-
-import ghostgame.Handler;
 
 public abstract class EntityController {
 
-	protected Entity entity;
-	protected EntityView view;
+	private Entity entity;
+	private EntityView view;
 	
 	public EntityController(Entity entity, EntityView view) {
 		this.entity = entity;
@@ -39,61 +36,5 @@ public abstract class EntityController {
 			entity.setActive(false);
 			die();
 		}
-	}
-	
-	public Rectangle getCollisionBounds(float xOffset, float yOffset){
-		return entity.getCollisionBounds(xOffset, yOffset);
-	}
-
-	public float getX() {
-		return entity.getX();
-	}
-
-	public void setX(float x) {
-		entity.setX(x);
-	}
-
-	public float getY() {
-		return entity.getY();
-	}
-
-	public void setY(float y) {
-		entity.setY(y);
-	}
-
-	public int getWidth() {
-		return entity.getWidth();
-	}
-
-	public void setWidth(int width) {
-		entity.setWidth(width);
-	}
-
-	public int getHeight() {
-		return entity.getHealth();
-	}
-
-	public void setHeight(int height) {
-		entity.setHeight(height);
-	}
-
-	public int getHealth() {
-		return entity.getHealth();
-	}
-
-	public void setHealth(int health) {
-		entity.setHealth(health);
-	}
-
-	public boolean isActive() {
-		return entity.isActive();
-	}
-
-	public void setActive(boolean active) {
-		entity.setActive(active);
-	}
-
-	public Handler getHandler() {
-		return entity.getHandler();
 	}
 }

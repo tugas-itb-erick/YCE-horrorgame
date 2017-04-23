@@ -53,7 +53,7 @@ public abstract class Ghost3 extends Ghost {
 	  * Fungsi abstrak untuk mengubah xMove atau yMove.
 	  */
 
-	public abstract void changeMovement() {
+	private void changeMovement() {
 
 	} 
 }

@@ -7,7 +7,6 @@ import java.util.Iterator;
 
 import ghostgame.Handler;
 import ghostgame.entities.creatures.Player;
-import ghostgame.entities.statics.Rock;
 
 public class EntityManager {
 	
@@ -32,16 +31,8 @@ public class EntityManager {
 		Iterator<Entity> it = entities.iterator();
 		while(it.hasNext()){
 			Entity e = it.next();
-			EntityController ec;
-			if (e instanceof Player)
-				ec = new PlayerController(e, new PlayerView());
-			else if (e instanceof Rock)
-				ec = new RockController(e, new RockView());
-			else //if (e instanceof Rock)
-				ec = new TreeController(e, new TreeView());
-			else
-			ec.tick();
-			if(!ec.isActive())
+			e.tick();
+			if(!e.isActive())
 				it.remove();
 		}
 		entities.sort(renderSorter);

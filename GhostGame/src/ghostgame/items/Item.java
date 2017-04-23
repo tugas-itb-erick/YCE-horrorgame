@@ -23,9 +23,9 @@ public class Item {
   
   public static Item[] items = new Item[256];
   public static Item knifeItem = new Item(Assets.knife, "Knife", 0);
-  public static Item knifeItem = new Item(Assets.grenade, "Grenade", 1);
-  public static Item knifeItem = new Item(Assets.key, "Key", 2);
-  public static Item knifeItem = new Item(Assets.candle, "Candle", 3);
+  public static Item grenadeItem = new Item(Assets.grenade, "Grenade", 1);
+  public static Item keyItem = new Item(Assets.key, "Key", 2);
+  public static Item candleItem = new Item(Assets.candle, "Candle", 3);
   
   // Class
 
