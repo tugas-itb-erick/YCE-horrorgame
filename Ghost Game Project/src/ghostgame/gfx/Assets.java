@@ -42,7 +42,7 @@ public class Assets {
 	private static BufferedImage sheet;
 	public static BufferedImage dirt, grass, stone, tree, rock;
 	public static BufferedImage wood;
-	public static BufferedImage[] btn_start;
+	public static BufferedImage[] btn_start, btn_instruction;
 	public static BufferedImage inventoryScreen;
 
 	public static void init(){
@@ -76,6 +76,10 @@ public class Assets {
 		btn_start = new BufferedImage[2];
 		btn_start[0] = sheet.getSubimage(WIDTH * 2, HEIGHT * 5, WIDTH * 3, HEIGHT);
 		btn_start[1] = sheet.getSubimage(WIDTH * 4, HEIGHT * 4, WIDTH * 3, HEIGHT);
+		
+		btn_instruction = new BufferedImage[2];
+		btn_instruction[0] = sheet.getSubimage(WIDTH * 2, HEIGHT * 5, WIDTH * 3, HEIGHT);
+		btn_instruction[1] = sheet.getSubimage(WIDTH * 4, HEIGHT * 4, WIDTH * 3, HEIGHT);
 		
     player_down = new BufferedImage[3];
     player_up = new BufferedImage[3];

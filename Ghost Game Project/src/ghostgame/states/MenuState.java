@@ -22,7 +22,7 @@ public class MenuState extends State {
     uiManager = new UIManager(handler);
     handler.getMouseManager().setUIManager(uiManager);
 
-    uiManager.addObject(new UIImageButton(200, 200, 128, 64, Assets.btn_start, new ClickListener() {
+    uiManager.addObject(new UIImageButton(200, 200, 192, 64, Assets.btn_start, new ClickListener() {
       @Override
       public void onClick() {
         handler.getMouseManager().setUIManager(null);
@@ -30,7 +30,7 @@ public class MenuState extends State {
       }
     }));
 
-    uiManager.addObject(new UIImageButton(200, 200, 128, 64, Assets.btn_instruction, new ClickListener() {
+    uiManager.addObject(new UIImageButton(200, 300, 192, 64, Assets.btn_instruction, new ClickListener() {
       @Override
       public void onClick() {
         handler.getMouseManager().setUIManager(null);
@@ -48,8 +48,8 @@ public class MenuState extends State {
     uiManager.tick();
     
     // Temporarily just go directly to the GameState, skip the menu state!
-    handler.getMouseManager().setUIManager(null);
-    State.setState(handler.getGame().gameState);
+    //handler.getMouseManager().setUIManager(null);
+    //State.setState(handler.getGame().gameState);
   }
 
   /**
