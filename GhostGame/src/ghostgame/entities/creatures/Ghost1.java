@@ -54,6 +54,6 @@ public abstract class Ghost1 extends Ghost {
 	  */
 
 	public abstract void changeMovement() {
-
+		
 	}
 }
