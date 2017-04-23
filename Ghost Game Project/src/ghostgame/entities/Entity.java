@@ -25,8 +25,6 @@ public abstract class Entity {
 		bounds = new Rectangle(0, 0, width, height);
 	}
 	
-	public abstract void die();
-	
 	public abstract void hurt(int amt);
 	
 	public boolean checkEntityCollisions(float xOffset, float yOffset) {

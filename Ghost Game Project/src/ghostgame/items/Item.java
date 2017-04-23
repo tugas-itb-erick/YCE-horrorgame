@@ -7,9 +7,11 @@ import ghostgame.Handler;
 public class Item {
 	
 	// Static Instances
-	public static Item[] items = new Item[50];
-	public static Item woodItem = new Item("Wood", 0);
-	public static Item rockItem = new Item("Rock", 1);
+	public static Item keyItem = new Item("Key", 0);
+	public static Item candleItem = new Item("Candle", 1);
+	public static Item knifeItem = new Item("Knife", 2);
+	public static Item ghostAshItem = new Item("Ghost Ash", 3);
+	public static Item goldItem = new Item("Gold", 4);
 	
 	// Class Body
 	private static final int ITEMWIDTH = 32, ITEMHEIGHT = 32;
@@ -33,7 +35,6 @@ public class Item {
 		heigth = ITEMHEIGHT;
 		
 		bounds = new Rectangle(x, y, width, heigth);
-		items[id] = this;
 	}
 	
 	public Item(String name, int id, int width, int height) {
@@ -42,7 +43,6 @@ public class Item {
 		count = 1;
 		
 		bounds = new Rectangle(x, y, width, heigth);
-		items[id] = this;
 	}
 	
 	public Item createNew(int count) {
