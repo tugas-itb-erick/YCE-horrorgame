@@ -11,9 +11,8 @@ import ghostgame.Handler;
 import ghostgame.entities.EntityManager;
 import ghostgame.entities.creatures.Ghost2;
 import ghostgame.entities.creatures.Player;
-import ghostgame.entities.statics.Rock;
 import ghostgame.entities.statics.StaticEntity;
-import ghostgame.entities.statics.Tree;
+import ghostgame.items.Item;
 import ghostgame.items.ItemManager;
 import ghostgame.tiles.Tile;
 import ghostgame.tiles.TileController;
@@ -30,7 +29,7 @@ public class World {
 	// Item
 	private ItemManager itemManager;
 	
-	private void readStaticEntity() {
+	public void readStaticEntity() {
 		File filename = new File("/res/worlds/staticentity.txt");
 		try {
 			Scanner sc = new Scanner(filename);
@@ -53,12 +52,12 @@ public class World {
 		entityManager = new EntityManager(handler, new Player(handler, 100, 100));
 		itemManager = new ItemManager(handler);
 		// Temporary entity code!
-		entityManager.addEntity(new Tree(handler, 64*2, 64*4));
+		/*entityManager.addEntity(new Tree(handler, 64*2, 64*4));
 		entityManager.addEntity(new Rock(handler, 64*3, 64*6));
 		entityManager.addEntity(new Ghost2(handler, 64*3, 64*4));
 		entityManager.addEntity(new Rock(handler, 64*6, 64*4));
 		entityManager.addEntity(new Rock(handler, 64*5, 64*5));
-		entityManager.addEntity(new Tree(handler, 64*10, 64*4));
+		entityManager.addEntity(new Tree(handler, 64*10, 64*4));*/
 		
 		loadWorld(path);
 		
