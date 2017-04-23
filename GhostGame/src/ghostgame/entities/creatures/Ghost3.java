@@ -94,45 +94,45 @@ public abstract class Ghost3 extends Ghost {
 		} catch (ArrayIndexOutOfBound e) {
 			rightInt = 999;
 		}
-		if (upInt > downInt) {
-			if (upInt > leftInt) {
-				 if (upInt > rightInt) {
+		if (upInt >= downInt) {
+			if (upInt >= leftInt) {
+				 if (upInt >= rightInt) {
 				 	up = true;
 				 } else {
 				 	right = true;
 				 }
 			} else {
-				if (leftInt > rightInt) {
+				if (leftInt >= rightInt) {
 					left = true;
 				} else {
 					right = true;
 				}
 			}
 		} else {
-			if (downInt > leftInt) {
-				 if (downInt > rightInt) {
+			if (downInt >= leftInt) {
+				 if (downInt >= rightInt) {
 				 	down = true;
 				 } else {
 				 	right = true;
 				 }
 			} else {
-				if (leftInt > rightInt) {
+				if (leftInt >= rightInt) {
 					left = true;
 				} else {
 					right = true;
 				}
 			}	
 		}
-		if (up) {
+		if ((up) && (upInt != 999)) {
 			yMove = -speed;
 		}
-		if (down) {
+		if ((down) && (downInt != 999)) {
 			yMove = speed;
 		}
-		if (left) {
+		if ((left) && (leftInt != 999)) {
 			xMove = -speed;
 		}
-		if (right) {
+		if ((right) && (rightInt != 999)) {
 			xMove = speed;
 		}
 	}
