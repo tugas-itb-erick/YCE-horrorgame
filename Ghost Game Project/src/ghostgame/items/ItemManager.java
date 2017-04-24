@@ -19,6 +19,8 @@ public class ItemManager {
 	}
 	
 	public void tick() {
+		assert(ic != null);
+		
 		Iterator<Item> it = items.iterator();
 		while(it.hasNext()){
 			ic.setItem(it.next());
@@ -29,6 +31,8 @@ public class ItemManager {
 	}
 	
 	public void render(Graphics g) {
+		assert(ic != null);
+		
 		for(Item i : items){
 			ic.setItem(i);
 			ic.render(g);
@@ -36,6 +40,8 @@ public class ItemManager {
 	}
 	
 	public void addItem(Item i) {
+		assert(ic != null);
+		
 		ic.setItem(i);
 		ic.setHandler(handler);
 		items.add(ic.getItem());

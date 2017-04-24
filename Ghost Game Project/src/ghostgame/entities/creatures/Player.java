@@ -37,8 +37,8 @@ public class Player extends Creature {
 		
 		inventory = new Inventory(handler);
 		hasWeapon = false;
-		sightX = 3; //4,3 3,2 2,1
-		sightY = 2;
+		sightX = 1; //4,3 3,2 2,1
+		sightY = 1;
 	}
 	
 	/**

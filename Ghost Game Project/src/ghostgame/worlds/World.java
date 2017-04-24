@@ -12,6 +12,7 @@ import ghostgame.entities.EntityManager;
 import ghostgame.entities.creatures.Ghost2;
 import ghostgame.entities.creatures.Player;
 import ghostgame.entities.statics.StaticEntity;
+import ghostgame.items.Item;
 import ghostgame.items.ItemManager;
 import ghostgame.tiles.Tile;
 import ghostgame.tiles.TileController;
@@ -33,6 +34,7 @@ public class World {
 		entityManager = new EntityManager(handler, new Player(handler, 100, 100));
 		itemManager = new ItemManager(handler);
 		loadStaticEntity("res/worlds/staticentity.txt");
+		loadItem("res/worlds/item.txt");
 		// Temporary entity code!
 		entityManager.addEntity(new Ghost2(handler, 64*6, 64*3));
 		
@@ -115,6 +117,21 @@ public class World {
 				int kwidth = sc.nextInt();
 				int kheight = sc.nextInt();
 				entityManager.addEntity(new StaticEntity(handler, id, 64 * x, 64 * y, Tile.TILEWIDTH * kwidth, Tile.TILEHEIGHT * kheight));
+			}
+			sc.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	private void loadItem(String path) {
+		try {
+			Scanner sc = new Scanner(new File(path));
+			while (sc.hasNext()) {
+				int id = sc.nextInt();
+				int x = sc.nextInt();
+				int y = sc.nextInt();
+				itemManager.addItem(new Item("", id, x, y));
 			}
 			sc.close();
 		} catch (IOException e) {

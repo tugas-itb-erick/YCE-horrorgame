@@ -25,7 +25,7 @@ public class Assets {
   public static BufferedImage winScreen;
   
 	// button images
-	public static BufferedImage[] btn_start, btn_instruction, btn_back, btn_quit;
+	public static BufferedImage[] btn_start, btn_instruction, btn_credit, btn_back, btn_quit;
   
 	// static item images
 	public static BufferedImage candle;
@@ -35,7 +35,6 @@ public class Assets {
 	public static BufferedImage ghostAsh;
 	
 	// static entities
-	public static BufferedImage grenade;
 	public static BufferedImage bed;
 	public static BufferedImage wardrobe;
 	public static BufferedImage chair;
@@ -61,7 +60,7 @@ public class Assets {
 		
 		try {
 			Font.createFont(Font.TRUETYPE_FONT, new File("res/fonts/slkscr.ttf")).deriveFont(Font.PLAIN, 28);
-			sheet = ImageIO.read(new File("res/textures/sheet.png"));
+			sheet = ImageIO.read(new File("res/textures/asset.png"));
 			ghost = ImageIO.read(new File("res/textures/ghost.png"));
 			inventoryScreen = ImageIO.read(new File("res/textures/inventoryScreen.png"));
 		} catch (FontFormatException | IOException e) {
@@ -73,7 +72,6 @@ public class Assets {
     // X dan Y adalah posisi ujung kiri atas gambar dalam file "assets.png".
     mainMenuBackground = sheet.getSubimage(0, HEIGHT * 5, WIDTH * 2, HEIGHT * 2);
     knife = sheet.getSubimage(0, 0, WIDTH, HEIGHT);
-    grenade = sheet.getSubimage(0, HEIGHT, WIDTH, HEIGHT);
     bed = sheet.getSubimage(WIDTH, HEIGHT, WIDTH * 2, HEIGHT);
     wardrobe = sheet.getSubimage(0, HEIGHT * 2, WIDTH, HEIGHT * 2);
     key = sheet.getSubimage(WIDTH, HEIGHT * 2, WIDTH, HEIGHT);
@@ -91,12 +89,16 @@ public class Assets {
 		btn_start[1] = sheet.getSubimage(WIDTH * 4, HEIGHT * 4, WIDTH * 3, HEIGHT);
 		
 		btn_instruction = new BufferedImage[2];
-		btn_instruction[0] = sheet.getSubimage(WIDTH * 2, HEIGHT * 5, WIDTH * 3, HEIGHT);
-		btn_instruction[1] = sheet.getSubimage(WIDTH * 4, HEIGHT * 4, WIDTH * 3, HEIGHT);
+		btn_instruction[0] = sheet.getSubimage(WIDTH * 2, HEIGHT * 6, WIDTH * 3, HEIGHT);
+		btn_instruction[1] = sheet.getSubimage(WIDTH * 3, HEIGHT * 7, WIDTH * 3, HEIGHT);
 		
 		btn_back = new BufferedImage[2];
-		btn_back[0] = sheet.getSubimage(WIDTH * 2, HEIGHT * 5, WIDTH * 3, HEIGHT);
-		btn_back[1] = sheet.getSubimage(WIDTH * 4, HEIGHT * 4, WIDTH * 3, HEIGHT);
+		btn_back[0] = sheet.getSubimage(WIDTH * 5, HEIGHT * 6, WIDTH * 2, HEIGHT);
+		btn_back[1] = sheet.getSubimage(WIDTH * 5, HEIGHT * 6, WIDTH * 2, HEIGHT);
+		
+		btn_credit = new BufferedImage[2];
+		btn_credit[0] = sheet.getSubimage(WIDTH * 2, HEIGHT * 5, WIDTH * 3, HEIGHT);
+		btn_credit[1] = sheet.getSubimage(WIDTH * 4, HEIGHT * 4, WIDTH * 3, HEIGHT);
 		
 		btn_quit = new BufferedImage[2];
 		btn_quit[0] = sheet.getSubimage(WIDTH * 2, HEIGHT * 5, WIDTH * 3, HEIGHT);

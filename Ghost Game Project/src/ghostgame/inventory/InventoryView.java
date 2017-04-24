@@ -69,9 +69,9 @@ public class InventoryView {
 			case 0: texture = Assets.key; break;
 			case 1: texture = Assets.candle; break;
 			case 2: texture = Assets.knife; break;
-			case 3: texture = Assets.knife; break;
-			case 4: texture = Assets.knife; break;
-			default: texture = Assets.knife; break;
+			case 3: texture = Assets.gold; break;
+			case 4: texture = Assets.ghostAsh; break;
+			default: texture = Assets.ghostAsh; break;
 		}
 		g.drawImage(texture, invImageX, invImageY, invImageWidth, invImageHeight, null);
 		Text.drawString(g, Integer.toString(item.getCount()), invCountX, invCountY, true, Color.WHITE, Assets.font28);
