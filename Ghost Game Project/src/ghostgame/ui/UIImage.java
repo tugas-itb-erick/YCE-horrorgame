@@ -15,7 +15,11 @@ public class UIImage extends UIObject {
   
   /**
    * Constructor dengan parameter.
-   * @param handler Menghubungkan world dengan state.
+   * @param x Posisi sumbu x.
+   * @param y Posisi sumbu y.
+   * @param width Lebar uiimage.
+   * @param height Tinggi uiimage.
+   * @param image gambar uiimage.
    */
 
   public UIImage(float x, float y, int width, int height, BufferedImage image) {
@@ -32,6 +36,7 @@ public class UIImage extends UIObject {
 
   /**
    * Menampilkan gambar sesuai dengan jenisnya.
+   * @param g Gambar.
    */
 
   @Override
@@ -40,8 +45,9 @@ public class UIImage extends UIObject {
   }
 
   /**
-   * Mengubah state.
+   * Mengubah state ketika click.
    */
+
   @Override
   public void onClick() {
   }

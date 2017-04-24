@@ -57,8 +57,7 @@ public class StaticEntityView {
 		} else if (se.getId() == 1) {
 			texture = Assets.chair;
 		} else if (se.getId() == 2) {
-			texture = Assets.doorVertical;
-			texture = Assets.doorHorizontal;
+			texture = Assets.door;
 		} else if (se.getId() == 3) {
 			texture = Assets.refrigerator;
 		} else if (se.getId() == 4) {

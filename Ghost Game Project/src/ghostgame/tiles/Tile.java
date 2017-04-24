@@ -1,7 +1,5 @@
 package ghostgame.tiles;
 
-
-
 public class Tile {
 	
 	// Static Instances
@@ -18,8 +16,12 @@ public class Tile {
 	public static final int TILEHEIGHT = 64;
 	
 	/**
-	 * 
+	 * Constructor dengan parameter.
+	 * @param name Nama tile.
+	 * @param id Id tile.
+	 * @param solid Jenis tile.
 	 */
+	
 	public Tile(String name, int id, boolean solid) {
 		this.name = name;
 		this.id = id;
@@ -29,36 +31,46 @@ public class Tile {
 	}
 
 	/**
-	 * 
+	 * Mengembalikan jenis tile (solid atau tidak).
+	 * @return true jika tile solid.
 	 */
+	
 	public boolean isSolid() {
 		return solid;
 	}
 
 	/**
-	 * 
+	 * Mengubah nilai solid.
+	 * @param solid.
 	 */
+	
 	public void setSolid(boolean solid) {
 		this.solid = solid;
 	}
 
 	/**
-	 * 
+	 * Mengembalikan id.
+	 * @return id.
 	 */
+	
 	public int getId() {
 		return id;
 	}
 
 	/**
-	 * 
+	 * Mengembalikan name.
+	 * @return name.
 	 */
+	
 	public String getName() {
 		return name;
 	}
 
 	/**
-	 * 
+	 * Mengubah nilai name.
+	 * @param name.
 	 */
+	
 	public void setName(String name) {
 		this.name = name;
 	}

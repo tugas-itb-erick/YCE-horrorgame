@@ -1,14 +1,23 @@
 package ghostgame;
 
 import ghostgame.display.Display;
+
 import ghostgame.gfx.Assets;
+
 import ghostgame.gfx.GameCamera;
+
 import ghostgame.input.KeyManager;
+
 import ghostgame.input.MouseManager;
+
 import ghostgame.states.MenuState;
+
 import ghostgame.states.State;
+
 import java.awt.Color;
+
 import java.awt.Graphics;
+
 import java.awt.image.BufferStrategy;
 
 public class Game implements Runnable {

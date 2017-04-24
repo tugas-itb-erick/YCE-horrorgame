@@ -16,6 +16,12 @@ import ghostgame.entities.statics.StaticEntity;
 import ghostgame.entities.statics.StaticEntityController;
 import ghostgame.entities.statics.StaticEntityView;
 
+/**
+ * Kelas EntityManager merupakan kelas yang melakukan penanganan terhadap seluruh
+ * Entity yang terdapat pada permainan.
+ * @author 
+ */
+
 public class EntityManager {
 	
 	private Handler handler;
@@ -33,6 +39,12 @@ public class EntityManager {
 	private StaticEntityController sc;
 	private GhostController gc;
 	
+	/**
+	 * Constructor dengan parameter.
+	 * @param handler nilai yang menyatakan keterhubungan entitas dengan world.
+	 * @param player pemain yang ada dalam permainan.
+	 */
+	
 	public EntityManager(Handler handler, Player player) {
 		this.handler = handler;
 		this.player = player;
@@ -42,6 +54,10 @@ public class EntityManager {
 		sc = new StaticEntityController(null, new StaticEntityView());
 		gc = new GhostController(null, new GhostView());
 	}
+	
+	/**
+	 * Mengupdate Entitas dalam setiap satuan waktu.
+	 */
 	
 	public void tick(){
 		Iterator<Entity> it = entities.iterator();
@@ -63,6 +79,15 @@ public class EntityManager {
 		entities.sort(renderSorter);
 	}
 	
+	/**
+	 * Mencetak gambar entitas ke layar.
+	 * @param g grafik yang menggambarkan entitas.
+	 * @param xStart posisi awal dalam sumbu x.
+	 * @param yStart posisi awal dalam sumbu y.
+	 * @param xEnd posisi akhir dalam sumbu x.
+	 * @param yEnd posisi akhir dalam sumbu y.
+	 */
+	
 	public void render(Graphics g, int xStart, int yStart, int xEnd, int yEnd) {
 		for(Entity e : entities){
 			//if (e.getX()/Tile.TILEWIDTH >= xStart && e.getX()/Tile.TILEWIDTH+1 < xEnd && e.getY()/Tile.TILEWIDTH >= yStart && e.getY()/Tile.TILEWIDTH+1 < yEnd)
@@ -79,9 +104,19 @@ public class EntityManager {
 		pc.postRender(g);
 	}
 	
+	/**
+	 * Menambahkan entitas baru ke dalam EntityManager.
+	 * @param e entitas baru yang akan ditambahkan.
+	 */
+	
 	public void addEntity(Entity e) {
 		entities.add(e);
 	}
+	
+	/**
+	 * Menghapus entitas e dari EntityManager.
+	 * @param e entitas yang akan dihapus.
+	 */
 	
 	public void deleteEntity(Entity e) {
 		//entities.remove(e);
@@ -89,26 +124,61 @@ public class EntityManager {
 	
 	//GETTERS SETTERS
 
+	/**
+	 * Mengembalikan handler yang merupakan nilai yang menghubungkan entitas dengan
+	 * world.
+	 * @return nilai yang menghubungkan entitas dengan world.
+	 */
+	
 	public Handler getHandler() {
 		return handler;
 	}
 
+	/**
+	 * I.S. handler sembarang.
+	 * F.S. handler terdefinisi sesuai dengan handler yang baru.
+	 * @param handler yang baru.
+	 */
+	
 	public void setHandler(Handler handler) {
 		this.handler = handler;
 	}
 
+	/**
+	 * Mengembalikan pemain yang terlibat dalam permainan.
+	 * @return pemain yang terlibat dalam permainan.
+	 */
+	
 	public Player getPlayer() {
 		return player;
 	}
+	
+	/**
+	 * I.S. player sembarang.
+	 * F.S. player terdefinisi sesuai dengan player yang baru.
+	 * @param player yang baru.
+	 */
 
 	public void setPlayer(Player player) {
 		this.player = player;
 	}
 
+	/**
+	 * Mengembalikan list entitas.
+	 * @return list entitas.
+	 */
+	
 	public ArrayList<Entity> getEntities() {
 		return entities;
 	}
 
+	/**
+	 * I.S. entities sembarang.
+	 * F.S. entities terdefinisi sesuai dengan entities yang baru.
+	 * @param entities yang baru.
+	 * @param entities
+	 */
+	
 	public void setEntities(ArrayList<Entity> entities) {
 		this.entities = entities;
 	}

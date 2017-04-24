@@ -1,7 +1,9 @@
 package ghostgame.entities.creatures;
 
-import ghostgame.Handler;
 import ghostgame.entities.Entity;
+
+import ghostgame.Handler;
+
 import ghostgame.tiles.Tile;
 
 public abstract class Creature extends Entity {
@@ -9,10 +11,18 @@ public abstract class Creature extends Entity {
 	public static final float DEFAULT_SPEED = 3.0f;
 	public static final int DEFAULT_CREATURE_WIDTH = 64,
 							DEFAULT_CREATURE_HEIGHT = 64;
-	
 	protected float speed;
 	protected float xMove, yMove;
 
+	/**
+	  * Constructor dengan parameter.
+	  * @param handler Nilai yang menghubungkan World dengan Creature.
+	  * @param x Nilai absis (posisi) dari Creature.
+	  * @param y Nilai ordinar (posisi) dari Creature.
+	  * @param width Nilai lebar entitas.
+	  * @param height Nilai panjang entitas.
+	  */
+	
 	public Creature(Handler handler, float x, float y, int width, int height) {
 		super(handler, x, y, width, height);
 		speed = DEFAULT_SPEED;

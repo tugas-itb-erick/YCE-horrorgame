@@ -5,7 +5,7 @@ import ghostgame.entities.Entity;
 
 /**
  * File : StaticEntity.java 
- * Kelas abstrak StaticEntity merupakan kelas yang merepresentasikan objek-objek statik
+ * Kelas StaticEntity merupakan kelas yang merepresentasikan objek-objek statik
  * yang ada pada game.
  * @author Catherine Almira - 13515111
  */

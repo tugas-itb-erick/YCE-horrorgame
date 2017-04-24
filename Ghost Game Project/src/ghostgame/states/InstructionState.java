@@ -47,7 +47,7 @@ public class InstructionState extends State {
   }
   
   /**
-   * Mengupdate kondisi intruction state setiap satuan waktu.
+   * Mengupdate kondisi instruction state setiap satuan waktu.
    */
 
   @Override
@@ -63,5 +63,4 @@ public class InstructionState extends State {
   public void render(Graphics g) {
     uiManager.render(g);
   }
-
 }
