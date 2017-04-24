@@ -6,7 +6,12 @@ import java.awt.image.BufferedImage;
 import ghostgame.gfx.Assets;
 
 public class TileView {
-
+	
+	/**
+   * Menampilkan gambar sesuai dengan jenisnya.
+   * @param g Gambar.
+   */
+	
 	public void render(Tile tile, Graphics g, int x, int y){
 		BufferedImage texture;
 		switch (tile.getId()) {

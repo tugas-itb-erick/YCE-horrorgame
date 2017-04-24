@@ -45,7 +45,7 @@ public class MenuState extends State {
       }
     }));
     
-    uiManager.addObject(new UIImageButton(200, 340, 192, 60, Assets.btn_instruction, new ClickListener() {
+    uiManager.addObject(new UIImageButton(200, 340, 192, 60, Assets.btn_credit, new ClickListener() {
       @Override
       public void onClick() {
         handler.getMouseManager().setUIManager(null);
@@ -53,7 +53,7 @@ public class MenuState extends State {
       }
     }));
     
-    uiManager.addObject(new UIImageButton(200, 410, 192, 60, Assets.btn_instruction, new ClickListener() {
+    uiManager.addObject(new UIImageButton(200, 410, 192, 60, Assets.btn_quit, new ClickListener() {
       @Override
       public void onClick() {
         System.exit(1);
