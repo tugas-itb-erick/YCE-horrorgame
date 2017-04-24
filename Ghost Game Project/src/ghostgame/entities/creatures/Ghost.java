@@ -10,7 +10,6 @@ import java.util.Iterator;
 
 import ghostgame.Handler;
 import ghostgame.entities.Entity;
-import ghostgame.items.Item;
 
 public abstract class Ghost extends Creature {
 	
@@ -33,10 +32,10 @@ public abstract class Ghost extends Creature {
 	}
 	
 	/**
-	 * Memeriksa apakah posisi player bersinggungan dengan entitas lain.
-	 * @param xOffset perubahan jarak absis player dari posisi terawal player.
-	 * @param yOffset perubahan jarak ordinat player dari posisi terawal player.
-	 * @return true apabila posisi player bersinggungan dengan entitas lain.
+	 * Memeriksa apakah posisi ghost bersinggungan dengan entitas lain.
+	 * @param xOffset perubahan jarak absis ghost dari posisi awal ghost.
+	 * @param yOffset perubahan jarak ordinat player dari posisi awal ghostr.
+	 * @return true apabila posisi ghost bersinggungan dengan entitas lain.
 	 */
 	
 	@Override
@@ -58,7 +57,7 @@ public abstract class Ghost extends Creature {
 	}
 
 	/**
-	  * Menghapus objek Ghost.
+	  * Menghapus objek Ghost dari layar dengan cara mengubah status active dari ghost.
 	  */
 
 	@Override

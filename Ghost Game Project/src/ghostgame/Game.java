@@ -1,45 +1,37 @@
 package ghostgame;
 
-import java.awt.Color;
-import java.awt.Graphics;
-import java.awt.image.BufferStrategy;
-
 import ghostgame.display.Display;
 import ghostgame.gfx.Assets;
 import ghostgame.gfx.GameCamera;
 import ghostgame.input.KeyManager;
 import ghostgame.input.MouseManager;
-import ghostgame.states.GameState;
-import ghostgame.states.InstructionState;
 import ghostgame.states.MenuState;
 import ghostgame.states.State;
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.image.BufferStrategy;
 
 public class Game implements Runnable {
 
 	private Display display;
 	private int width, height;
 	public String title;
-	
 	private boolean running = false;
 	private Thread thread;
-	
 	private BufferStrategy bs;
 	private Graphics g;
-	
-	//States
 	private State state;
-	/*public State menuState;
-	public State instructionState;*/
-	
-	//Input
 	private KeyManager keyManager;
 	private MouseManager mouseManager;
-	
-	//Camera
 	private GameCamera gameCamera;
-	
-	//Handler
 	private Handler handler;
+	
+	/**
+	  * Comstructor dgn parameter
+	  * @param title Nilai yang akan dimasukka n ke atribut shell.
+	  * @param width Nilai yang akan dijadikan lebarnya.
+	  * @param height Nilai yang akan dicari pemaen.
+	  */
 	
 	public Game(String title, int width, int height) {
 		this.width = width;
@@ -49,6 +41,10 @@ public class Game implements Runnable {
 		mouseManager = new MouseManager();
 	}
 	
+	/**
+	  * Menginisialisasi semua yang dibutuhkan, termasuk display.
+	  */
+	
 	private void init() {
 		display = new Display(title, width, height);
 		display.getFrame().addKeyListener(keyManager);
@@ -57,42 +53,40 @@ public class Game implements Runnable {
 		display.getCanvas().addMouseListener(mouseManager);
 		display.getCanvas().addMouseMotionListener(mouseManager);
 		Assets.init();
-		
 		handler = new Handler(this);
 		gameCamera = new GameCamera(handler, 0, 0);
-		
-		/*gameState = new GameState(handler);
-		menuState = new MenuState(handler);
-		instructionState = new InstructionState(handler);*/
 		state = new MenuState(handler);
 	}
+
+/**
+  * Meng-update kondisi objek keyManager untuk setiap satuan waktu.
+  */
 	
 	private void tick() {
 		assert(keyManager != null);
-		
 		keyManager.tick();
-		
 		if(state != null)
 			state.tick();
 	}
-	
+
+	/**
+	  * Fungsi yang menampilkan gambar (frame) dari canvas.
+	  * @param g Nilai grafik yang mencetak gambar (frame) dari player.
+	  */
+
 	private void render() {
 		assert(display != null);
-		
 		bs = display.getCanvas().getBufferStrategy();
-		if(bs == null){
+		if (bs == null) {
 			display.getCanvas().createBufferStrategy(3);
 			return;
 		}
 		g = bs.getDrawGraphics();
-		//Clear Screen
 		g.clearRect(0, 0, width, height);
 		g.setColor(Color.BLACK);
 		g.fillRect(0, 0, width, height);
-		
 		if(state != null)
 			state.render(g);
-		
 		bs.show();
 		g.dispose();
 	}
@@ -133,25 +127,54 @@ public class Game implements Runnable {
 		
 	}
 	
+	/**
+	  * Mengembalikan nilai dari keyManager.
+	  * @return Nilai keyManager.
+	  */
+	
 	public KeyManager getKeyManager() {
 		return keyManager;
 	}
+
+	/**
+	  * Mengembalikan nilai dari mouseManager.
+	  * @return nilai mouseManager.
+	  */
 	
 	public MouseManager getMouseManager() {
 		return mouseManager;
 	}
+
+	/**
+	  * Mengembalikan nilai dari gameCamera.
+	  * @return nilai gameCamera.
+	  */
 	
 	public GameCamera getGameCamera() {
 		return gameCamera;
 	}
+
+	/**
+	  * Mengembalikan nilai dari width.
+	  * @return nilai width.
+	  */
 	
 	public int getWidth() {
 		return width;
 	}
+
+	/**
+	  * Mengembalikan nilai dari ukj.
+	  * @return nilai uk.
+	  */
 	
 	public int getHeight() {
 		return height;
 	}
+	
+	/**
+	  * Fungsi untuk menjalankan sebuah thread.
+	  */
 	
 	public synchronized void start() {
 		if(running)
@@ -160,6 +183,10 @@ public class Game implements Runnable {
 		thread = new Thread(this);
 		thread.start();
 	}
+	
+	/**
+	  * Fungsi untuk memberhentikan thread.
+	  */
 	
 	public synchronized void stop() {
 		if(!running)
@@ -172,10 +199,21 @@ public class Game implements Runnable {
 		}
 	}
 
+	/**
+	  * Mengembalikan state.
+	  * @return nilai width.
+	  */
+	
 	public State getState() {
 		return state;
 	}
 
+	/**
+    * I.S. atribut state sembarang.
+    * F.S. atribut state terdefinisi.
+	  * @param state Nilai yang akan dimasukkan ke dalam state.
+	  */
+	
 	public void setState(State state) {
 		this.state = state;
 	}

@@ -9,35 +9,47 @@ public class KeyManager implements KeyListener {
 	public boolean up, down, left, right;
 	public boolean aUp, aDown, aLeft, aRight;
 	
+	/**
+	  * Constructor.
+	  */
+	
 	public KeyManager(){
 		keys = new boolean[256];
 		justPressed = new boolean[keys.length];
 		cantPress = new boolean[keys.length];
 	}
 	
+	/**
+	 	* Meng-update kondisi keyboard untuk setiap satuan waktu.
+	 	*/
+
 	public void tick(){
-		for(int i = 0;i < keys.length;i++){
-			if(cantPress[i] && !keys[i]){
+		for (int i = 0;i < keys.length;i++) {
+			if (cantPress[i] && !keys[i]) {
 				cantPress[i] = false;
-			}else if(justPressed[i]){
+			} else if (justPressed[i]) {
 				cantPress[i] = true;
 				justPressed[i] = false;
 			}
-			if(!cantPress[i] && keys[i]){
+			if (!cantPress[i] && keys[i]) {
 				justPressed[i] = true;
 			}
 		}
-		
 		up = keys[KeyEvent.VK_W];
 		down = keys[KeyEvent.VK_S];
 		left = keys[KeyEvent.VK_A];
 		right = keys[KeyEvent.VK_D];
-		
 		aUp = keys[KeyEvent.VK_UP];
 		aDown = keys[KeyEvent.VK_DOWN];
 		aLeft = keys[KeyEvent.VK_LEFT];
 		aRight = keys[KeyEvent.VK_RIGHT];
 	}
+	
+	/**
+	  * @param keyCode Nilai yang akan di cek.
+	  * @return mengembalikan false jika keyCode melebihi batas dan
+	  * true jika sebaliknya
+	  */
 	
 	public boolean keyJustPressed(int keyCode){
 		if(keyCode < 0 || keyCode >= keys.length)
@@ -52,10 +64,17 @@ public class KeyManager implements KeyListener {
 		keys[e.getKeyCode()] = true;
 	}
 
+	/* (non-Javadoc)
+	 * @see java.awt.event.KeyListener#keyReleased(java.awt.event.KeyEvent)
+	 */
 	@Override
 	public void keyReleased(KeyEvent e) {
 		if(e.getKeyCode() < 0 || e.getKeyCode() >= keys.length)
-			return;
+			
+			/**
+			  * Meng-update kondisi objek Ghost untuk setiap satuan waktu.
+			  */
+	return;
 		keys[e.getKeyCode()] = false;
 	}
 

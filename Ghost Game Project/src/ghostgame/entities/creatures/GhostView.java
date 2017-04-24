@@ -12,8 +12,10 @@ public class GhostView {
 	private GhostController gc;
 	
 	/**
+	  * Constructor dengan parameter.
 	  * @param gc Nilai yang digunakan untuk mengakses keterangan gambar ghost.
 	  */
+	
 	public void setGhostController(GhostController gc) {
 		this.gc = gc;
 	}

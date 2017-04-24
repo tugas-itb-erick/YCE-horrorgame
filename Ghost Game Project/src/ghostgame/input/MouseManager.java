@@ -12,33 +12,61 @@ public class MouseManager implements MouseListener, MouseMotionListener {
 	private int mouseX, mouseY;
 	private UIManager uiManager;
 	
+	/**
+	  * Constructor
+	  */
+
 	public MouseManager(){
 		
 	}
 	
+  /** 
+    * I.S. atribut uiManager sembarang.
+    * F.S. atribut uiManager terdefinisi.
+    * @param atk Nilai yang akan dimasukkan ke atribut uiManager.
+    */
+
 	public void setUIManager(UIManager uiManager){
 		this.uiManager = uiManager;
 	}
 	
-	// Getters
+	/**
+	  * Fungsi yang mengembalikan true jika mouse kiri di klick
+	  * dan false jika tidak.
+	  * @return Nilai dari leftPressed;
+	  */
 	
 	public boolean isLeftPressed(){
 		return leftPressed;
 	}
+
+	/**
+	  * Fungsi yang mengembalikan true jika mouse kanan di klick
+	  * dan false jika tidak.
+	  * @return Nilai dari rightPressed;
+	  */
 	
 	public boolean isRightPressed(){
 		return rightPressed;
 	}
 	
+	/**
+	  * Fungsi yang mengembalikan nilai mouseX.
+	  * @return Nilai dari mouseX.
+	  */
+	
 	public int getMouseX(){
 		return mouseX;
 	}
+
+	/**
+	  * Fungsi yang mengembalikan nilai mouseY.
+	  * @return Nilai dari mouseY.
+	  */
 	
 	public int getMouseY(){
 		return mouseY;
 	}
-	
-	// Implemented methods
 	
 	@Override
 	public void mousePressed(MouseEvent e) {
@@ -91,5 +119,4 @@ public class MouseManager implements MouseListener, MouseMotionListener {
 		// TODO Auto-generated method stub
 		
 	}
-
 }

@@ -26,6 +26,8 @@ public class Ghost1 extends Ghost {
 
 	/**
 	  * Fungsi untuk mengubah xMove atau yMove.
+	  * Pada Ghost1, xMove dan yMove tidak perlu diubah karena
+	  * Ghost tidak dapat bergerak.
 	  */
 
 	public void changeMovement() {

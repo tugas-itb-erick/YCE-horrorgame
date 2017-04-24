@@ -9,9 +9,9 @@ import ghostgame.inventory.Inventory;
 import ghostgame.states.LostState;
 
 /** 
- * File : Player.java
- * Kelas yang merepresentasikan pemain yang ada pada game ini
- * @author Erick Wijaya - 13515057
+ * File : Player.java.
+ * Kelas yang merepresentasikan pemain yang ada pada game ini.
+ * @author Erick Wijaya - 13515057.
  */
 
 public class Player extends Creature {
@@ -189,9 +189,15 @@ public class Player extends Creature {
 	 * Mengembalikan nilai hasWeapon.
 	 * @return nilai hasWeapon.
 	 */
+	
 	public boolean isHasWeapon() {
 		return hasWeapon;
 	}
+	
+	/**
+	 * Mengembalikan nilai hasKey.
+	 * @return nilai hasKey.
+	 */
 	
 	public boolean isHasKey() {
 		return hasKey;

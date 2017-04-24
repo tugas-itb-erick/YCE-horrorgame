@@ -51,7 +51,6 @@ public class GhostController {
 		}
 	}
 	
-
 	/**
 	  * I.S. Nilai ghost sembarang.
 	  * F.S. Nilai ghost terdefinisi.
@@ -68,6 +67,24 @@ public class GhostController {
 	  */
 	public Ghost getGhost() {
 		return ghost;
+	}
+	
+	/**
+	  * I.S. Nilai view sembarang.
+	  * F.S. Nilai view terdefinisi.
+	  * @param view Nilai yang akan dimasukan ke dalam view.
+	  */
+	
+	public void setGhost(GhostView view) {
+		this.view = view;
+	}
+
+	/**
+	  * Mengembalikan objek view yang ada di dalam controller.
+	  * @return Nilai objek view yang diatur oleh controller.
+	  */
+	public GhostView getGhostView() {
+		return view;
 	}
 	
   /** 
@@ -96,8 +113,7 @@ public class GhostController {
 	public void die() {
 		ghost.die();
 	}
-	
-	
+		
 	/**
 	  * Meng-update kondisi objek Ghost untuk setiap satuan waktu.
 	  */

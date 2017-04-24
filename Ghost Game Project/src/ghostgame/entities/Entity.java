@@ -89,6 +89,10 @@ public abstract class Entity {
 		this.active = active;
 	}
 
+	public boolean getActive() {
+		return active;
+	}
+
 	public Handler getHandler() {
 		return handler;
 	}
