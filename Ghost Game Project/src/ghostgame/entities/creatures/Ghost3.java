@@ -56,22 +56,38 @@ public class Ghost3 extends Ghost {
 		xPlayer = (int)(handler.getWorld().getEntityManager().getPlayer().getX() / Tile.TILEWIDTH);
 		yPlayer = (int)(handler.getWorld().getEntityManager().getPlayer().getY() / Tile.TILEHEIGHT);
 		try {
-			upInt = bfs((int)x / Tile.TILEWIDTH, (int)(y / Tile.TILEHEIGHT) - 1, (int)xPlayer, (int)yPlayer, mapTemp);
+			if(mapTemp[(int)x / Tile.TILEWIDTH][(int)(y / Tile.TILEHEIGHT) - 1] == false) {
+				upInt = bfs((int)x / Tile.TILEWIDTH, (int)(y / Tile.TILEHEIGHT) - 1, (int)xPlayer, (int)yPlayer, mapTemp);
+			} else {
+				upInt = 999;
+			}
 		} catch (ArrayIndexOutOfBoundsException e) {
 			upInt = 999;
 		}
 		try {
-			downInt = bfs((int)x / Tile.TILEWIDTH, (int)(y / Tile.TILEHEIGHT) + 1, (int)xPlayer, (int)yPlayer, mapTemp);
+			if(mapTemp[(int)x / Tile.TILEWIDTH][(int)(y / Tile.TILEHEIGHT) + 1] == false) {
+				downInt = bfs((int)x / Tile.TILEWIDTH, (int)(y / Tile.TILEHEIGHT) + 1, (int)xPlayer, (int)yPlayer, mapTemp);
+			} else {
+				downInt = 999;
+			}
 		} catch (ArrayIndexOutOfBoundsException e) {
 			downInt = 999;
 		}
 		try {
-			leftInt = bfs((int)(x / Tile.TILEWIDTH) - 1, (int)y / Tile.TILEHEIGHT, (int)xPlayer, (int)yPlayer, mapTemp);
+			if(mapTemp[(int)(x / Tile.TILEWIDTH) - 1][(int)y / Tile.TILEHEIGHT] == false) {
+				leftInt = bfs((int)(x / Tile.TILEWIDTH) - 1, (int)y / Tile.TILEHEIGHT, (int)xPlayer, (int)yPlayer, mapTemp);
+			} else {
+				leftInt = 999;
+			}
 		} catch (ArrayIndexOutOfBoundsException e) {
 			leftInt = 999;
 		}
 		try {
-			rightInt = bfs((int)(x / Tile.TILEWIDTH) + 1, (int)y / Tile.TILEHEIGHT, (int)xPlayer, (int)yPlayer, mapTemp);
+			if(mapTemp[(int)(x / Tile.TILEWIDTH) + 1][(int)y / Tile.TILEHEIGHT] == false) {
+				rightInt = bfs((int)(x / Tile.TILEWIDTH) + 1, (int)y / Tile.TILEHEIGHT, (int)xPlayer, (int)yPlayer, mapTemp);
+			} else {
+				rightInt = 999;
+			}
 		} catch (ArrayIndexOutOfBoundsException e) {
 			rightInt = 999;
 		}

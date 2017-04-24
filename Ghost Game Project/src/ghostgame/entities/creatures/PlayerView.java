@@ -6,10 +6,6 @@ public class PlayerView {
 	
 	private PlayerController pc;
 	
-	/*public PlayerView(PlayerController pc) {
-		this.pc = pc;
-	}*/
-	
 	public void setPlayerController(PlayerController pc) {
 		this.pc = pc;
 	}

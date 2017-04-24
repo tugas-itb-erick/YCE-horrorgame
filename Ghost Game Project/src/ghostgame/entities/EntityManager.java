@@ -15,7 +15,6 @@ import ghostgame.entities.creatures.PlayerView;
 import ghostgame.entities.statics.StaticEntity;
 import ghostgame.entities.statics.StaticEntityController;
 import ghostgame.entities.statics.StaticEntityView;
-import ghostgame.tiles.Tile;
 
 public class EntityManager {
 	
@@ -66,9 +65,9 @@ public class EntityManager {
 	
 	public void render(Graphics g, int xStart, int yStart, int xEnd, int yEnd) {
 		for(Entity e : entities){
-			if (e.getX()/Tile.TILEWIDTH >= xStart && e.getX()/Tile.TILEWIDTH+1 < xEnd && e.getY()/Tile.TILEWIDTH >= yStart && e.getY()/Tile.TILEWIDTH+1 < yEnd)
+			//if (e.getX()/Tile.TILEWIDTH >= xStart && e.getX()/Tile.TILEWIDTH+1 < xEnd && e.getY()/Tile.TILEWIDTH >= yStart && e.getY()/Tile.TILEWIDTH+1 < yEnd)
 			if (e instanceof StaticEntity) {
-				sc.setStaticEntity((StaticEntity)e);
+				sc.setStaticEntity((StaticEntity) e);
 				sc.render(g);
 			}else if (e instanceof Player) {
 				pc.render(g);
@@ -85,7 +84,7 @@ public class EntityManager {
 	}
 	
 	public void deleteEntity(Entity e) {
-		entities.remove(e);
+		//entities.remove(e);
 	}
 	
 	//GETTERS SETTERS

@@ -5,6 +5,7 @@ import ghostgame.Handler;
 import ghostgame.items.Item;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 /**
  * File : Inventory.java
@@ -17,7 +18,6 @@ public class Inventory {
 
 	private Handler handler;
 	private boolean active = false;
-	private Item activeItem;
 	private ArrayList<Item> inventoryItems;
 	
 	private int selectedItem = 0;
@@ -33,8 +33,8 @@ public class Inventory {
 	}
 	
   /**
-   * Mengembalikan nilai handler.
-   * @return handler.
+   * Menambah Item pada inventory.
+   * @param item yang ingin ditambah pada inventory.
    */
 	
 	public void addItem(Item item){
@@ -45,6 +45,51 @@ public class Inventory {
 			}
 		}
 		inventoryItems.add(item);
+	}
+	
+	/**
+   * Mengurangi Item pada inventory.
+   * @param item yang ingin dikurangi dari inventory.
+   */
+	
+	public void removeItem(Item item){
+		for(Iterator<Item> it = inventoryItems.iterator(); it.hasNext(); ){
+			Item i = it.next();
+			if (i.getId() == item.getId())
+				i.setCount(i.getCount() - 1);
+				if (i.getCount() <= 0)
+					it.remove();
+		}
+	}
+	
+	/**
+	 * Mengembalikan true bila item bernama name ada di dalam inventory.
+	 * @param name nama item yang dicari di inventory.
+	 * @return true apabila item bernama name ditemukan dalam inventory.
+	 */
+	
+	public boolean containItem(String name) {
+		for(Item i : inventoryItems){
+			if(i.getName() == name){
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	/**
+	 * Mengembalikan true bila item ada di dalam inventory.
+	 * @param item item yang dicari di inventory.
+	 * @return true apabila itemditemukan dalam inventory.
+	 */
+	
+	public boolean containItem(Item item) {
+		for(Item i : inventoryItems){
+			if(i.getName() == item.getName()){
+				return true;
+			}
+		}
+		return false;
 	}
 	
   /**
@@ -63,25 +108,6 @@ public class Inventory {
 
 	public void setHandler(Handler handler) {
 		this.handler = handler;
-	}
-
-	/**
-	 * Mengembalikan status inventory apakah aktif atau tidak.
-	 * @return true jika inventory aktif.
-	 */
-
-	public Item getActiveItem() {
-		return activeItem;
-	}
-
-	/**
-	 * I.S. activeItem sembarang.
-	 * F.S. activeItem terdefinisi sesuai dengan activeItem yang baru.
-	 * @param activeItem nilai activeItem yang baru.
-	 */
-
-	public void setActiveItem(Item activeItem) {
-		this.activeItem = activeItem;
 	}
 
 	/**

@@ -7,32 +7,18 @@ import ghostgame.Handler;
 
 public abstract class State {
 
-  private static State currentState = null;
   protected Handler handler;
   
   /**
    * Constructor dengan parameter.
    * @param handler Menghubungkan world dengan state.
+   * I.S. sembarang
+   * F.S. handler terdefinisi dan tidak boleh null
    */
   
   public State(Handler handler){
     this.handler = handler;
-  }
-  
-  /**
-   * Mengubah currentstate dengan state.
-   */
-
-  public static void setState(State state){
-    currentState = state;
-  }
-  
-  /**
-   * Mengembalikan current state.
-   */
-  
-  public static State getState(){
-    return currentState;
+    assert(this.handler != null);
   }
   
   /**

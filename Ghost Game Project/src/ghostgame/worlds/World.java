@@ -29,35 +29,18 @@ public class World {
 	// Item
 	private ItemManager itemManager;
 	
-	public void readStaticEntity() {
-		File filename = new File("/res/worlds/staticentity.txt");
-		try {
-			Scanner sc = new Scanner(filename);
-			while (sc.hasNext()) {
-				int id = sc.nextInt();
-				float x = sc.nextFloat();
-				float y = sc.nextFloat();
-				int width = sc.nextInt();
-				int height = sc.nextInt();
-				entityManager.addEntity(new StaticEntity(handler, id, 64 * x, 64 * y, Item.ITEMWIDTH * width, Item.ITEMHEIGHT * height));
-			}
-			sc.close();
-		} catch (IOException e) {
-			
-		}
-	}
-	
 	public World(Handler handler, String path){
 		this.handler = handler;
 		entityManager = new EntityManager(handler, new Player(handler, 100, 100));
 		itemManager = new ItemManager(handler);
+		loadStaticEntity("res/worlds/staticentity.txt");
+		loadItem("res/worlds/item.txt");
 		// Temporary entity code!
-		/*entityManager.addEntity(new Tree(handler, 64*2, 64*4));
-		entityManager.addEntity(new Rock(handler, 64*3, 64*6));
-		entityManager.addEntity(new Ghost2(handler, 64*3, 64*4));
-		entityManager.addEntity(new Rock(handler, 64*6, 64*4));
-		entityManager.addEntity(new Rock(handler, 64*5, 64*5));
-		entityManager.addEntity(new Tree(handler, 64*10, 64*4));*/
+		entityManager.addEntity(new Ghost2(handler, 64*6, 64*3));
+		entityManager.addEntity(new Ghost2(handler, 64*6, 64*4));
+		entityManager.addEntity(new Ghost2(handler, 64*6, 64*5));
+		entityManager.addEntity(new Ghost2(handler, 64*6, 64*6));
+		entityManager.addEntity(new Ghost2(handler, 64*6, 64*7));
 		
 		loadWorld(path);
 		
@@ -91,11 +74,11 @@ public class World {
 	
 	public Tile getTile(int x, int y){
 		if(x < 0 || y < 0 || x >= width || y >= height)
-			return Tile.grassTile;
+			return Tile.floorTile;
 		
 		Tile t = Tile.tiles[tiles[x][y]];
 		if(t == null)
-			return Tile.dirtTile;
+			return Tile.floorTile;
 		return t;
 	}
 	
@@ -125,6 +108,45 @@ public class World {
 			for(int x = 0;x < width;x++){
 				tiles[x][y] = Integer.parseInt(tokens[(x + y * width) + 4]);
 			}
+		}
+	}
+	
+	private void loadStaticEntity(String path) {
+		try {
+			Scanner sc = new Scanner(new File(path));
+			while (sc.hasNext()) {
+				int id = sc.nextInt();
+				float x = sc.nextFloat();
+				float y = sc.nextFloat();
+				int kwidth = sc.nextInt();
+				int kheight = sc.nextInt();
+				entityManager.addEntity(new StaticEntity(handler, id, Tile.TILEWIDTH * x, Tile.TILEHEIGHT * y, Tile.TILEWIDTH * kwidth, Tile.TILEHEIGHT * kheight));
+			}
+			sc.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	private void loadItem(String path) {
+		try {
+			Scanner sc = new Scanner(new File(path));
+			while (sc.hasNext()) {
+				int id = sc.nextInt();
+				int x = sc.nextInt();
+				int y = sc.nextInt();
+				switch (id) {
+					case 0: itemManager.addItem(Item.keyItem.createNew(x*Tile.TILEWIDTH, y*Tile.TILEHEIGHT)); break;
+					case 1: itemManager.addItem(Item.candleItem.createNew(x*Tile.TILEWIDTH, y*Tile.TILEHEIGHT)); break;
+					case 2: itemManager.addItem(Item.knifeItem.createNew(x*Tile.TILEWIDTH, y*Tile.TILEHEIGHT)); break;
+					case 3: itemManager.addItem(Item.ghostAshItem.createNew(x*Tile.TILEWIDTH, y*Tile.TILEHEIGHT)); break;
+					case 4: itemManager.addItem(Item.goldItem.createNew(x*Tile.TILEWIDTH, y*Tile.TILEHEIGHT)); break;
+					default: itemManager.addItem(Item.ghostAshItem.createNew(x*Tile.TILEWIDTH, y*Tile.TILEHEIGHT)); break;
+				}
+			}
+			sc.close();
+		} catch (IOException e) {
+			e.printStackTrace();
 		}
 	}
 	

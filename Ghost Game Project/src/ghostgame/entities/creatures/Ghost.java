@@ -1,5 +1,7 @@
 package ghostgame.entities.creatures;
 
+import java.util.Iterator;
+
 /** 
   * File : Ghost.java
   * Kelas abstrak yang merepresentasikan hantu-hantu yang ada pada game ini
@@ -7,6 +9,8 @@ package ghostgame.entities.creatures;
   */
 
 import ghostgame.Handler;
+import ghostgame.entities.Entity;
+import ghostgame.items.Item;
 
 public abstract class Ghost extends Creature {
 	
@@ -27,6 +31,31 @@ public abstract class Ghost extends Creature {
 		bounds.width = 19;
 		bounds.height = 19;
 	}
+	
+	/**
+	 * Memeriksa apakah posisi player bersinggungan dengan entitas lain.
+	 * @param xOffset perubahan jarak absis player dari posisi terawal player.
+	 * @param yOffset perubahan jarak ordinat player dari posisi terawal player.
+	 * @return true apabila posisi player bersinggungan dengan entitas lain.
+	 */
+	
+	@Override
+	public boolean checkEntityCollisions(float xOffset, float yOffset) {
+		Iterator<Entity> it = handler.getWorld().getEntityManager().getEntities().iterator();
+		while(it.hasNext()){
+			Entity e = it.next();
+			if (e.equals(this))
+				continue;
+			if (e.getCollisionBounds(0f, 0f).intersects(getCollisionBounds(xOffset, yOffset))){
+				if (e instanceof Player) {
+					e.hurt(this.getAtk());
+					die();
+				}
+				return true;
+			}
+		}
+		return false;
+	}
 
 	/**
 	  * Menghapus objek Ghost.
@@ -34,7 +63,7 @@ public abstract class Ghost extends Creature {
 
 	@Override
 	public void die() {
-		handler.getWorld().getEntityManager().deleteEntity(this);
+		setActive(false);
 	}
 	
   /** 
