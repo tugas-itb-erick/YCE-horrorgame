@@ -7,7 +7,7 @@ package ghostgame.entities.creatures;
   */
 
 import ghostgame.entities.Entity;
-
+import ghostgame.tiles.Tile;
 import ghostgame.Handler;
 
 import java.util.ArrayList;
@@ -49,27 +49,29 @@ public class Ghost3 extends Ghost {
 			}
 		}
 		for (Entity temp : handler.getWorld().getEntityManager().getEntities()) {
-			mapTemp[(int)(temp.getX() / 64)][(int)(temp.getY() / 64)] = true;
+			mapTemp[(int)(temp.getX() / Tile.TILEWIDTH)][(int)(temp.getY() / Tile.TILEHEIGHT)] = true;
 		}
-		xPlayer = (int)(handler.getWorld().getEntityManager().getPlayer().getX() / 64);
-		yPlayer = (int)(handler.getWorld().getEntityManager().getPlayer().getY() / 64);
+		mapTemp[(int)(handler.getWorld().getEntityManager().getPlayer().getX() / Tile.TILEWIDTH)]
+		[(int)(handler.getWorld().getEntityManager().getPlayer().getY() / Tile.TILEHEIGHT)] = false;
+		xPlayer = (int)(handler.getWorld().getEntityManager().getPlayer().getX() / Tile.TILEWIDTH);
+		yPlayer = (int)(handler.getWorld().getEntityManager().getPlayer().getY() / Tile.TILEHEIGHT);
 		try {
-			upInt = bfs((int)x, (int)(y - 1), (int)xPlayer, (int)yPlayer, mapTemp);
+			upInt = bfs((int)x / Tile.TILEWIDTH, (int)(y / Tile.TILEHEIGHT) - 1, (int)xPlayer, (int)yPlayer, mapTemp);
 		} catch (ArrayIndexOutOfBoundsException e) {
 			upInt = 999;
 		}
 		try {
-			downInt = bfs((int)x, (int)(y + 1), (int)xPlayer, (int)yPlayer, mapTemp);
+			downInt = bfs((int)x / Tile.TILEWIDTH, (int)(y / Tile.TILEHEIGHT) + 1, (int)xPlayer, (int)yPlayer, mapTemp);
 		} catch (ArrayIndexOutOfBoundsException e) {
 			downInt = 999;
 		}
 		try {
-			leftInt = bfs((int)(x-1), (int)y, (int)xPlayer, (int)yPlayer, mapTemp);
+			leftInt = bfs((int)(x / Tile.TILEWIDTH) - 1, (int)y / Tile.TILEHEIGHT, (int)xPlayer, (int)yPlayer, mapTemp);
 		} catch (ArrayIndexOutOfBoundsException e) {
 			leftInt = 999;
 		}
 		try {
-			rightInt = bfs((int)(x+1), (int)y, (int)xPlayer, (int)yPlayer, mapTemp);
+			rightInt = bfs((int)(x / Tile.TILEWIDTH) + 1, (int)y / Tile.TILEHEIGHT, (int)xPlayer, (int)yPlayer, mapTemp);
 		} catch (ArrayIndexOutOfBoundsException e) {
 			rightInt = 999;
 		}
