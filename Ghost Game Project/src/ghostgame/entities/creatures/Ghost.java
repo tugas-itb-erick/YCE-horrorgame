@@ -7,6 +7,7 @@ package ghostgame.entities.creatures;
   */
 
 import ghostgame.Handler;
+import ghostgame.items.Item;
 
 public abstract class Ghost extends Creature {
 	
@@ -34,7 +35,7 @@ public abstract class Ghost extends Creature {
 
 	@Override
 	public void die() {
-		handler.getWorld().getEntityManager().deleteEntity(this);
+		handler.getWorld().getItemManager().addItem(Item.ghostAshItem.createNew(2));
 	}
 	
   /** 

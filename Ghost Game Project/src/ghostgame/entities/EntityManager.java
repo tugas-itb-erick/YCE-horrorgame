@@ -15,7 +15,6 @@ import ghostgame.entities.creatures.PlayerView;
 import ghostgame.entities.statics.StaticEntity;
 import ghostgame.entities.statics.StaticEntityController;
 import ghostgame.entities.statics.StaticEntityView;
-import ghostgame.tiles.Tile;
 
 public class EntityManager {
 	
@@ -85,7 +84,7 @@ public class EntityManager {
 	}
 	
 	public void deleteEntity(Entity e) {
-		entities.remove(e);
+		//entities.remove(e);
 	}
 	
 	//GETTERS SETTERS

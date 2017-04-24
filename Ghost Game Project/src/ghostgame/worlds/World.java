@@ -116,7 +116,7 @@ public class World {
 				float y = sc.nextFloat();
 				int kwidth = sc.nextInt();
 				int kheight = sc.nextInt();
-				entityManager.addEntity(new StaticEntity(handler, id, 64 * x, 64 * y, Tile.TILEWIDTH * kwidth, Tile.TILEHEIGHT * kheight));
+				entityManager.addEntity(new StaticEntity(handler, id, Tile.TILEWIDTH * x, Tile.TILEHEIGHT * y, Tile.TILEWIDTH * kwidth, Tile.TILEHEIGHT * kheight));
 			}
 			sc.close();
 		} catch (IOException e) {
@@ -131,7 +131,14 @@ public class World {
 				int id = sc.nextInt();
 				int x = sc.nextInt();
 				int y = sc.nextInt();
-				itemManager.addItem(new Item("", id, x, y));
+				switch (id) {
+					case 0: itemManager.addItem(Item.keyItem.createNew(x*Tile.TILEWIDTH, y*Tile.TILEHEIGHT)); break;
+					case 1: itemManager.addItem(Item.candleItem.createNew(x*Tile.TILEWIDTH, y*Tile.TILEHEIGHT)); break;
+					case 2: itemManager.addItem(Item.knifeItem.createNew(x*Tile.TILEWIDTH, y*Tile.TILEHEIGHT)); break;
+					case 3: itemManager.addItem(Item.ghostAshItem.createNew(x*Tile.TILEWIDTH, y*Tile.TILEHEIGHT)); break;
+					case 4: itemManager.addItem(Item.goldItem.createNew(x*Tile.TILEWIDTH, y*Tile.TILEHEIGHT)); break;
+					default: itemManager.addItem(Item.ghostAshItem.createNew(x*Tile.TILEWIDTH, y*Tile.TILEHEIGHT)); break;
+				}
 			}
 			sc.close();
 		} catch (IOException e) {

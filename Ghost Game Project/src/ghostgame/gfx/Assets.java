@@ -60,7 +60,7 @@ public class Assets {
 	public static void init(){
 		
 		try {
-			Font.createFont(Font.TRUETYPE_FONT, new File("res/fonts/slkscr.ttf")).deriveFont(Font.PLAIN, 28);
+			font28 = Font.createFont(Font.TRUETYPE_FONT, new File("res/fonts/slkscr.ttf")).deriveFont(Font.PLAIN, 28);
 			sheet = ImageIO.read(new File("res/textures/asset.png"));
 			ghost = ImageIO.read(new File("res/textures/ghost.png"));
 			inventoryScreen = ImageIO.read(new File("res/textures/inventoryScreen.png"));

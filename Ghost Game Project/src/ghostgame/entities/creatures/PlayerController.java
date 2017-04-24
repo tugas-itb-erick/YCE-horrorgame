@@ -5,10 +5,12 @@ import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
 
 import ghostgame.entities.Entity;
+import ghostgame.entities.statics.StaticEntity;
 import ghostgame.gfx.Animation;
 import ghostgame.gfx.Assets;
 import ghostgame.inventory.InventoryController;
 import ghostgame.inventory.InventoryView;
+import ghostgame.items.Item;
 
 public class PlayerController {
 
@@ -49,6 +51,7 @@ public class PlayerController {
 		player.getHandler().getGameCamera().centerOnEntity(player);
 		// Attack
 		player.checkWeapon();
+		player.checkKey();
 		checkAttacks();
 		// Inventory
 		ic.tick();
@@ -90,9 +93,7 @@ public class PlayerController {
 	  */
 	
 	private void checkAttacks(){
-		if (!player.isHasWeapon())
-			return;
-		
+
 		attackTimer += System.currentTimeMillis() - lastAttackTimer;
 		lastAttackTimer = System.currentTimeMillis();
 		if(attackTimer < attackCooldown)
@@ -129,8 +130,17 @@ public class PlayerController {
 			if(e.equals(this))
 				continue;
 			if(e.getCollisionBounds(0, 0).intersects(ar)){
-				e.hurt(1);
-				return;
+				if ((e instanceof StaticEntity) && player.isHasKey()){
+					if (((StaticEntity)e).getId() == 2){
+						e.hurt(2);
+						player.getInventory().removeItem(Item.keyItem);
+						return;
+					}
+				}
+				if ((e instanceof Ghost) && player.isHasWeapon()) {
+					e.hurt(2);
+					return;
+				}
 			}
 		}
 	}

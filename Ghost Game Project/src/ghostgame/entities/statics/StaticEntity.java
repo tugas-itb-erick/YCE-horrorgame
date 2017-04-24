@@ -43,11 +43,8 @@ public class StaticEntity extends Entity {
 	
 	@Override
 	public void hurt(int amt){
-		/*health -= amt;
-		if(health <= 0){
+		if (id == 2)
 			active = false;
-			die();
-		}*/
 	}
 	
 }

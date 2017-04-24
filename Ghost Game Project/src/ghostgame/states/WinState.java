@@ -24,7 +24,7 @@ public class WinState extends State {
    * @param handler Menghubungkan world dengan win state.
    */
 
-  public WinState(Handler handler) {
+  public WinState(final Handler handler) {
     super(handler);
     uiManager = new UIManager(handler);
     handler.getMouseManager().setUIManager(uiManager);

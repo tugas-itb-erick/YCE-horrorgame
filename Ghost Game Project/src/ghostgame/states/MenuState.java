@@ -18,7 +18,7 @@ public class MenuState extends State {
    * @param handler Menghubungkan world dengan menu state.
    */
 
-  public MenuState(Handler handler) {
+  public MenuState(final Handler handler) {
     super(handler);
     uiManager = new UIManager(handler);
     handler.getMouseManager().setUIManager(uiManager);

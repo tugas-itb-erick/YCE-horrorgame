@@ -16,6 +16,7 @@ import ghostgame.states.LostState;
 public class Player extends Creature {
 	
 	private boolean hasWeapon;
+	private boolean hasKey;
 	private int sightX;
 	private int sightY;
 	private Inventory inventory;
@@ -30,6 +31,7 @@ public class Player extends Creature {
 	public Player(Handler handler, float x, float y) {
 		super(handler, x, y, Creature.DEFAULT_CREATURE_WIDTH, Creature.DEFAULT_CREATURE_HEIGHT);
 		
+		health = 3;
 		bounds.x = 22;
 		bounds.y = 44;
 		bounds.width = 19;
@@ -37,8 +39,9 @@ public class Player extends Creature {
 		
 		inventory = new Inventory(handler);
 		hasWeapon = false;
-		sightX = 1; //4,3 3,2 2,1
-		sightY = 1;
+		hasKey = false;
+		sightX = 4; //4,3 3,2 2,1
+		sightY = 3;
 	}
 	
 	/**
@@ -47,7 +50,6 @@ public class Player extends Creature {
 	
 	@Override
 	public void die(){
-		System.out.println("You lose");
 		handler.getGame().setState(new LostState(handler));
 	}
 	
@@ -80,8 +82,8 @@ public class Player extends Creature {
 				continue;
 			if (e.getCollisionBounds(0f, 0f).intersects(getCollisionBounds(xOffset, yOffset))){
 				if (e instanceof Ghost) {
-					hurt(((Ghost) e).getAtk()); // player get hurt by ghost
-					//it.remove(); // ghost died when collide player
+					hurt(((Ghost) e).getAtk());
+					e.setActive(false);
 				}
 				return true;
 			}
@@ -135,6 +137,18 @@ public class Player extends Creature {
 	}
 	
 	/**
+	 * Memeriksa apakah player memiliki key pada inventory.
+	 * Bila ya, nilai hasKey diset menjadi true.
+	 * Bila tidak, nilai tetap.
+	 */
+	
+	public void checkKey() {
+		assert(inventory != null);
+		
+		hasKey = inventory.containItem("Key");
+	}
+	
+	/**
 	 * Mengembalikan nilai jarak seberapa dekat penglihatan player terhadap absis.
 	 * @return sightX.
 	 */
@@ -176,5 +190,9 @@ public class Player extends Creature {
 	 */
 	public boolean isHasWeapon() {
 		return hasWeapon;
+	}
+	
+	public boolean isHasKey() {
+		return hasKey;
 	}
 }

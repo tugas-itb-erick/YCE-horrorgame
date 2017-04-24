@@ -18,7 +18,6 @@ public class Inventory {
 
 	private Handler handler;
 	private boolean active = false;
-	private Item activeItem;
 	private ArrayList<Item> inventoryItems;
 	
 	private int selectedItem = 0;
@@ -109,25 +108,6 @@ public class Inventory {
 
 	public void setHandler(Handler handler) {
 		this.handler = handler;
-	}
-
-	/**
-	 * Mengembalikan status inventory apakah aktif atau tidak.
-	 * @return true jika inventory aktif.
-	 */
-
-	public Item getActiveItem() {
-		return activeItem;
-	}
-
-	/**
-	 * I.S. activeItem sembarang.
-	 * F.S. activeItem terdefinisi sesuai dengan activeItem yang baru.
-	 * @param activeItem nilai activeItem yang baru.
-	 */
-
-	public void setActiveItem(Item activeItem) {
-		this.activeItem = activeItem;
 	}
 
 	/**
