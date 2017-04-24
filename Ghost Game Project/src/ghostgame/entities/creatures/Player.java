@@ -4,6 +4,7 @@ import java.util.Iterator;
 
 import ghostgame.Handler;
 import ghostgame.entities.Entity;
+import ghostgame.entities.statics.StaticEntity;
 import ghostgame.inventory.Inventory;
 import ghostgame.states.LostState;
 

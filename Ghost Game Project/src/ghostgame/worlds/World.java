@@ -18,16 +18,32 @@ import ghostgame.tiles.Tile;
 import ghostgame.tiles.TileController;
 import ghostgame.tiles.TileView;
 
+/**
+ * File : World.java
+ * Kelas World adalah kelas yang mendefinisikan ukuran level permainan
+ * beserta segala entitas dan item yang ada di dalam world.
+ * @author Erick Wijaya - 13515057
+ */
+
 public class World {
 
 	private Handler handler;
-	private int width, height;
-	private int spawnX, spawnY;
+	private int width;
+	private int height;
+	
+	private int spawnX;
+	private int spawnY;
+	
 	private int[][] tiles;
-	//Entities
+	
 	private EntityManager entityManager;
-	// Item
 	private ItemManager itemManager;
+	
+	/**
+	 * Constructor dengan parameter.
+	 * @param handler handler game.
+	 * @param path path menuju file input.
+	 */
 	
 	public World(Handler handler, String path){
 		this.handler = handler;
@@ -37,6 +53,10 @@ public class World {
 		loadItem("res/worlds/item.txt");
 		// Temporary entity code!
 		entityManager.addEntity(new Ghost2(handler, 64*6, 64*3));
+		entityManager.addEntity(new Ghost2(handler, 64*6, 64*4));
+		entityManager.addEntity(new Ghost2(handler, 64*6, 64*5));
+		entityManager.addEntity(new Ghost2(handler, 64*6, 64*6));
+		entityManager.addEntity(new Ghost2(handler, 64*6, 64*7));
 		
 		loadWorld(path);
 		
@@ -44,12 +64,31 @@ public class World {
 		entityManager.getPlayer().setY(spawnY);
 	}
 	
+	/**
+	 * Mengupdate seluruh item dan entitas pada world.
+	 * I.S. itemManager dan entityManager terdefinisi
+	 * F.S. seluruh entitas dan item di-update
+	 */
+	
 	public void tick(){
+		assert(itemManager != null);
+		assert(entityManager != null);
+		
 		itemManager.tick();
 		entityManager.tick();
 	}
 	
+	/**
+	 * Menampilkan gambar seluruh komponen pada world.
+	 * I.S. Matriks tiles terdefinisi.
+	 * F.S. Gambar seluruh komponen world ditampilkan.
+	 * @param g tool graphics yang digunakan.
+	 */
+	
 	public void render(Graphics g){
+		assert(tiles != null);
+		assert(handler != null);
+		
 		int xStart = (int) Math.max(0, handler.getGameCamera().getxOffset() / Tile.TILEWIDTH) + entityManager.getPlayer().getSightX();
 		int xEnd = (int) Math.min(width, (handler.getGameCamera().getxOffset() + handler.getWidth()) / Tile.TILEWIDTH + 1) - entityManager.getPlayer().getSightX();
 		int yStart = (int) Math.max(0, handler.getGameCamera().getyOffset() / Tile.TILEHEIGHT) + entityManager.getPlayer().getSightY();
@@ -68,7 +107,16 @@ public class World {
 		entityManager.render(g, xStart, yStart, xEnd, yEnd);
 	}
 	
+	/**
+	 * Mengembalikan Tile pada posisi (x,y).
+	 * @param x posisi absis.
+	 * @param y posisi ordinat.
+	 * @return Tile pada posisi (x,y).
+	 */
+	
 	public Tile getTile(int x, int y){
+		assert(tiles != null);
+		
 		if(x < 0 || y < 0 || x >= width || y >= height)
 			return Tile.floorTile;
 		
@@ -77,6 +125,13 @@ public class World {
 			return Tile.floorTile;
 		return t;
 	}
+	
+	/**
+	 * Menerima masukkan konfigurasi world dari file untuk diload ke program.
+	 * I.S. Sembarang
+	 * F.S. Matriks tiles terdefinisi sesuai dari file
+	 * @param path path menuju file input.
+	 */
 	
 	private void loadWorld(String path){
 		StringBuilder builder = new StringBuilder();
@@ -105,9 +160,20 @@ public class World {
 				tiles[x][y] = Integer.parseInt(tokens[(x + y * width) + 4]);
 			}
 		}
+		
+		assert(tiles != null);
 	}
 	
+	/**
+	 * Menerima masukkan informasi entitas dari file untuk diload ke program.
+	 * I.S. entityManager terdefinisi.
+	 * F.S. entityManager menyimpan data entitas dari file.
+	 * @param path path menuju file input.
+	 */
+	
 	private void loadStaticEntity(String path) {
+		assert(entityManager != null);
+		
 		try {
 			Scanner sc = new Scanner(new File(path));
 			while (sc.hasNext()) {
@@ -124,7 +190,16 @@ public class World {
 		}
 	}
 	
+	/**
+	 * Menerima masukkan informasi item dari file untuk diload ke program.
+	 * I.S. itemManager terdefinisi.
+	 * F.S. itemManager menyimpan data item dari file.
+	 * @param path path menuju file input.
+	 */
+	
 	private void loadItem(String path) {
+		assert(itemManager != null);
+		
 		try {
 			Scanner sc = new Scanner(new File(path));
 			while (sc.hasNext()) {
@@ -146,34 +221,68 @@ public class World {
 		}
 	}
 	
+	/**
+	 * Mengembalikan lebar world.
+	 * @return lebar world.
+	 */
+	
 	public int getWidth(){
 		return width;
 	}
+	
+	/**
+	 * Mengembalikan tinggi world.
+	 * @return tinggi world.
+	 */
 	
 	public int getHeight(){
 		return height;
 	}
 
+	/**
+	 * Mengembalikan manager entitas.
+	 * @return manager entitas.
+	 */
+	
 	public EntityManager getEntityManager() {
 		return entityManager;
 	}
 
+	/**
+	 * Mengembalikan handler game.
+	 * @return handler game.
+	 */
+	
 	public Handler getHandler() {
 		return handler;
 	}
 
+	/**
+	 * Mengubah handler game.
+	 * @param handler handler game.
+	 */
+	
 	public void setHandler(Handler handler) {
 		this.handler = handler;
 	}
 
+	/**
+	 * Mengembalikan manager item.
+	 * @return manager item.
+	 */
+	
 	public ItemManager getItemManager() {
 		return itemManager;
 	}
 
+	/**
+	 * Mengubah manager item
+	 * @param itemManager manager item.
+	 */
+	
 	public void setItemManager(ItemManager itemManager) {
 		this.itemManager = itemManager;
 	}
-	
 }
 
 
