@@ -7,6 +7,10 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.Scanner;
 
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+
 import ghostgame.Handler;
 import ghostgame.entities.EntityManager;
 import ghostgame.entities.creatures.Ghost2;
@@ -62,6 +66,26 @@ public class World {
 		
 		entityManager.getPlayer().setX(spawnX);
 		entityManager.getPlayer().setY(spawnY);
+		
+    try {
+      AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File("res/audio/remnant-of-twilight.wav").getAbsoluteFile());
+      Clip clip = AudioSystem.getClip();
+      clip.open(audioInputStream);
+      clip.start();
+  } catch(Exception ex) {
+      System.out.println("Error with playing sound.");
+      ex.printStackTrace();
+  }
+		/*InputStream in;
+		AudioStream as = null;
+		try {
+			in = new FileInputStream("res/audio/remnant-of-twilight.mp3");
+			as = new AudioStream(in); 
+		} catch (IOException e) {
+			e.printStackTrace();
+		}        
+		AudioPlayer.player.start(as);*/            
+		//AudioPlayer.player.stop(as); 
 	}
 	
 	/**
