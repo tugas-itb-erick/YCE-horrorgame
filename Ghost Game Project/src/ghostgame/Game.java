@@ -10,6 +10,7 @@ import ghostgame.gfx.GameCamera;
 import ghostgame.input.KeyManager;
 import ghostgame.input.MouseManager;
 import ghostgame.states.GameState;
+import ghostgame.states.InstructionState;
 import ghostgame.states.MenuState;
 import ghostgame.states.State;
 
@@ -26,9 +27,9 @@ public class Game implements Runnable {
 	private Graphics g;
 	
 	//States
-	public State gameState;
-	public State menuState;
-	public State instructionState;
+	private State state;
+	/*public State menuState;
+	public State instructionState;*/
 	
 	//Input
 	private KeyManager keyManager;
@@ -60,9 +61,10 @@ public class Game implements Runnable {
 		handler = new Handler(this);
 		gameCamera = new GameCamera(handler, 0, 0);
 		
-		gameState = new GameState(handler);
+		/*gameState = new GameState(handler);
 		menuState = new MenuState(handler);
-		State.setState(menuState);
+		instructionState = new InstructionState(handler);*/
+		state = new MenuState(handler);
 	}
 	
 	private void tick() {
@@ -70,8 +72,8 @@ public class Game implements Runnable {
 		
 		keyManager.tick();
 		
-		if(State.getState() != null)
-			State.getState().tick();
+		if(state != null)
+			state.tick();
 	}
 	
 	private void render() {
@@ -88,8 +90,8 @@ public class Game implements Runnable {
 		g.setColor(Color.BLACK);
 		g.fillRect(0, 0, width, height);
 		
-		if(State.getState() != null)
-			State.getState().render(g);
+		if(state != null)
+			state.render(g);
 		
 		bs.show();
 		g.dispose();
@@ -169,7 +171,14 @@ public class Game implements Runnable {
 			e.printStackTrace();
 		}
 	}
-	
+
+	public State getState() {
+		return state;
+	}
+
+	public void setState(State state) {
+		this.state = state;
+	}
 }
 
 

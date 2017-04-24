@@ -39,8 +39,8 @@ public class StaticEntityView {
 		
 		int xStart = (int) (se.getX() - se.getHandler().getGameCamera().getxOffset());
 		int yStart = (int) (se.getY() - se.getHandler().getGameCamera().getyOffset());
-		int sightX = se.getHandler().getWorld().getEntityManager().getPlayer().getSightX();
-		int sightY = se.getHandler().getWorld().getEntityManager().getPlayer().getSightY();
+		/*int sightX = se.getHandler().getWorld().getEntityManager().getPlayer().getSightX();
+		int sightY = se.getHandler().getWorld().getEntityManager().getPlayer().getSightY();*/
 		
 		/*
 		 * Jika id = 0, maka StaticEntity adalah Bed.
@@ -77,33 +77,3 @@ public class StaticEntityView {
 	
 }
 
-/*
-    if (se instanceof Television) {
-      g.drawImage(Assets.television, (int) (se.getX() - se.getHandler().getGameCamera().getxOffset()),
-        (int) (se.getY() - se.getHandler().getGameCamera().getyOffset()), se.getWidth(), se.getHeight(), null);
-    } else if (se instanceof Bed) {
-      g.drawImage(Assets.bed, (int) (se.getX() - se.getHandler().getGameCamera().getxOffset()),
-        (int) (se.getY() - se.getHandler().getGameCamera().getyOffset()), se.getWidth(), se.getHeight(), null);
-    } else if (se instanceof Wardrobe) {
-      g.drawImage(Assets.wardrobe, (int) (se.getX() - se.getHandler().getGameCamera().getxOffset()),
-        (int) (se.getY() - se.getHandler().getGameCamera().getyOffset()), se.getWidth(), se.getHeight(), null);
-    } else if (se instanceof Chair) {
-      g.drawImage(Assets.chair, (int) (se.getX() - se.getHandler().getGameCamera().getxOffset()),
-        (int) (se.getY() - se.getHandler().getGameCamera().getyOffset()), se.getWidth(), se.getHeight(), null);
-    } else if (se instanceof Refrigerator) {
-      g.drawImage(Assets.refrigerator, (int) (se.getX() - se.getHandler().getGameCamera().getxOffset()),
-        (int) (se.getY() - se.getHandler().getGameCamera().getyOffset()), se.getWidth(), se.getHeight(), null);
-    } else if (se instanceof Table) {
-      g.drawImage(Assets.table, (int) (se.getX() - se.getHandler().getGameCamera().getxOffset()),
-        (int) (se.getY() - se.getHandler().getGameCamera().getyOffset()), se.getWidth(), se.getHeight(), null);
-    } else if (se instanceof Sofa) {
-      g.drawImage(Assets.sofa, (int) (se.getX() - se.getHandler().getGameCamera().getxOffset()),
-        (int) (se.getY() - se.getHandler().getGameCamera().getyOffset()), se.getWidth(), se.getHeight(), null);
-    } else if (se instanceof Door) {
-      //PINTU SIALAN
-      g.drawImage(Assets.doorHorizontal, (int) (se.getX() - se.getHandler().getGameCamera().getxOffset()),
-        (int) (se.getY() - se.getHandler().getGameCamera().getyOffset()), se.getWidth(), se.getHeight(), null);
-    } else {
-
-    }
-*/

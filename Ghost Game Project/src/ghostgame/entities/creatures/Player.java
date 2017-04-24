@@ -5,7 +5,7 @@ import java.util.Iterator;
 import ghostgame.Handler;
 import ghostgame.entities.Entity;
 import ghostgame.inventory.Inventory;
-import ghostgame.states.State;
+import ghostgame.states.LostState;
 
 /** 
  * File : Player.java
@@ -37,8 +37,8 @@ public class Player extends Creature {
 		
 		inventory = new Inventory(handler);
 		hasWeapon = false;
-		sightX = 0; //4,3 3,2 2,1
-		sightY = 0;
+		sightX = 3; //4,3 3,2 2,1
+		sightY = 2;
 	}
 	
 	/**
@@ -48,8 +48,7 @@ public class Player extends Creature {
 	@Override
 	public void die(){
 		System.out.println("You lose");
-		
-		//State.setState(handler.getGame().menuState);
+		handler.getGame().setState(new LostState(handler));
 	}
 	
 	/**

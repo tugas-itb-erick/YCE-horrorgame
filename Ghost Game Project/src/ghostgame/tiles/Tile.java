@@ -5,10 +5,9 @@ package ghostgame.tiles;
 public class Tile {
 	
 	// Static Instances
-	public static Tile[] tiles = new Tile[256];
-	public static Tile grassTile = new Tile("Grass", 0, false);
-	public static Tile dirtTile = new Tile("Dirt", 1, false);
-	public static Tile rockTile = new Tile("Stone", 2, true);
+	public static Tile[] tiles = new Tile[10];
+	public static Tile floorTile = new Tile("Floor", 0, false);
+	public static Tile wallTile = new Tile("Wall", 1, true);
 	
 	// Class Body
 	private String name;
