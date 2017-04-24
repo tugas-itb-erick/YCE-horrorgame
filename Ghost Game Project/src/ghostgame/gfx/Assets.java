@@ -55,6 +55,7 @@ public class Assets {
 	public static BufferedImage dirt, grass, stone, tree, rock;
 	public static BufferedImage wood;
 	public static BufferedImage inventoryScreen;
+	public static BufferedImage floor, door, wall;
 
 	public static void init(){
 		
@@ -91,14 +92,18 @@ public class Assets {
 		btn_instruction = new BufferedImage[2];
 		btn_instruction[0] = sheet.getSubimage(WIDTH * 2, HEIGHT * 6, WIDTH * 3, HEIGHT);
 		btn_instruction[1] = sheet.getSubimage(WIDTH * 3, HEIGHT * 7, WIDTH * 3, HEIGHT);
-		
+			
 		btn_back = new BufferedImage[2];
 		btn_back[0] = sheet.getSubimage(WIDTH * 5, HEIGHT * 6, WIDTH * 2, HEIGHT);
-		btn_back[1] = sheet.getSubimage(WIDTH * 5, HEIGHT * 6, WIDTH * 2, HEIGHT);
+		//btn_back[1] = sheet.getSubimage(WIDTH * 6, HEIGHT * 5, WIDTH * 2, HEIGHT);
 		
 		btn_credit = new BufferedImage[2];
-		btn_credit[0] = sheet.getSubimage(WIDTH * 2, HEIGHT * 5, WIDTH * 3, HEIGHT);
-		btn_credit[1] = sheet.getSubimage(WIDTH * 4, HEIGHT * 4, WIDTH * 3, HEIGHT);
+		btn_credit[0] = sheet.getSubimage(0, HEIGHT * 7, WIDTH * 3, HEIGHT);
+		btn_credit[1] = sheet.getSubimage(WIDTH * 5, HEIGHT * 5, WIDTH * 3, HEIGHT);
+		
+		instructionScreen = sheet.getSubimage(WIDTH, HEIGHT, WIDTH, HEIGHT);
+		winScreen = sheet.getSubimage(WIDTH, HEIGHT, WIDTH, HEIGHT);
+		lostScreen = sheet.getSubimage(WIDTH, HEIGHT, WIDTH, HEIGHT);
 		
 		btn_quit = new BufferedImage[2];
 		btn_quit[0] = sheet.getSubimage(WIDTH * 2, HEIGHT * 5, WIDTH * 3, HEIGHT);
@@ -160,11 +165,9 @@ public class Assets {
     ghost3_left[0] = ghost.getSubimage(WIDTH * 4, HEIGHT * 3, WIDTH, HEIGHT);
     ghost3_left[1] = ghost.getSubimage(WIDTH * 5, HEIGHT * 3, WIDTH, HEIGHT);
     
-		dirt = sheet.getSubimage(WIDTH, 0, WIDTH, HEIGHT);
-		grass = sheet.getSubimage(WIDTH * 2, 0, WIDTH, HEIGHT);
-		stone = sheet.getSubimage(WIDTH * 3, 0, WIDTH, HEIGHT);
-		tree = sheet.getSubimage(0, 0, WIDTH, HEIGHT * 2);
-		rock = sheet.getSubimage(0, HEIGHT * 2, WIDTH, HEIGHT);
+		floor = sheet.getSubimage(WIDTH, 0, WIDTH, HEIGHT);
+		door = sheet.getSubimage(WIDTH * 2, 0, WIDTH, HEIGHT);
+		wall = sheet.getSubimage(WIDTH * 3, 0, WIDTH, HEIGHT);
 	}
 	
 }

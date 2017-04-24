@@ -24,7 +24,7 @@ public class InstructionState extends State {
    * @param handler Menghubungkan world dengan instruction state.
    */
 
-  public InstructionState(Handler handler) {
+  public InstructionState(final Handler handler) {
     super(handler);
     uiManager = new UIManager(handler);
     handler.getMouseManager().setUIManager(uiManager);
