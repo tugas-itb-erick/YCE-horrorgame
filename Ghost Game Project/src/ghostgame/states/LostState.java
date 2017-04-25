@@ -1,7 +1,5 @@
 package ghostgame.states;
 
-import java.awt.Graphics;
-
 /**
   * File : LostState.java.
   * Kelas LostState merepresentasikan tampilan lost game.
@@ -14,6 +12,8 @@ import ghostgame.ui.ClickListener;
 import ghostgame.ui.UIimage;
 import ghostgame.ui.UIimageButton;
 import ghostgame.ui.UImanager;
+
+import java.awt.Graphics;
 
 public class LostState extends State {
 
@@ -46,13 +46,13 @@ public class LostState extends State {
     }));
     
     if (Assets.bgmusic != null) {
-    	Assets.bgmusic.stop();
-    	Assets.bgmusic.flush();
-    	Assets.bgmusic.setFramePosition(0);
+      Assets.bgmusic.stop();
+      Assets.bgmusic.flush();
+      Assets.bgmusic.setFramePosition(0);
     }
     if (Assets.scream != null) {
-    	Assets.scream.setFramePosition(0);
-    	Assets.scream.start();
+      Assets.scream.setFramePosition(0);
+      Assets.scream.start();
     }
   }
   
@@ -62,7 +62,7 @@ public class LostState extends State {
 
   @Override
   public void tick() {
-  	assert (uimanager != null);
+    assert (uimanager != null);
     uimanager.tick();
   }
 
@@ -72,7 +72,7 @@ public class LostState extends State {
 
   @Override
   public void render(Graphics g) {
-  	assert (uimanager != null);
+    assert (uimanager != null);
     uimanager.render(g);
   }
 

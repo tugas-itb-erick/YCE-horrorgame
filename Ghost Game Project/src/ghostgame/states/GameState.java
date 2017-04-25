@@ -32,7 +32,7 @@ public class GameState extends State {
   
   @Override
   public void tick() {
-  	assert (world != null);
+    assert (world != null);
     world.tick();
   }
 
@@ -42,7 +42,7 @@ public class GameState extends State {
 
   @Override
   public void render(Graphics g) {
-  	assert (world != null);
+    assert (world != null);
     world.render(g);
   }
 
