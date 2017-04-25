@@ -58,8 +58,8 @@ public class ItemManager {
     assert (ic != null);
     
     for (Item i : items) {
-      if (i.getX()/Tile.TILEWIDTH >= xstart && i.getX()/Tile.TILEWIDTH < xend
-      && i.getY()/Tile.TILEWIDTH >= ystart && i.getY()/Tile.TILEWIDTH < yend) {
+      if (i.getX() / Tile.TILEWIDTH >= xstart && i.getX() / Tile.TILEWIDTH < xend 
+          && i.getY() / Tile.TILEWIDTH >= ystart && i.getY() / Tile.TILEWIDTH < yend) {
         ic.setItem(i);
         ic.render(g);
       }

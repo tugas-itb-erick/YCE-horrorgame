@@ -13,9 +13,8 @@ import java.util.Iterator;
   */
 
 public abstract class Ghost extends Creature implements Runnable {
-  
-	protected Thread thread;
-	protected boolean running;
+  protected Thread thread;
+  protected boolean running;
   protected int atk;
   protected int index;
   
@@ -98,11 +97,11 @@ public abstract class Ghost extends Creature implements Runnable {
     */
 
   public abstract void changeMovement();
-	
+
   /**
    * Fungsi untuk memulai thread Ghost baru.
    */
-	
+
   public synchronized void start() {
     if (running) {
       return;
@@ -111,7 +110,7 @@ public abstract class Ghost extends Creature implements Runnable {
     thread = new Thread(this);
     thread.start();
   }
-  
+
   /**
     * Fungsi untuk memberhentikan thread.
     */
@@ -129,7 +128,7 @@ public abstract class Ghost extends Creature implements Runnable {
   }
   
   @SuppressWarnings("static-access")
-	@Override
+  @Override
   public void run() {
     int fps = 60;
     double timePerTick = 1000000000 / fps;
@@ -138,11 +137,11 @@ public abstract class Ghost extends Creature implements Runnable {
     long lastTime = System.nanoTime();
     long timer = 0;
     while (active) {
-    	try {
-				thread.sleep(600);
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
+      try {
+        thread.sleep(600);
+      } catch (InterruptedException e) {
+        e.printStackTrace();
+      }
       now = System.nanoTime();
       delta += (now - lastTime) / timePerTick;
       timer += now - lastTime;
@@ -158,10 +157,12 @@ public abstract class Ghost extends Creature implements Runnable {
     stop();
   }
 
-	/**
-	 * @return the index
-	 */
-	public int getIndex() {
-		return index;
-	}
+  /**
+    * Mengembalikan nilai indeks.
+    * @return the index Nilai dari indeks
+    */
+  
+  public int getIndex() {
+    return index;
+  }
 }

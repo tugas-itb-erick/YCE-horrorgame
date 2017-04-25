@@ -95,6 +95,10 @@ public class Assets {
       sheet = ImageIO.read(new File("res/textures/asset.png"));
       ghost = ImageIO.read(new File("res/textures/ghost.png"));
       inventoryScreen = ImageIO.read(new File("res/textures/inventoryScreen.png"));
+      instructionScreen = ImageIO.read(new File("res/textures/instruction.png"));
+      creditScreen = ImageIO.read(new File("res/textures/credit.png"));
+      winScreen = ImageIO.read(new File("res/textures/win.png"));
+      lostScreen = ImageIO.read(new File("res/textures/lose.png"));
     } catch (FontFormatException | IOException e) {
       e.printStackTrace();
       // exit if program fails to load sprite
@@ -197,25 +201,31 @@ public class Assets {
     stab = null;
     
     try {
-      AudioInputStream audioInputStream = AudioSystem.getAudioInputStream
-      (new File("res/audio/remnant-of-twilight.wav").getAbsoluteFile());
+      AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(
+          new File("res/audio/remnant-of-twilight.wav").getAbsoluteFile());
       bgmusic = AudioSystem.getClip();
       bgmusic.open(audioInputStream);
-      audioInputStream = AudioSystem.getAudioInputStream
-      (new File("res/audio/door.wav").getAbsoluteFile());
+      audioInputStream = AudioSystem.getAudioInputStream(
+      new File("res/audio/door.wav").getAbsoluteFile());
       openDoor = AudioSystem.getClip();
       openDoor.open(audioInputStream);
-      audioInputStream = AudioSystem.getAudioInputStream
-      (new File("res/audio/scream.wav").getAbsoluteFile());
+      audioInputStream = AudioSystem.getAudioInputStream(
+      new File("res/audio/scream.wav").getAbsoluteFile());
       scream = AudioSystem.getClip();
       scream.open(audioInputStream);
-      audioInputStream = AudioSystem.getAudioInputStream
-      (new File("res/audio/stab.wav").getAbsoluteFile());
+      audioInputStream = AudioSystem.getAudioInputStream(
+      new File("res/audio/stab.wav").getAbsoluteFile());
       stab = AudioSystem.getClip();
       stab.open(audioInputStream);
+<<<<<<< HEAD
     } catch(Exception e) {
         System.out.println("Error with playing sound.");
         e.printStackTrace();
+=======
+    } catch (Exception e) {
+      System.out.println("Error with playing sound.");
+      e.printStackTrace();
+>>>>>>> db9c1d9ef461171343073f424144107bd379b436
     }
   }
 }

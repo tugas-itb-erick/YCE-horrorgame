@@ -8,6 +8,8 @@ import ghostgame.ui.UIimageButton;
 import ghostgame.ui.UImanager;
 import java.awt.Graphics;
 
+import java.awt.Graphics;
+
 /**
  * File : MenuState.java.
  * Kelas MenuState merepresentasikan tampilan main menu.

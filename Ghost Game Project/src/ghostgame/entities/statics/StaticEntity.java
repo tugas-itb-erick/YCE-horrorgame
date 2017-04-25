@@ -30,11 +30,11 @@ public class StaticEntity extends Entity {
     bounds.x = 3;
     bounds.width = width - 6;
     if (id == 2) {
-	    bounds.y = 0;
-	    bounds.height = (int) (height);
+      bounds.y = 0;
+      bounds.height = (int) (height);
     } else {
-	    bounds.y = (int) (height / 2f);
-	    bounds.height = (int) (height - height / 2f);
+      bounds.y = (int) (height / 2f);
+      bounds.height = (int) (height - height / 2f);
     }
   }
 
