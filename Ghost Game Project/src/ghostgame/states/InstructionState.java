@@ -30,9 +30,9 @@ public class InstructionState extends State {
     handler.getMouseManager().setUIManager(uiManager);
     
     for (int x=0; x<handler.getGame().getWidth(); x += 128) {
-    	for (int y=0; y<handler.getGame().getHeight(); y += 128) {
-    		uiManager.addObject(new UIImage((int)x, (int)y, 128, 128, Assets.mainMenuBackground));
-    	}
+      for (int y=0; y<handler.getGame().getHeight(); y += 128) {
+        uiManager.addObject(new UIImage((int)x, (int)y, 128, 128, Assets.mainMenuBackground));
+      }
     }
     
     //uiManager.addObject(new UIImage(200, 200, 128, 64, Assets.instructionScreen));

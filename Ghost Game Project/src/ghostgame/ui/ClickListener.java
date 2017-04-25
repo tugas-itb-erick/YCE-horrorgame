@@ -7,11 +7,11 @@ package ghostgame.ui;
  */
 
 public interface ClickListener {
-	
-	/**
+  
+  /**
    * Mengubah state ketika click.
    */
-	
-	public void onClick();
+  
+  public void onClick();
 
 }

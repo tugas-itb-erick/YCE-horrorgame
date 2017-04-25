@@ -32,48 +32,48 @@ public class InventoryView {
   
   private int invCountX = 484;
   private int invCountY = 172;
-	
+  
   /**
    * Menampilkan gambar inventory.
    * @param inventory yang akan dicetak.
    * @param g grafik yang akan ditampilkan sebagai inventory.
    */
-	
-	public void render(Inventory inventory, Graphics g){
-		int selectedItem = inventory.getSelectedItem();
-		
-		if(!inventory.isActive())
-			return;
-		
-		g.drawImage(Assets.inventoryScreen, invX, invY, invWidth, invHeight, null);
-		
-		int len = inventory.getInventoryItems().size();
-		if(len == 0)
-			return;
-		
-		for(int i = -5;i < 6;i++){
-			if(selectedItem + i < 0 || selectedItem + i >= len)
-				continue;
-			if(i == 0){
-				Text.drawString(g, "> " + inventory.getInventoryItems().get(selectedItem + i).getName() + " <", invListCenterX, 
-						invListCenterY + i * invListSpacing, true, Color.YELLOW, Assets.font28);
-			}else{
-				Text.drawString(g, inventory.getInventoryItems().get(selectedItem + i).getName(), invListCenterX, 
-						invListCenterY + i * invListSpacing, true, Color.WHITE, Assets.font28);
-			}
-		}
-		
-		Item item = inventory.getInventoryItems().get(selectedItem);
-		BufferedImage texture;
-		switch (item.getId()) {
-			case 0: texture = Assets.key; break;
-			case 1: texture = Assets.candle; break;
-			case 2: texture = Assets.knife; break;
-			case 3: texture = Assets.gold; break;
-			case 4: texture = Assets.ghostAsh; break;
-			default: texture = Assets.ghostAsh; break;
-		}
-		g.drawImage(texture, invImageX, invImageY, invImageWidth, invImageHeight, null);
-		Text.drawString(g, Integer.toString(item.getCount()), invCountX, invCountY, true, Color.WHITE, Assets.font28);
-	}
+  
+  public void render(Inventory inventory, Graphics g){
+    int selectedItem = inventory.getSelectedItem();
+    
+    if(!inventory.isActive())
+      return;
+    
+    g.drawImage(Assets.inventoryScreen, invX, invY, invWidth, invHeight, null);
+    
+    int len = inventory.getInventoryItems().size();
+    if(len == 0)
+      return;
+    
+    for(int i = -5;i < 6;i++){
+      if(selectedItem + i < 0 || selectedItem + i >= len)
+        continue;
+      if(i == 0){
+        Text.drawString(g, "> " + inventory.getInventoryItems().get(selectedItem + i).getName() + " <", invListCenterX, 
+            invListCenterY + i * invListSpacing, true, Color.YELLOW, Assets.font28);
+      }else{
+        Text.drawString(g, inventory.getInventoryItems().get(selectedItem + i).getName(), invListCenterX, 
+            invListCenterY + i * invListSpacing, true, Color.WHITE, Assets.font28);
+      }
+    }
+    
+    Item item = inventory.getInventoryItems().get(selectedItem);
+    BufferedImage texture;
+    switch (item.getId()) {
+      case 0: texture = Assets.key; break;
+      case 1: texture = Assets.candle; break;
+      case 2: texture = Assets.knife; break;
+      case 3: texture = Assets.gold; break;
+      case 4: texture = Assets.ghostAsh; break;
+      default: texture = Assets.ghostAsh; break;
+    }
+    g.drawImage(texture, invImageX, invImageY, invImageWidth, invImageHeight, null);
+    Text.drawString(g, Integer.toString(item.getCount()), invCountX, invCountY, true, Color.WHITE, Assets.font28);
+  }
 }
