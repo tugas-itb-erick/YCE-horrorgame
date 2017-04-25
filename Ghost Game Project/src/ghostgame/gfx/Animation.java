@@ -31,6 +31,20 @@ public class Animation {
   }
   
   /**
+   * Constructor dengan parameter.
+   * @param speed Nilai kecepatan pergantian antar gambar yang akan dimasukkan ke atribut speed.
+   * @param frames Array of gambar (BufferedImage) yang akan dimasukkan ke dalam frames.
+   */
+ 
+ public Animation(int speed, BufferedImage[] frames, int index) {
+   this.speed = speed;
+   this.frames = frames;
+   this.index = index;
+   timer = 0;
+   lastTime = System.currentTimeMillis();
+ }
+  
+  /**
     * Meng-update kondisi objek untuk setiap satuan waktu.
     */
   

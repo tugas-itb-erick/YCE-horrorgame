@@ -113,6 +113,8 @@ public class PlayerController {
     checkAttacks();
     // Inventory
     ic.tick();
+    // check win state
+    player.checkWin();
   }
   
   /**

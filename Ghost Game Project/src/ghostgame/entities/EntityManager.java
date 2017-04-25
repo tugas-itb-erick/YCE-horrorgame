@@ -7,6 +7,9 @@ import java.util.Iterator;
 
 import ghostgame.Handler;
 import ghostgame.entities.creatures.Ghost;
+import ghostgame.entities.creatures.Ghost1;
+import ghostgame.entities.creatures.Ghost2;
+import ghostgame.entities.creatures.Ghost3;
 import ghostgame.entities.creatures.GhostController;
 import ghostgame.entities.creatures.GhostView;
 import ghostgame.entities.creatures.Player;
@@ -71,7 +74,18 @@ public class EntityManager {
       } else if (e instanceof Player) {
         pc.tick();
       } else if (e instanceof Ghost) {
-        gc.setGhost((Ghost) e);
+      	if (e instanceof Ghost1) {
+      		gc.setGhost((Ghost1) e);
+      	}
+      	else if (e instanceof Ghost2) {
+      		gc.setGhost((Ghost2) e);
+      	}
+      	else {
+      		gc.setGhost((Ghost3) e);
+      	}
+      	
+      	// gc = new GhostController((Ghost) e, new GhostView());
+        // gc.setGhost((Ghost) e);
         gc.tick();
       }
       if (!e.isActive()) {

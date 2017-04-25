@@ -17,6 +17,7 @@ public abstract class Ghost extends Creature implements Runnable {
 	protected Thread thread;
 	protected boolean running;
   protected int atk;
+  protected int index;
   
   /**
     * Constructor dengan parameter.
@@ -34,6 +35,7 @@ public abstract class Ghost extends Creature implements Runnable {
     bounds.height = 19;
     
     running = false;
+    index = 0;
     start();
   }
   
@@ -126,7 +128,8 @@ public abstract class Ghost extends Creature implements Runnable {
     }
   }
   
-  @Override
+  @SuppressWarnings("static-access")
+	@Override
   public void run() {
     int fps = 60;
     double timePerTick = 1000000000 / fps;
@@ -134,12 +137,10 @@ public abstract class Ghost extends Creature implements Runnable {
     long now;
     long lastTime = System.nanoTime();
     long timer = 0;
-    int ticks = 0;
     while (active) {
     	try {
-				thread.sleep(60);
+				thread.sleep(600);
 			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
       now = System.nanoTime();
@@ -147,16 +148,20 @@ public abstract class Ghost extends Creature implements Runnable {
       timer += now - lastTime;
       lastTime = now;
       if (delta >= 1) {
-        /*tick();
-        render();*/
-        ticks++;
+        index = (index + 1) % 2;
         delta--;
       }
       if (timer >= 1000000000) {
-        ticks = 0;
         timer = 0;
       }
     }
     stop();
   }
+
+	/**
+	 * @return the index
+	 */
+	public int getIndex() {
+		return index;
+	}
 }

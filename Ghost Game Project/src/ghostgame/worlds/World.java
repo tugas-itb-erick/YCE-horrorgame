@@ -37,6 +37,9 @@ public class World {
 	private int spawnX;
 	private int spawnY;
 	
+	private int winX; // posisi dalam satuan Tiles
+	private int winY; // posisi dalam satuan Tiles
+	
 	private int[][] tiles;
 	
 	private EntityManager entityManager;
@@ -57,11 +60,11 @@ public class World {
 		loadGhost("res/worlds/ghost.txt");
 		
 		// Temporary entity code!
-		entityManager.addEntity(new Ghost2(handler, 64*6, 64*3));
-		entityManager.addEntity(new Ghost2(handler, 64*6, 64*4));
-		entityManager.addEntity(new Ghost2(handler, 64*6, 64*5));
-		entityManager.addEntity(new Ghost2(handler, 64*6, 64*6));
-		entityManager.addEntity(new Ghost2(handler, 64*6, 64*7));
+		entityManager.addEntity(new Ghost1(handler, 64*7, 64*3));
+		entityManager.addEntity(new Ghost2(handler, 64*7, 64*4));
+		entityManager.addEntity(new Ghost3(handler, 64*7, 64*5));
+		entityManager.addEntity(new Ghost1(handler, 64*7, 64*6));
+		entityManager.addEntity(new Ghost2(handler, 64*7, 64*7));
 		
 		loadWorld(path);
 		
@@ -184,11 +187,13 @@ public class World {
     height = Integer.parseInt(tokens[1]);
     spawnX = Integer.parseInt(tokens[2]);
     spawnY = Integer.parseInt(tokens[3]);
+    winX = Integer.parseInt(tokens[4]);
+    winY = Integer.parseInt(tokens[5]);
     
     tiles = new int[width][height];
     for (int y = 0;y < height;y++) {
       for (int x = 0;x < width;x++) {
-        tiles[x][y] = Integer.parseInt(tokens[(x + y * width) + 4]);
+        tiles[x][y] = Integer.parseInt(tokens[(x + y * width) + 6]);
       }
     }
     
@@ -360,6 +365,24 @@ public class World {
   public void setItemManager(ItemManager itemManager) {
     this.itemManager = itemManager;
   }
+
+	/**
+	 * Mengembalikan posisi absis untuk memenangkan permainan
+	 * @return the winX
+	 */
+  
+	public int getWinX() {
+		return winX;
+	}
+
+	/**
+	 * Mengembalikan posisi ordinat untuk memenangkan permainan
+	 * @return the winY
+	 */
+	
+	public int getWinY() {
+		return winY;
+	}
 }
 
 
