@@ -1,6 +1,8 @@
 package ghostgame.entities.creatures;
 
 import ghostgame.Handler;
+import ghostgame.gfx.Animation;
+import ghostgame.gfx.Assets;
 
 /** 
   * File : Ghost1.java.
