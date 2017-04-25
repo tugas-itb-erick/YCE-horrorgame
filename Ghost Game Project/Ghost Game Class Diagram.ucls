@@ -1,0 +1,1084 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class-diagram version="1.2.0" icons="true" always-add-relationships="false" generalizations="true" realizations="true" 
+  associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
+  <class id="1" language="java" name="ghostgame.gfx.Text" project="Ghost Game Project" 
+    file="/Ghost Game Project/src/ghostgame/gfx/Text.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="99" width="306" x="488" y="-234"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="2" language="java" name="ghostgame.input.KeyManager" project="Ghost Game Project" 
+    file="/Ghost Game Project/src/ghostgame/input/KeyManager.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="369" width="165" x="728" y="2338"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="3" language="java" name="ghostgame.Game" project="Ghost Game Project" 
+    file="/Ghost Game Project/src/ghostgame/Game.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="441" width="200" x="667" y="1857"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="4" language="java" name="ghostgame.states.MenuState" project="Ghost Game Project" 
+    file="/Ghost Game Project/src/ghostgame/states/MenuState.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="117" width="133" x="-211" y="1857"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="5" language="java" name="ghostgame.states.State" project="Ghost Game Project" 
+    file="/Ghost Game Project/src/ghostgame/states/State.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="117" width="135" x="445" y="1376"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="6" language="java" name="ghostgame.entities.EntityManager" project="Ghost Game Project" 
+    file="/Ghost Game Project/src/ghostgame/entities/EntityManager.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="279" width="189" x="1920" y="-234"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="7" language="java" name="ghostgame.states.InstructionState" project="Ghost Game Project" 
+    file="/Ghost Game Project/src/ghostgame/states/InstructionState.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="117" width="146" x="-38" y="1857"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="8" language="java" name="ghostgame.input.MouseManager" project="Ghost Game Project" 
+    file="/Ghost Game Project/src/ghostgame/input/MouseManager.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="369" width="193" x="230" y="2338"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="9" language="java" name="ghostgame.ui.ClickListener" project="Ghost Game Project" 
+    file="/Ghost Game Project/src/ghostgame/ui/ClickListener.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="81" width="103" x="-10" y="4312"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="10" language="java" name="ghostgame.entities.creatures.Ghost1" project="Ghost Game Project" 
+    file="/Ghost Game Project/src/ghostgame/entities/creatures/Ghost1.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="99" width="153" x="1212" y="2338"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="11" language="java" name="ghostgame.entities.creatures.Ghost2" project="Ghost Game Project" 
+    file="/Ghost Game Project/src/ghostgame/entities/creatures/Ghost2.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="117" width="170" x="1405" y="2338"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="12" language="java" name="ghostgame.entities.creatures.Ghost3" project="Ghost Game Project" 
+    file="/Ghost Game Project/src/ghostgame/entities/creatures/Ghost3.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="117" width="170" x="1615" y="2338"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="13" language="java" name="ghostgame.entities.creatures.GhostController" project="Ghost Game Project" 
+    file="/Ghost Game Project/src/ghostgame/entities/creatures/GhostController.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="297" width="236" x="1101" y="1376"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="14" language="java" name="ghostgame.entities.creatures.PlayerController" project="Ghost Game Project" 
+    file="/Ghost Game Project/src/ghostgame/entities/creatures/PlayerController.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="333" width="236" x="1377" y="1376"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="15" language="java" name="ghostgame.gfx.Animation" project="Ghost Game Project" 
+    file="/Ghost Game Project/src/ghostgame/gfx/Animation.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="225" width="189" x="1101" y="1857"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="16" language="java" name="ghostgame.Handler" project="Ghost Game Project" 
+    file="/Ghost Game Project/src/ghostgame/Handler.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="243" width="200" x="1507" y="3620"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="17" language="java" name="ghostgame.states.CreditState" project="Ghost Game Project" 
+    file="/Ghost Game Project/src/ghostgame/states/CreditState.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="117" width="133" x="148" y="1857"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="18" language="java" name="ghostgame.inventory.InventoryView" project="Ghost Game Project" 
+    file="/Ghost Game Project/src/ghostgame/inventory/InventoryView.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="333" width="180" x="1825" y="2338"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="19" language="java" name="ghostgame.items.Item" project="Ghost Game Project" 
+    file="/Ghost Game Project/src/ghostgame/items/Item.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="657" width="157" x="2294" y="2873"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="20" language="java" name="ghostgame.states.LostState" project="Ghost Game Project" 
+    file="/Ghost Game Project/src/ghostgame/states/LostState.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="117" width="133" x="321" y="1857"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="21" language="java" name="ghostgame.tiles.TileView" project="Ghost Game Project" 
+    file="/Ghost Game Project/src/ghostgame/tiles/TileView.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="99" width="180" x="-49" y="751"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="22" language="java" name="ghostgame.display.Display" project="Ghost Game Project" 
+    file="/Ghost Game Project/src/ghostgame/display/Display.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="225" width="126" x="933" y="2338"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="23" language="java" name="ghostgame.items.ItemManager" project="Ghost Game Project" 
+    file="/Ghost Game Project/src/ghostgame/items/ItemManager.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="171" width="189" x="2556" y="1857"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="24" language="java" name="ghostgame.inventory.Inventory" project="Ghost Game Project" 
+    file="/Ghost Game Project/src/ghostgame/inventory/Inventory.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="333" width="218" x="2045" y="2338"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="25" language="java" name="ghostgame.ui.UIobject" project="Ghost Game Project" 
+    file="/Ghost Game Project/src/ghostgame/ui/UIobject.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="459" width="199" x="169" y="3620"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="26" language="java" name="ghostgame.states.WinState" project="Ghost Game Project" 
+    file="/Ghost Game Project/src/ghostgame/states/WinState.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="117" width="133" x="494" y="1857"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="27" language="java" name="ghostgame.entities.creatures.Ghost" project="Ghost Game Project" 
+    file="/Ghost Game Project/src/ghostgame/entities/creatures/Ghost.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="315" width="220" x="1615" y="1857"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="28" language="java" name="ghostgame.gfx.GameCamera" project="Ghost Game Project" 
+    file="/Ghost Game Project/src/ghostgame/gfx/GameCamera.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="243" width="183" x="463" y="2338"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="29" language="java" name="ghostgame.ui.UIimageButton" project="Ghost Game Project" 
+    file="/Ghost Game Project/src/ghostgame/ui/UIimageButton.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="153" width="319" x="-10" y="4119"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="30" language="java" name="ghostgame.ui.UImanager" project="Ghost Game Project" 
+    file="/Ghost Game Project/src/ghostgame/ui/UImanager.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="261" width="204" x="169" y="2873"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="31" language="java" name="ghostgame.entities.statics.StaticEntityView" project="Ghost Game Project" 
+    file="/Ghost Game Project/src/ghostgame/entities/statics/StaticEntityView.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="99" width="188" x="620" y="1376"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="32" language="java" name="ghostgame.tiles.TileController" project="Ghost Game Project" 
+    file="/Ghost Game Project/src/ghostgame/tiles/TileController.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="153" width="161" x="61" y="-234"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="33" language="java" name="ghostgame.ui.UIimage" project="Ghost Game Project" 
+    file="/Ghost Game Project/src/ghostgame/ui/UIimage.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="153" width="218" x="349" y="4119"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="34" language="java" name="ghostgame.entities.statics.StaticEntity" project="Ghost Game Project" 
+    file="/Ghost Game Project/src/ghostgame/entities/statics/StaticEntity.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="135" width="213" x="848" y="1376"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="35" language="java" name="ghostgame.states.GameState" project="Ghost Game Project" 
+    file="/Ghost Game Project/src/ghostgame/states/GameState.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="117" width="133" x="928" y="1857"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="36" language="java" name="ghostgame.items.ItemController" project="Ghost Game Project" 
+    file="/Ghost Game Project/src/ghostgame/items/ItemController.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="243" width="166" x="2558" y="2338"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="37" language="java" name="ghostgame.Launcher" project="Ghost Game Project" 
+    file="/Ghost Game Project/src/ghostgame/Launcher.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="99" width="113" x="1061" y="-234"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="38" language="java" name="ghostgame.entities.creatures.PlayerView" project="Ghost Game Project" 
+    file="/Ghost Game Project/src/ghostgame/entities/creatures/PlayerView.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="135" width="224" x="1330" y="1857"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="39" language="java" name="ghostgame.items.ItemView" project="Ghost Game Project" 
+    file="/Ghost Game Project/src/ghostgame/items/ItemView.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="117" width="183" x="2541" y="2873"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="40" language="java" name="ghostgame.inventory.InventoryController" project="Ghost Game Project" 
+    file="/Ghost Game Project/src/ghostgame/inventory/InventoryController.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="153" width="243" x="1875" y="1857"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="41" language="java" name="ghostgame.tiles.Tile" project="Ghost Game Project" 
+    file="/Ghost Game Project/src/ghostgame/tiles/Tile.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="261" width="133" x="171" y="751"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="42" language="java" name="ghostgame.entities.creatures.GhostView" project="Ghost Game Project" 
+    file="/Ghost Game Project/src/ghostgame/entities/creatures/GhostView.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="117" width="222" x="1101" y="751"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="43" language="java" name="ghostgame.worlds.World" project="Ghost Game Project" 
+    file="/Ghost Game Project/src/ghostgame/worlds/World.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="495" width="194" x="2303" y="2338"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="44" language="java" name="ghostgame.entities.statics.StaticEntityController" project="Ghost Game Project" 
+    file="/Ghost Game Project/src/ghostgame/entities/statics/StaticEntityController.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="135" width="267" x="794" y="751"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="45" language="java" name="ghostgame.gfx.Assets" project="Ghost Game Project" 
+    file="/Ghost Game Project/src/ghostgame/gfx/Assets.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="945" width="209" x="1442" y="-234"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="46" language="java" name="ghostgame.entities.creatures.Creature" project="Ghost Game Project" 
+    file="/Ghost Game Project/src/ghostgame/entities/creatures/Creature.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="441" width="188" x="1674" y="1376"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="47" language="java" name="ghostgame.entities.creatures.Player" project="Ghost Game Project" 
+    file="/Ghost Game Project/src/ghostgame/entities/creatures/Player.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="423" width="220" x="2158" y="1857"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="48" language="java" name="ghostgame.entities.Entity" project="Ghost Game Project" 
+    file="/Ghost Game Project/src/ghostgame/entities/Entity.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="585" width="221" x="1634" y="751"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <association id="49">    
+    <bendpoint x="676" y="2338"/>    
+    <bendpoint x="676" y="2873"/>    
+    <end type="SOURCE" refId="3" navigable="false">      
+      <attribute id="50" name="handler"/>      
+      <multiplicity id="51" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="16" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="52">    
+    <bendpoint x="157" y="2338"/>    
+    <end type="SOURCE" refId="17" navigable="false">      
+      <attribute id="53" name="uimanager"/>      
+      <multiplicity id="54" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="30" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="55">    
+    <end type="SOURCE" refId="19" navigable="false">      
+      <attribute id="56" name="goldItem"/>      
+      <multiplicity id="57" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="19" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="58">    
+    <bendpoint x="897" y="1857"/>    
+    <bendpoint x="1089" y="2338"/>    
+    <bendpoint x="1089" y="2873"/>    
+    <end type="SOURCE" refId="5" navigable="false">      
+      <attribute id="59" name="handler"/>      
+      <multiplicity id="60" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="16" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="61">    
+    <end type="SOURCE" refId="13" navigable="false">      
+      <attribute id="62" name="ghostDown"/>      
+      <multiplicity id="63" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="15" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="64">    
+    <end type="SOURCE" refId="41" navigable="false">      
+      <attribute id="65" name="tiles"/>      
+      <multiplicity id="66" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="41" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="67">    
+    <end type="SOURCE" refId="13" navigable="false">      
+      <attribute id="68" name="ghostUp"/>      
+      <multiplicity id="69" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="15" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="70">    
+    <end type="SOURCE" refId="19" navigable="false">      
+      <attribute id="71" name="keyItem"/>      
+      <multiplicity id="72" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="19" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="73">    
+    <end type="SOURCE" refId="24" navigable="false">      
+      <attribute id="74" name="inventoryItems"/>      
+      <multiplicity id="75" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="19" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="76">    
+    <end type="SOURCE" refId="30" navigable="false">      
+      <attribute id="77" name="objects"/>      
+      <multiplicity id="78" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="25" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="79">    
+    <bendpoint x="75" y="2338"/>    
+    <end type="SOURCE" refId="7" navigable="false">      
+      <attribute id="80" name="uimanager"/>      
+      <multiplicity id="81" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="30" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="82">    
+    <end type="SOURCE" refId="29"/>    
+    <end type="TARGET" refId="25"/>  
+  </generalization>  
+  <association id="83">    
+    <end type="SOURCE" refId="44" navigable="false">      
+      <attribute id="84" name="se"/>      
+      <multiplicity id="85" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="34" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="86">    
+    <end type="SOURCE" refId="14" navigable="false">      
+      <attribute id="87" name="animLeft"/>      
+      <multiplicity id="88" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="15" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="89">    
+    <bendpoint x="697" y="2873"/>    
+    <bendpoint x="697" y="2338"/>    
+    <end type="SOURCE" refId="16" navigable="false">      
+      <attribute id="90" name="game"/>      
+      <multiplicity id="91" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="3" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="92">    
+    <end type="SOURCE" refId="41" navigable="false">      
+      <attribute id="93" name="wallTile"/>      
+      <multiplicity id="94" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="41" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="95">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="5"/>  
+  </generalization>  
+  <generalization id="96">    
+    <end type="SOURCE" refId="11"/>    
+    <end type="TARGET" refId="27"/>  
+  </generalization>  
+  <association id="97">    
+    <end type="SOURCE" refId="3" navigable="false">      
+      <attribute id="98" name="keyManager"/>      
+      <multiplicity id="99" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="2" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="100">    
+    <end type="SOURCE" refId="14" navigable="false">      
+      <attribute id="101" name="player"/>      
+      <multiplicity id="102" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="47" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="103">    
+    <bendpoint x="1903" y="2873"/>    
+    <end type="SOURCE" refId="43" navigable="false">      
+      <attribute id="104" name="handler"/>      
+      <multiplicity id="105" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="16" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="106">    
+    <end type="SOURCE" refId="6" navigable="false">      
+      <attribute id="107" name="entities"/>      
+      <multiplicity id="108" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="48" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="109">    
+    <end type="SOURCE" refId="38" navigable="false">      
+      <attribute id="110" name="pc"/>      
+      <multiplicity id="111" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="14" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="112">    
+    <end type="SOURCE" refId="43" navigable="false">      
+      <attribute id="113" name="itemManager"/>      
+      <multiplicity id="114" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="23" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="115">    
+    <bendpoint x="199" y="2338"/>    
+    <end type="SOURCE" refId="26" navigable="false">      
+      <attribute id="116" name="uimanager"/>      
+      <multiplicity id="117" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="30" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="118">    
+    <end type="SOURCE" refId="36" navigable="false">      
+      <attribute id="119" name="item"/>      
+      <multiplicity id="120" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="19" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="121">    
+    <end type="SOURCE" refId="14" navigable="false">      
+      <attribute id="122" name="ic"/>      
+      <multiplicity id="123" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="40" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="124">    
+    <bendpoint x="1603" y="751"/>    
+    <end type="SOURCE" refId="6" navigable="false">      
+      <attribute id="125" name="pc"/>      
+      <multiplicity id="126" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="14" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="127">    
+    <end type="SOURCE" refId="23" navigable="false">      
+      <attribute id="128" name="ic"/>      
+      <multiplicity id="129" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="36" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="130">    
+    <end type="SOURCE" refId="3" navigable="false">      
+      <attribute id="131" name="gameCamera"/>      
+      <multiplicity id="132" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="28" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="133">    
+    <end type="SOURCE" refId="14" navigable="false">      
+      <attribute id="134" name="view"/>      
+      <multiplicity id="135" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="38" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="136">    
+    <end type="SOURCE" refId="41" navigable="false">      
+      <attribute id="137" name="floorTile"/>      
+      <multiplicity id="138" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="41" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="139">    
+    <end type="SOURCE" refId="47" navigable="false">      
+      <attribute id="140" name="inventory"/>      
+      <multiplicity id="141" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="24" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="142">    
+    <end type="SOURCE" refId="33"/>    
+    <end type="TARGET" refId="25"/>  
+  </generalization>  
+  <association id="143">    
+    <bendpoint x="1519" y="751"/>    
+    <end type="SOURCE" refId="6" navigable="false">      
+      <attribute id="144" name="gc"/>      
+      <multiplicity id="145" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="13" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="146">    
+    <end type="SOURCE" refId="19" navigable="false">      
+      <attribute id="147" name="ghostAshItem"/>      
+      <multiplicity id="148" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="19" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="149">    
+    <end type="SOURCE" refId="10"/>    
+    <end type="TARGET" refId="27"/>  
+  </generalization>  
+  <generalization id="150">    
+    <end type="SOURCE" refId="27"/>    
+    <end type="TARGET" refId="46"/>  
+  </generalization>  
+  <association id="151">    
+    <bendpoint x="2408" y="1857"/>    
+    <bendpoint x="2408" y="1376"/>    
+    <bendpoint x="2408" y="751"/>    
+    <end type="SOURCE" refId="43" navigable="false">      
+      <attribute id="152" name="entityManager"/>      
+      <multiplicity id="153" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="6" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="154">    
+    <bendpoint x="2048" y="751"/>    
+    <bendpoint x="2048" y="1376"/>    
+    <end type="SOURCE" refId="6" navigable="false">      
+      <attribute id="155" name="player"/>      
+      <multiplicity id="156" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="47" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="157">    
+    <bendpoint x="1643" y="1376"/>    
+    <bendpoint x="1584" y="1857"/>    
+    <bendpoint x="1181" y="2338"/>    
+    <bendpoint x="1181" y="2873"/>    
+    <end type="SOURCE" refId="48" navigable="false">      
+      <attribute id="158" name="handler"/>      
+      <multiplicity id="159" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="16" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="160">    
+    <end type="SOURCE" refId="14" navigable="false">      
+      <attribute id="161" name="animDown"/>      
+      <multiplicity id="162" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="15" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="163">    
+    <end type="SOURCE" refId="35"/>    
+    <end type="TARGET" refId="5"/>  
+  </generalization>  
+  <association id="164">    
+    <end type="SOURCE" refId="32" navigable="false">      
+      <attribute id="165" name="view"/>      
+      <multiplicity id="166" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="21" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="167">    
+    <end type="SOURCE" refId="40" navigable="false">      
+      <attribute id="168" name="inventory"/>      
+      <multiplicity id="169" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="24" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="170">    
+    <bendpoint x="2754" y="2338"/>    
+    <bendpoint x="2754" y="2873"/>    
+    <end type="SOURCE" refId="23" navigable="false">      
+      <attribute id="171" name="handler"/>      
+      <multiplicity id="172" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="16" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="173">    
+    <end type="SOURCE" refId="14" navigable="false">      
+      <attribute id="174" name="animUp"/>      
+      <multiplicity id="175" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="15" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="176">    
+    <end type="SOURCE" refId="26"/>    
+    <end type="TARGET" refId="5"/>  
+  </generalization>  
+  <association id="177">    
+    <end type="SOURCE" refId="14" navigable="false">      
+      <attribute id="178" name="animRight"/>      
+      <multiplicity id="179" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="15" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="180">    
+    <end type="SOURCE" refId="30" navigable="false">      
+      <attribute id="181" name="handler"/>      
+      <multiplicity id="182" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="16" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="183">    
+    <end type="SOURCE" refId="6" navigable="false">      
+      <attribute id="184" name="sc"/>      
+      <multiplicity id="185" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="44" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="186">    
+    <bendpoint x="1924" y="2873"/>    
+    <end type="SOURCE" refId="16" navigable="false">      
+      <attribute id="187" name="world"/>      
+      <multiplicity id="188" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="43" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="189">    
+    <end type="SOURCE" refId="34"/>    
+    <end type="TARGET" refId="48"/>  
+  </generalization>  
+  <association id="190">    
+    <end type="SOURCE" refId="42" navigable="false">      
+      <attribute id="191" name="gc"/>      
+      <multiplicity id="192" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="13" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="193">    
+    <end type="SOURCE" refId="13" navigable="false">      
+      <attribute id="194" name="ghost"/>      
+      <multiplicity id="195" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="27" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="196">    
+    <end type="SOURCE" refId="3" navigable="false">      
+      <attribute id="197" name="state"/>      
+      <multiplicity id="198" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="5" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="199">    
+    <bendpoint x="-12" y="2338"/>    
+    <end type="SOURCE" refId="4" navigable="false">      
+      <attribute id="200" name="uimanager"/>      
+      <multiplicity id="201" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="30" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="202">    
+    <end type="SOURCE" refId="3" navigable="false">      
+      <attribute id="203" name="mouseManager"/>      
+      <multiplicity id="204" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="8" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="205">    
+    <end type="SOURCE" refId="13" navigable="false">      
+      <attribute id="206" name="ghostRight"/>      
+      <multiplicity id="207" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="15" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="208">    
+    <end type="SOURCE" refId="44" navigable="false">      
+      <attribute id="209" name="view"/>      
+      <multiplicity id="210" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="31" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="211">    
+    <end type="SOURCE" refId="13" navigable="false">      
+      <attribute id="212" name="ghostLeft"/>      
+      <multiplicity id="213" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="15" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="214">    
+    <end type="SOURCE" refId="46"/>    
+    <end type="TARGET" refId="48"/>  
+  </generalization>  
+  <association id="215">    
+    <bendpoint x="178" y="2338"/>    
+    <end type="SOURCE" refId="20" navigable="false">      
+      <attribute id="216" name="uimanager"/>      
+      <multiplicity id="217" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="30" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="218">    
+    <bendpoint x="2775" y="751"/>    
+    <bendpoint x="2775" y="1376"/>    
+    <bendpoint x="2775" y="1857"/>    
+    <bendpoint x="2775" y="2338"/>    
+    <bendpoint x="2775" y="2873"/>    
+    <end type="SOURCE" refId="6" navigable="false">      
+      <attribute id="219" name="handler"/>      
+      <multiplicity id="220" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="16" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="221">    
+    <end type="SOURCE" refId="13" navigable="false">      
+      <attribute id="222" name="view"/>      
+      <multiplicity id="223" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="42" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="224">    
+    <end type="SOURCE" refId="36" navigable="false">      
+      <attribute id="225" name="view"/>      
+      <multiplicity id="226" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="39" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="227">    
+    <bendpoint x="655" y="2873"/>    
+    <end type="SOURCE" refId="28" navigable="false">      
+      <attribute id="228" name="handler"/>      
+      <multiplicity id="229" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="16" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="230">    
+    <end type="SOURCE" refId="19" navigable="false">      
+      <attribute id="231" name="knifeItem"/>      
+      <multiplicity id="232" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="19" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="233">    
+    <end type="SOURCE" refId="35" navigable="false">      
+      <attribute id="234" name="world"/>      
+      <multiplicity id="235" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="43" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="236">    
+    <end type="SOURCE" refId="29" navigable="false">      
+      <attribute id="237" name="clicker"/>      
+      <multiplicity id="238" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="9" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="239">    
+    <end type="SOURCE" refId="40" navigable="false">      
+      <attribute id="240" name="view"/>      
+      <multiplicity id="241" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="18" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="242">    
+    <end type="SOURCE" refId="8" navigable="false">      
+      <attribute id="243" name="uimanager"/>      
+      <multiplicity id="244" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="30" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="245">    
+    <bendpoint x="1785" y="2873"/>    
+    <end type="SOURCE" refId="24" navigable="false">      
+      <attribute id="246" name="handler"/>      
+      <multiplicity id="247" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="16" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="248">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="5"/>  
+  </generalization>  
+  <association id="249">    
+    <bendpoint x="2527" y="2338"/>    
+    <end type="SOURCE" refId="23" navigable="false">      
+      <attribute id="250" name="items"/>      
+      <multiplicity id="251" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="19" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="252">    
+    <end type="SOURCE" refId="20"/>    
+    <end type="TARGET" refId="5"/>  
+  </generalization>  
+  <generalization id="253">    
+    <end type="SOURCE" refId="12"/>    
+    <end type="TARGET" refId="27"/>  
+  </generalization>  
+  <association id="254">    
+    <end type="SOURCE" refId="32" navigable="false">      
+      <attribute id="255" name="tile"/>      
+      <multiplicity id="256" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="41" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="257">    
+    <end type="SOURCE" refId="3" navigable="false">      
+      <attribute id="258" name="display"/>      
+      <multiplicity id="259" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="22" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="260">    
+    <end type="SOURCE" refId="17"/>    
+    <end type="TARGET" refId="5"/>  
+  </generalization>  
+  <association id="261">    
+    <end type="SOURCE" refId="19" navigable="false">      
+      <attribute id="262" name="handler"/>      
+      <multiplicity id="263" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="16" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="264">    
+    <end type="SOURCE" refId="19" navigable="false">      
+      <attribute id="265" name="candleItem"/>      
+      <multiplicity id="266" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="19" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="267">    
+    <end type="SOURCE" refId="47"/>    
+    <end type="TARGET" refId="46"/>  
+  </generalization>  
+  <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+    sort-features="false" accessors="true" visibility="true">    
+    <attributes public="true" package="true" protected="true" private="true" static="true"/>    
+    <operations public="true" package="true" protected="true" private="true" static="true"/>  
+  </classifier-display>  
+  <association-display labels="true" multiplicity="true"/>
+</class-diagram>
