@@ -205,8 +205,8 @@ public class Player extends Creature {
   }
   
   public void checkWin() {
-  	if (((int) (xpos / Tile.TILEWIDTH) == handler.getWorld().getWinX()) &&
-  			((int) (ypos / Tile.TILEHEIGHT) == handler.getWorld().getWinY())) {
+  	if (((int) (xpos / Tile.TILEWIDTH) == handler.getWorld().getWinX()-1) &&
+  			((int) (ypos / Tile.TILEHEIGHT) == handler.getWorld().getWinY()-1)) {
   		handler.getGame().setState(new WinState(handler));
   	}
   }
