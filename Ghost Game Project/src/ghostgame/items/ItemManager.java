@@ -1,12 +1,12 @@
 package ghostgame.items;
 
+import ghostgame.Handler;
+
 import java.awt.Graphics;
 
 import java.util.ArrayList;
 
 import java.util.Iterator;
-
-import ghostgame.Handler;
 
 /**
  * Kelas ItemManager merupakan kelas yang melakukan penanganan terhadap seluruh
@@ -36,14 +36,15 @@ public class ItemManager {
    */
   
   public void tick() {
-    assert(ic != null);
+    assert (ic != null);
     
     Iterator<Item> it = items.iterator();
-    while(it.hasNext()){
+    while (it.hasNext()) {
       ic.setItem(it.next());
       ic.tick();
-      if(ic.isItemPickedUp())
+      if (ic.isItemPickedUp()) {
         it.remove();
+      }
     }
   }
   
@@ -53,9 +54,9 @@ public class ItemManager {
    */
   
   public void render(Graphics g) {
-    assert(ic != null);
+    assert (ic != null);
     
-    for(Item i : items){
+    for (Item i : items) {
       ic.setItem(i);
       ic.render(g);
     }
@@ -67,7 +68,7 @@ public class ItemManager {
    */
   
   public void addItem(Item i) {
-    assert(ic != null);
+    assert (ic != null);
     
     ic.setItem(i);
     ic.setHandler(handler);

@@ -20,7 +20,8 @@ import javax.imageio.ImageIO;
 
 public class Assets {
   
-  private static final int WIDTH = 32, HEIGHT = 32;
+  private static final int WIDTH = 32;
+  private static final int HEIGHT = 32;
   public static Font font28;
   private static BufferedImage sheet;
   private static BufferedImage ghost;
@@ -32,7 +33,11 @@ public class Assets {
   public static BufferedImage winScreen;
   public static BufferedImage creditScreen;
   // button images
-  public static BufferedImage[] btn_start, btn_instruction, btn_credit, btn_back, btn_quit;
+  public static BufferedImage[] btn_start;
+  public static BufferedImage[] btn_instruction;
+  public static BufferedImage[] btn_credit;
+  public static BufferedImage[] btn_back
+  public static BufferedImage[] btn_quit;
   // static item images
   public static BufferedImage candle;
   public static BufferedImage key;
@@ -48,13 +53,27 @@ public class Assets {
   public static BufferedImage table;
   public static BufferedImage sofa;
   // player animation images
-  public static BufferedImage[] player_down, player_up, player_left, player_right;
+  public static BufferedImage[] player_down;
+  public static BufferedImage[] player_up;
+  public static BufferedImage[] player_left;
+  public static BufferedImage[] player_right;
   // ghost animation images
-  public static BufferedImage[] ghost1_down, ghost1_up, ghost1_left, ghost1_right;
-  public static BufferedImage[] ghost2_down, ghost2_up, ghost2_left, ghost2_right;
-  public static BufferedImage[] ghost3_down, ghost3_up, ghost3_left, ghost3_right;
+  public static BufferedImage[] ghost1_down;
+  public static BufferedImage[] ghost1_up;
+  public static BufferedImage[] ghost1_left;
+  public static BufferedImage[] ghost1_right;
+  public static BufferedImage[] ghost2_down;
+  public static BufferedImage[] ghost2_up;
+  public static BufferedImage[] ghost2_left;
+  public static BufferedImage[] ghost2_right;
+  public static BufferedImage[] ghost3_down;
+  public static BufferedImage[] ghost3_up;
+  public static BufferedImage[] ghost3_left;
+  public static BufferedImage[] ghost3_right;
   public static BufferedImage inventoryScreen;
-  public static BufferedImage floor, door, wall;
+  public static BufferedImage floor;
+  public static BufferedImage door;
+  public static BufferedImage wall;
   
   /**
     * Mengambil semua gambar yang dibutuhkan dalam game ini.
@@ -63,11 +82,13 @@ public class Assets {
   public static void init() {
     
     try {
-      font28 = Font.createFont(Font.TRUETYPE_FONT, new File("res/fonts/slkscr.ttf")).deriveFont(Font.PLAIN, 28);
+      font28 = Font.createFont(Font.TRUETYPE_FONT,
+        new File("res/fonts/slkscr.ttf")).deriveFont(Font.PLAIN, 28);
       sheet = ImageIO.read(new File("res/textures/asset.png"));
       ghost = ImageIO.read(new File("res/textures/ghost.png"));
       inventoryScreen = ImageIO.read(new File("res/textures/inventoryScreen.png"));
-    } catch (FontFormatException | IOException e) { e.printStackTrace();
+    } catch (FontFormatException | IOException e) {
+      e.printStackTrace();
       System.exit(1);
     }
     // Keterangan : sheet.getSubimage(X, Y, lebarGambar, panjangGambar)

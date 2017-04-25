@@ -1,9 +1,9 @@
 package ghostgame.inventory;
 
+import ghostgame.items.Item;
+
 import java.awt.Graphics;
 import java.awt.event.KeyEvent;
-
-import ghostgame.items.Item;
 
 /**
  * File : InventoryController.java
@@ -31,19 +31,22 @@ public class InventoryController {
    * Mengupdate kondisi objek Inventory untuk setiap satuan waktu.
    */
   
-  public void tick(){
-    if(inventory.getHandler().getKeyManager().keyJustPressed(KeyEvent.VK_E))
+  public void tick() {
+    if (inventory.getHandler().getKeyManager().keyJustPressed(KeyEvent.VK_E)) {
       inventory.setActive(!inventory.isActive());
-    if(inventory.isActive()){
-      if(inventory.getHandler().getKeyManager().keyJustPressed(KeyEvent.VK_W))
+    }
+    if (inventory.isActive()) {
+      if (inventory.getHandler().getKeyManager().keyJustPressed(KeyEvent.VK_W)) {
         inventory.setSelectedItem(inventory.getSelectedItem() - 1);
-      if(inventory.getHandler().getKeyManager().keyJustPressed(KeyEvent.VK_S))
+      }
+      if (inventory.getHandler().getKeyManager().keyJustPressed(KeyEvent.VK_S)) {
         inventory.setSelectedItem(inventory.getSelectedItem() + 1);
-      
-      if(inventory.getSelectedItem() < 0)
+      }
+      if (inventory.getSelectedItem() < 0) {
         inventory.setSelectedItem(inventory.getInventoryItems().size() - 1);
-      else if(inventory.getSelectedItem() >= inventory.getInventoryItems().size())
+      } else if (inventory.getSelectedItem() >= inventory.getInventoryItems().size()) {
         inventory.setSelectedItem(0);
+      }
     }
   }
   
@@ -52,9 +55,9 @@ public class InventoryController {
    * @param item yang ingin ditambahkan.
    */
   
-  public void addItem(Item item){
-    for(Item i : inventory.getInventoryItems()){
-      if(i.getId() == item.getId()){
+  public void addItem(Item item) {
+    for (Item i : inventory.getInventoryItems()) {
+      if (i.getId() == item.getId()) {
         i.setCount(i.getCount() + item.getCount());
         return;
       }
@@ -72,7 +75,8 @@ public class InventoryController {
   }
   
   /**
-   * Mengembalikan true apabila inventory sedang aktif (sedang ditampilkan)
+   * Mengembalikan true apabila inventory sedang aktif (sedang ditampilkan).
+   * @return true apabila inventory sedang aktif.
    */
   
   public boolean isInventoryActive() {

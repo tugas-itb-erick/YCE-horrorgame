@@ -1,8 +1,8 @@
 package ghostgame.items;
 
-import java.awt.Rectangle;
-
 import ghostgame.Handler;
+
+import java.awt.Rectangle;
 
 /**
   * File : Item.java 
@@ -21,7 +21,8 @@ public class Item {
   public static Item goldItem = new Item("Gold", 4);
   
   // Class Body
-  public static final int ITEMWIDTH = 32, ITEMHEIGHT = 32;
+  public static final int ITEMWIDTH = 32;
+  public static final int ITEMHEIGHT = 32;
   
   private Handler handler;
   private String name;
@@ -29,10 +30,19 @@ public class Item {
   
   private Rectangle bounds;
   
-  private int x, y, count;
-  private int width, heigth;
+  private int xpos;
+  private int ypos;
+  private int count;
+  private int width;
+  private int heigth;
   private boolean pickedUp = false;
   
+  /**
+    * Constructor dengan parameter.
+    * @param name nama item.
+    * @param id yang membedakan satu Item dengan Item yang lain.
+    */
+
   public Item(String name, int id) {
     this.name = name;
     this.id = id;
@@ -41,15 +51,16 @@ public class Item {
     width = ITEMWIDTH;
     heigth = ITEMHEIGHT;
     
-    bounds = new Rectangle(x, y, width, heigth);
+    bounds = new Rectangle(xpos, ypos, width, heigth);
   }
   
   /**
     * Constructor.
     * Menciptakan objek Item.
-    * @param texture gambar yang merepresentasikan Item.
     * @param name nama Item.
     * @param id id yang membedakan satu Item dengan Item yang lain.
+    * @param width lebar gambar yang merepresentasikan item..
+    * @param height panjang gambar yang merepresentasikan item.
     */
   
   public Item(String name, int id, int width, int height) {
@@ -57,7 +68,7 @@ public class Item {
     this.id = id;
     count = 1;
     
-    bounds = new Rectangle(x, y, width, heigth);
+    bounds = new Rectangle(xpos, ypos, width, heigth);
   }
   
   /**
@@ -75,29 +86,29 @@ public class Item {
   
   /**
     * Menciptakan Item dengan posisi yang ditentukan.
-    * @param x posisi Item dalam sumbu x.
-    * @param y posisi Item dalam sumbu y.
+    * @param xpos posisi Item dalam sumbu x.
+    * @param ypos posisi Item dalam sumbu y.
     * @return item dengan posisi x, y.
     */
   
-  public Item createNew(int x, int y) {
+  public Item createNew(int xpos, int ypos) {
     Item i = new Item(name, id);
-    i.setPosition(x, y);
+    i.setPosition(xpos, ypos);
     return i;
   }
   
   /**
     * I.S. locationX dan locationY sembarang.
     * F.S. locationX dan locationY diisi dengan nilai x, y yang baru.
-    * @param x lokasi pada sumbu x yang baru.
-    * @param y lokasi pada sumbu y yang baru.
+    * @param xpos lokasi pada sumbu x yang baru.
+    * @param ypos lokasi pada sumbu y yang baru.
     */
   
-  public void setPosition(int x, int y) {
-    this.x = x;
-    this.y = y;
-    bounds.x = x;
-    bounds.y = y;
+  public void setPosition(int xpos, int ypos) {
+    this.xpos = xpos;
+    this.ypos = ypos;
+    bounds.xpos = xpos;
+    bounds.ypos = ypos;
   }
   
   /**
@@ -154,17 +165,17 @@ public class Item {
     */
   
   public int getX() {
-    return x;
+    return xpos;
   }
 
   /**
     * I.S. locationX sembarang.
     * F.S. locationX diisi dengan nilai locationX yang baru.
-    * @param x posisi x yang baru.
+    * @param xpos posisi x yang baru.
     */
   
-  public void setX(int x) {
-    this.x = x;
+  public void setX(int xpos) {
+    this.xpos = xpos;
   }
 
   /**
@@ -173,17 +184,17 @@ public class Item {
     */
   
   public int getY() {
-    return y;
+    return ypos;
   }
 
   /**
     * I.S. locationY sembarang.
     * F.S. locationY diisi dengan nilai locationY yang baru.
-    * @param y posisi y yang baru.
+    * @param ypos posisi y yang baru.
     */
   
-  public void setY(int y) {
-    this.y = y;
+  public void setY(int ypos) {
+    this.ypos = ypos;
   }
   
   /**
@@ -198,7 +209,7 @@ public class Item {
   /**
    * I.S. count sembarang.
    * F.S. count diisi dengan nilai count yang baru.
-   * @param count
+   * @param count nilai count yang baru.
    */
   
   public void setCount(int count) {
