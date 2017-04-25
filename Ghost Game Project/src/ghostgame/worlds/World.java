@@ -26,42 +26,62 @@ import java.util.Scanner;
 
 public class World {
 
-  private Handler handler;
-  private int width;
-  private int height;
-  
-  private int spawnX;
-  private int spawnY;
-  
-  private int[][] tiles;
-  
-  private EntityManager entityManager;
-  private ItemManager itemManager;
-  
-  /**
-   * Constructor dengan parameter.
-   * @param handler handler game.
-   * @param path path menuju file input.
-   */
-  
-  public World(Handler handler, String path) {
-    this.handler = handler;
-    entityManager = new EntityManager(handler, new Player(handler, 100, 100));
-    itemManager = new ItemManager(handler);
-    loadStaticEntity("res/worlds/staticentity.txt");
-    loadItem("res/worlds/item.txt");
-    // Temporary entity code!
-    entityManager.addEntity(new Ghost2(handler, 64 * 6, 64 * 3));
-    entityManager.addEntity(new Ghost2(handler, 64 * 6, 64 * 4));
-    entityManager.addEntity(new Ghost2(handler, 64 * 6, 64 * 5));
-    entityManager.addEntity(new Ghost2(handler, 64 * 6, 64 * 6));
-    entityManager.addEntity(new Ghost2(handler, 64 * 6, 64 * 7));
-    
-    loadWorld(path);
-    
-    entityManager.getPlayer().setX(spawnX);
-    entityManager.getPlayer().setY(spawnY);
-  }
+	private Handler handler;
+	private int width;
+	private int height;
+	
+	private int spawnX;
+	private int spawnY;
+	
+	private int[][] tiles;
+	
+	private EntityManager entityManager;
+	private ItemManager itemManager;
+	
+	/**
+	 * Constructor dengan parameter.
+	 * @param handler handler game.
+	 * @param path path menuju file input.
+	 */
+	
+	public World(Handler handler, String path){
+		this.handler = handler;
+		entityManager = new EntityManager(handler, new Player(handler, 100, 100));
+		itemManager = new ItemManager(handler);
+		loadStaticEntity("res/worlds/staticentity.txt");
+		loadItem("res/worlds/item.txt");
+		// Temporary entity code!
+		entityManager.addEntity(new Ghost2(handler, 64*6, 64*3));
+		entityManager.addEntity(new Ghost2(handler, 64*6, 64*4));
+		entityManager.addEntity(new Ghost2(handler, 64*6, 64*5));
+		entityManager.addEntity(new Ghost2(handler, 64*6, 64*6));
+		entityManager.addEntity(new Ghost2(handler, 64*6, 64*7));
+		
+		loadWorld(path);
+		
+		entityManager.getPlayer().setX(spawnX);
+		entityManager.getPlayer().setY(spawnY);
+		
+    /*try {
+      AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File("res/audio/remnant-of-twilight.wav").getAbsoluteFile());
+      Clip clip = AudioSystem.getClip();
+      clip.open(audioInputStream);
+      clip.start();
+	  } catch(Exception ex) {
+	      System.out.println("Error with playing sound.");
+	      ex.printStackTrace();
+	  }*/
+		/*InputStream in;
+		AudioStream as = null;
+		try {
+			in = new FileInputStream("res/audio/remnant-of-twilight.mp3");
+			as = new AudioStream(in); 
+		} catch (IOException e) {
+			e.printStackTrace();
+		}        
+		AudioPlayer.player.start(as);*/            
+		//AudioPlayer.player.stop(as); 
+	}
   
   /**
    * Mengupdate seluruh item dan entitas pada world.
