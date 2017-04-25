@@ -110,7 +110,7 @@ public class Game implements Runnable {
   }
   
   /** 
-    * Menjalankan program dengan pengaturan 60 frame per sekon.
+    * Menjalankan program dengan pengaturan 60 frames per sekon.
     */
   
   public void run() { 
@@ -188,7 +188,7 @@ public class Game implements Runnable {
   }
   
   /**
-    * Fungsi untuk menjalankan sebuah thread.
+    * Fungsi untuk memulai sebuah thread permainan baru.
     */
   
   public synchronized void start() {

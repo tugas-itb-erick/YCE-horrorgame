@@ -1,6 +1,7 @@
 package ghostgame.items;
 
 import ghostgame.Handler;
+import ghostgame.tiles.Tile;
 
 import java.awt.Graphics;
 
@@ -53,12 +54,15 @@ public class ItemManager {
    * @param g grafik yang menyatakan ItemManager.
    */
   
-  public void render(Graphics g) {
+  public void render(Graphics g, int xstart, int ystart, int xend, int yend) {
     assert (ic != null);
     
     for (Item i : items) {
-      ic.setItem(i);
-      ic.render(g);
+      if (i.getX()/Tile.TILEWIDTH >= xstart && i.getX()/Tile.TILEWIDTH < xend
+      && i.getY()/Tile.TILEWIDTH >= ystart && i.getY()/Tile.TILEWIDTH < yend) {
+	      ic.setItem(i);
+	      ic.render(g);
+      }
     }
   }
   

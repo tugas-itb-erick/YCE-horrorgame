@@ -20,7 +20,7 @@ public class Ghost1 extends Ghost {
   public Ghost1(Handler handler, float x, float y) {
     super(handler, x, y);
     speed = 2.5f;
-    //damage
+    health = 1;
     atk = 1;
   }
 

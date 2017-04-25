@@ -1,32 +1,21 @@
 package ghostgame.entities;
 
-import ghostgame.Handler;
-
-import ghostgame.entities.creatures.Ghost;
-
-import ghostgame.entities.creatures.GhostController;
-
-import ghostgame.entities.creatures.GhostView;
-
-import ghostgame.entities.creatures.Player;
-
-import ghostgame.entities.creatures.PlayerController;
-
-import ghostgame.entities.creatures.PlayerView;
-
-import ghostgame.entities.statics.StaticEntity;
-
-import ghostgame.entities.statics.StaticEntityController;
-
-import ghostgame.entities.statics.StaticEntityView;
-
 import java.awt.Graphics;
-
 import java.util.ArrayList;
-
 import java.util.Comparator;
-
 import java.util.Iterator;
+
+import ghostgame.Handler;
+import ghostgame.entities.creatures.Ghost;
+import ghostgame.entities.creatures.GhostController;
+import ghostgame.entities.creatures.GhostView;
+import ghostgame.entities.creatures.Player;
+import ghostgame.entities.creatures.PlayerController;
+import ghostgame.entities.creatures.PlayerView;
+import ghostgame.entities.statics.StaticEntity;
+import ghostgame.entities.statics.StaticEntityController;
+import ghostgame.entities.statics.StaticEntityView;
+import ghostgame.tiles.Tile;
 
 /**
  * Kelas EntityManager merupakan kelas yang melakukan penanganan terhadap seluruh
@@ -95,24 +84,27 @@ public class EntityManager {
   /**
    * Mencetak gambar entitas ke layar.
    * @param g grafik yang menggambarkan entitas.
-   * @param xstart posisi awal dalam sumbu x.
-   * @param ystart posisi awal dalam sumbu y.
-   * @param xend posisi akhir dalam sumbu x.
-   * @param yend posisi akhir dalam sumbu y.
+   * @param xstart posisi awal dalam sumbu x yang akan dirender.
+   * @param ystart posisi awal dalam sumbu y yang akan dirender.
+   * @param xend posisi akhir dalam sumbu x yang akan dirender.
+   * @param yend posisi akhir dalam sumbu y yang akan dirender.
    */
   
   public void render(Graphics g, int xstart, int ystart, int xend, int yend) {
     for (Entity e : entities) {
-      //if (e.getX()/Tile.TILEWIDTH >= xstart && e.getX()/Tile.TILEWIDTH+1 < xend
-      //&& e.getY()/Tile.TILEWIDTH >= ystart && e.getY()/Tile.TILEWIDTH+1 < yend)
-      if (e instanceof StaticEntity) {
-        sc.setStaticEntity((StaticEntity) e);
-        sc.render(g);
-      } else if (e instanceof Player) {
+    	if (e instanceof Player) {
         pc.render(g);
-      } else if (e instanceof Ghost) {
-        gc.setGhost((Ghost) e);
-        gc.render(g);
+      } else {
+	      if (e.getX()/Tile.TILEWIDTH >= xstart && e.getX()/Tile.TILEWIDTH < xend
+	      && e.getY()/Tile.TILEWIDTH >= ystart && e.getY()/Tile.TILEWIDTH < yend){
+		      if (e instanceof StaticEntity) {
+		        sc.setStaticEntity((StaticEntity) e);
+		        sc.render(g);
+		      } else if (e instanceof Ghost) {
+		        gc.setGhost((Ghost) e);
+		        gc.render(g);
+		      }
+	      }
       }
     }
     pc.postRender(g);

@@ -124,8 +124,8 @@ public class Player extends Creature {
   public void checkCandle() {
     assert (inventory != null);
     if (inventory.containItem("Candle")) {
-      sightX = 2;
-      sightY = 1;
+      sightX = 3;
+      sightY = 2;
     }
   }
   

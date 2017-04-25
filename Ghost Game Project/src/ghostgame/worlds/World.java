@@ -125,7 +125,7 @@ public class World {
       }
     }
     // Items
-    itemManager.render(g);
+    itemManager.render(g, xstart, ystart, xend, yend);
     //Entities
     entityManager.render(g, xstart, ystart, xend, yend);
   }
