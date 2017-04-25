@@ -1,16 +1,16 @@
 package ghostgametest.ui;
 
 import static org.junit.Assert.assertTrue;
-import ghostgame.ui.UIImageButton;
+import ghostgame.ui.UIimageButton;
 
 import java.awt.image.BufferedImage;
 
 import org.junit.Test;
 
-public class UIImageButtonTest {
+public class UIimageButtonTest {
 
 	BufferedImage images[];
-	UIImageButton o = new UIImageButton(2, 3, 4, 5, images, null);
+	UIimageButton o = new UIimageButton(2, 3, 4, 5, images, null);
 
 	@Test
 	public void testGetX() {
