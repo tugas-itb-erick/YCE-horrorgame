@@ -1,8 +1,8 @@
 package ghostgame.entities;
 
-import java.awt.Rectangle;
-
 import ghostgame.Handler;
+
+import java.awt.Rectangle;
 
 /**
  * Kelas Entity merupakan kelas yang menggambarkan entitas-entitas
@@ -14,8 +14,10 @@ public abstract class Entity {
 
   public static final int DEFAULT_HEALTH = 3;
   protected Handler handler;
-  protected float x, y;
-  protected int width, height;
+  protected float xpos;
+  protected float ypos;
+  protected int width;
+  protected int height;
   protected int health;
   protected boolean active = true;
   protected Rectangle bounds;
@@ -23,16 +25,16 @@ public abstract class Entity {
   /**
    * Constructor dengan parameter.
    * @param handler nilai yang menyatakan keterhubungan world dengan entitas.
-   * @param x posisi entitas dalam sumbu x.
-   * @param y posisi entitas dalam sumbu y.
+   * @param xpos posisi entitas dalam sumbu x.
+   * @param ypos posisi entitas dalam sumbu y.
    * @param width lebar entitas.
    * @param height panjang entitas.
    */
   
-  public Entity(Handler handler, float x, float y, int width, int height) {
+  public Entity(Handler handler, float xpos, float ypos, int width, int height) {
     this.handler = handler;
-    this.x = x;
-    this.y = y;
+    this.xpos = xpos;
+    this.ypos = ypos;
     this.width = width;
     this.height = height;
     health = DEFAULT_HEALTH;
@@ -49,68 +51,71 @@ public abstract class Entity {
   
   /**
    * Mengecek apakah suatu entitas menabarak entitas yang lain.
-   * @param xOffset perpindahan dalam sumbu x.
-   * @param yOffset perpindahan dalam sumbu y.
+   * @param xoffset perpindahan dalam sumbu x.
+   * @param yoffset perpindahan dalam sumbu y.
    * @return true jika terjadi tabrakan antarentitas.
    */
   
-  public boolean checkEntityCollisions(float xOffset, float yOffset) {
-    for(Entity e : handler.getWorld().getEntityManager().getEntities()){
-      if (e.equals(this))
+  public boolean checkEntityCollisions(float xoffset, float yoffset) {
+    for (Entity e : handler.getWorld().getEntityManager().getEntities()) {
+      if (e.equals(this)) {
         continue;
-      if (e.getCollisionBounds(0f, 0f).intersects(getCollisionBounds(xOffset, yOffset)))
+      }
+      if (e.getCollisionBounds(0f, 0f).intersects(getCollisionBounds(xoffset, yoffset))) {
         return true;
+      }
     }
     return false;
   }
   
   /**
    * Mengembalikan nilai Rectangle yang menyatakan bounds.
-   * @param xOffset perpindahan dalam sumbu x.
-   * @param yOffset perpindahan dalam sumbu y.
+   * @param xoffset perpindahan dalam sumbu x.
+   * @param yoffset perpindahan dalam sumbu y.
    * @return rectangle yang menyatakan nilai bound.
    */
   
-  public Rectangle getCollisionBounds(float xOffset, float yOffset) {
-    return new Rectangle((int) (x + bounds.x + xOffset), (int) (y + bounds.y + yOffset), bounds.width, bounds.height);
+  public Rectangle getCollisionBounds(float xoffset, float yoffset) {
+    return new Rectangle((int) (xpos + bounds.x + xoffset), (int) (ypos + bounds.y + yoffset),
+         bounds.width, bounds.height);
   }
 
   /**
-   * Mengembalikan posisi dalam koordinat x.
-   * @return posisi dalam koordinat x.
+   * Mengembalikan posisi dalam koordinat xpos.
+   * @return posisi dalam koordinat xpos.
    */
   
   public float getX() {
-    return x;
+    return xpos;
   }
 
   /**
-   * I.S. x sembarang.
-   * F.S. x terdefinisi sesuai dengan nilai x yang baru.
-   * @param x nilai x yang baru.
+   * I.S. xpos sembarang.
+   * F.S. xpos terdefinisi sesuai dengan nilai xpos yang baru.
+   * @param xpos nilai xpos yang baru.
    */
   
-  public void setX(float x) {
-    this.x = x;
+  public void setX(float xpos) {
+    this.xpos = xpos;
   }
 
   /**
-   * Mengembalikan posisi dalam sumbu y.
-   * @return posisi dalam sumbu y.
+   * Mengembalikan posisi dalam sumbu ypos.
+   * @return posisi dalam sumbu ypos.
    */
   
   public float getY() {
-    return y;
+    return ypos;
   }
 
   /**
-   * I.S. y sembarang.
-   * F.S. y terdefinisi sesuai dengan nilai y yang baru.
-   * @param y nilai y yang baru.
+   * I.S. ypos sembarang.
+   * F.S. ypos terdefinisi sesuai dengan nilai ypos yang baru.
+   * @param ypos nilai ypos yang baru.
    */
   
-  public void setY(float y) {
-    this.y = y;
+  public void setY(float ypos) {
+    this.ypos = ypos;
   }
 
   /**
@@ -211,7 +216,6 @@ public abstract class Entity {
    * I.S. handler sembarang.
    * F.S. handler terdefinisi sesuai dengan nilai handler yang baru.
    * @param handler nilai active yang baru.
-   * @param handler nilai active yang baru.
    */
   
   public void setHandler(Handler handler) {
@@ -229,10 +233,9 @@ public abstract class Entity {
   }
 
   /**
-   * I.S. bound sembarang.
-   * F.S. bound terdefinisi sesuai dengan nilai bound yang baru.
-   * @param bound nilai bound yang baru.
-   * @param bound nilai bound yang baru.
+   * I.S. bounds sembarang.
+   * F.S. bounds terdefinisi sesuai dengan nilai bounds yang baru.
+   * @param bounds nilai bound yang baru.
    */
   
   public void setBounds(Rectangle bounds) {

@@ -61,8 +61,8 @@ public class Ghost2 extends Ghost {
     xplayer = (int)(handler.getWorld().getEntityManager().getPlayer().getX() / Tile.TILEWIDTH);
     yplayer = (int)(handler.getWorld().getEntityManager().getPlayer().getY() / Tile.TILEHEIGHT);
     try {
-      if (mapTemp[(int)x / Tile.TILEWIDTH][(int)(y / Tile.TILEHEIGHT) - 1] == false) {
-        upInt = bfs((int)x / Tile.TILEWIDTH, (int)(y / Tile.TILEHEIGHT) - 1,
+      if (mapTemp[(int)xpos / Tile.TILEWIDTH][(int)(ypos / Tile.TILEHEIGHT) - 1] == false) {
+        upInt = bfs((int)xpos / Tile.TILEWIDTH, (int)(ypos / Tile.TILEHEIGHT) - 1,
             (int)xplayer, (int)yplayer, mapTemp);
       } else {
         upInt = 999;
@@ -71,8 +71,8 @@ public class Ghost2 extends Ghost {
       upInt = 999;
     }
     try {
-      if (mapTemp[(int)x / Tile.TILEWIDTH][(int)(y / Tile.TILEHEIGHT) + 1] == false) {
-        downInt = bfs((int)x / Tile.TILEWIDTH, (int)(y / Tile.TILEHEIGHT) + 1, (int)xplayer,
+      if (mapTemp[(int)xpos / Tile.TILEWIDTH][(int)(ypos / Tile.TILEHEIGHT) + 1] == false) {
+        downInt = bfs((int)xpos / Tile.TILEWIDTH, (int)(ypos / Tile.TILEHEIGHT) + 1, (int)xplayer,
             (int)yplayer, mapTemp);
       } else {
         downInt = 999;
@@ -81,8 +81,8 @@ public class Ghost2 extends Ghost {
       downInt = 999;
     }
     try {
-      if (mapTemp[(int)(x / Tile.TILEWIDTH) - 1][(int)y / Tile.TILEHEIGHT] == false) {
-        leftInt = bfs((int)(x / Tile.TILEWIDTH) - 1, (int)y / Tile.TILEHEIGHT, (int)xplayer,
+      if (mapTemp[(int)(xpos / Tile.TILEWIDTH) - 1][(int)ypos / Tile.TILEHEIGHT] == false) {
+        leftInt = bfs((int)(xpos / Tile.TILEWIDTH) - 1, (int)ypos / Tile.TILEHEIGHT, (int)xplayer,
             (int)yplayer, mapTemp);
       } else {
         leftInt = 999;
@@ -91,8 +91,8 @@ public class Ghost2 extends Ghost {
       leftInt = 999;
     }
     try {
-      if (mapTemp[(int)(x / Tile.TILEWIDTH) + 1][(int)y / Tile.TILEHEIGHT] == false) {
-        rightInt = bfs((int)(x / Tile.TILEWIDTH) + 1, (int)y / Tile.TILEHEIGHT,
+      if (mapTemp[(int)(xpos / Tile.TILEWIDTH) + 1][(int)ypos / Tile.TILEHEIGHT] == false) {
+        rightInt = bfs((int)(xpos / Tile.TILEWIDTH) + 1, (int)ypos / Tile.TILEHEIGHT,
             (int)xplayer, (int)yplayer, mapTemp);
       } else {
         rightInt = 999;
