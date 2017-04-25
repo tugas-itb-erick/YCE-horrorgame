@@ -1,7 +1,17 @@
 package ghostgame.ui;
 
+/**
+ * File : ClickListener.java.
+ * Kelas ClickListener merepresentasikan click listener.
+ * @author 
+ */
+
 public interface ClickListener {
-	
-	public void onClick();
+  
+  /**
+   * Mengubah state ketika click.
+   */
+  
+  public void onClick();
 
 }

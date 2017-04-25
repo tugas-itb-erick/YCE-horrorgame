@@ -4,92 +4,125 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 
-import ghostgame.ui.UIManager;
+import ghostgame.ui.UImanager;
+
+/**
+ * File : MouseManager.java.
+ * Kelas MouseManager mengatur input dari mouse.
+ * @author 
+ */
 
 public class MouseManager implements MouseListener, MouseMotionListener {
 
-	private boolean leftPressed, rightPressed;
-	private int mouseX, mouseY;
-	private UIManager uiManager;
-	
-	public MouseManager(){
-		
-	}
-	
-	public void setUIManager(UIManager uiManager){
-		this.uiManager = uiManager;
-	}
-	
-	// Getters
-	
-	public boolean isLeftPressed(){
-		return leftPressed;
-	}
-	
-	public boolean isRightPressed(){
-		return rightPressed;
-	}
-	
-	public int getMouseX(){
-		return mouseX;
-	}
-	
-	public int getMouseY(){
-		return mouseY;
-	}
-	
-	// Implemented methods
-	
-	@Override
-	public void mousePressed(MouseEvent e) {
-		if(e.getButton() == MouseEvent.BUTTON1)
-			leftPressed = true;
-		else if(e.getButton() == MouseEvent.BUTTON3)
-			rightPressed = true;
-	}
+  private boolean leftPressed, rightPressed;
+  private int mouseX, mouseY;
+  private UImanager UImanager;
+  
+  /**
+    * Constructor
+    */
 
-	@Override
-	public void mouseReleased(MouseEvent e) {
-		if(e.getButton() == MouseEvent.BUTTON1)
-			leftPressed = false;
-		else if(e.getButton() == MouseEvent.BUTTON3)
-			rightPressed = false;
-		
-		if(uiManager != null)
-			uiManager.onMouseRelease(e);
-	}
+  public MouseManager() {
+    
+  }
+  
+  /** 
+    * I.S. atribut UImanager sembarang.
+    * F.S. atribut UImanager terdefinisi.
+    * @param atk Nilai yang akan dimasukkan ke atribut UImanager.
+    */
 
-	@Override
-	public void mouseMoved(MouseEvent e) {
-		mouseX = e.getX();
-		mouseY = e.getY();
-		
-		if(uiManager != null)
-			uiManager.onMouseMove(e);
-	}
-	
-	@Override
-	public void mouseDragged(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
+  public void setUImanager(UImanager UImanager) {
+    this.UImanager = UImanager;
+  }
+  
+  /**
+    * Fungsi yang mengembalikan true jika mouse kiri di klick
+    * dan false jika tidak.
+    * @return Nilai dari leftPressed;
+    */
+  
+  public boolean isLeftPressed() {
+    return leftPressed;
+  }
 
-	@Override
-	public void mouseClicked(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
+  /**
+    * Fungsi yang mengembalikan true jika mouse kanan di klick
+    * dan false jika tidak.
+    * @return Nilai dari rightPressed;
+    */
+  
+  public boolean isRightPressed() {
+    return rightPressed;
+  }
+  
+  /**
+    * Fungsi yang mengembalikan nilai mouseX.
+    * @return Nilai dari mouseX.
+    */
+  
+  public int getMouseX() {
+    return mouseX;
+  }
 
-	@Override
-	public void mouseEntered(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
+  /**
+    * Fungsi yang mengembalikan nilai mouseY.
+    * @return Nilai dari mouseY.
+    */
+  
+  public int getMouseY(){
+    return mouseY;
+  }
+  
+  @Override
+  public void mousePressed(MouseEvent e) {
+    if(e.getButton() == MouseEvent.BUTTON1)
+      leftPressed = true;
+    else if(e.getButton() == MouseEvent.BUTTON3)
+      rightPressed = true;
+  }
 
-	@Override
-	public void mouseExited(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
+  @Override
+  public void mouseReleased(MouseEvent e) {
+    if(e.getButton() == MouseEvent.BUTTON1)
+      leftPressed = false;
+    else if(e.getButton() == MouseEvent.BUTTON3)
+      rightPressed = false;
+    
+    if(UImanager != null)
+      UImanager.onMouseRelease(e);
+  }
 
+  @Override
+  public void mouseMoved(MouseEvent e) {
+    mouseX = e.getX();
+    mouseY = e.getY();
+    
+    if(UImanager != null)
+      UImanager.onMouseMove(e);
+  }
+  
+  @Override
+  public void mouseDragged(MouseEvent e) {
+    // TODO Auto-generated method stub
+    
+  }
+
+  @Override
+  public void mouseClicked(MouseEvent e) {
+    // TODO Auto-generated method stub
+    
+  }
+
+  @Override
+  public void mouseEntered(MouseEvent e) {
+    // TODO Auto-generated method stub
+    
+  }
+
+  @Override
+  public void mouseExited(MouseEvent e) {
+    // TODO Auto-generated method stub
+    
+  }
 }
