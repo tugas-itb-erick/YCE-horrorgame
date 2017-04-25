@@ -1,24 +1,16 @@
 package ghostgame.entities.creatures;
 
-import ghostgame.entities.Entity;
-
-import ghostgame.entities.statics.StaticEntity;
-
-import ghostgame.gfx.Animation;
-
-import ghostgame.gfx.Assets;
-
-import ghostgame.inventory.InventoryController;
-
-import ghostgame.inventory.InventoryView;
-
-import ghostgame.items.Item;
-
 import java.awt.Graphics;
-
 import java.awt.Rectangle;
-
 import java.awt.image.BufferedImage;
+
+import ghostgame.entities.Entity;
+import ghostgame.entities.statics.StaticEntity;
+import ghostgame.gfx.Animation;
+import ghostgame.gfx.Assets;
+import ghostgame.inventory.InventoryController;
+import ghostgame.inventory.InventoryView;
+import ghostgame.items.Item;
 
 /** 
   * File : PlayerController.java.
@@ -211,11 +203,19 @@ public class PlayerController {
           if (((StaticEntity)e).getId() == 2) {
             e.hurt(1);
             player.getInventory().removeItem(Item.keyItem);
+            if (Assets.openDoor != null) {
+            	Assets.openDoor.setFramePosition(0);
+            	Assets.openDoor.start();
+            }
             return;
           }
         }
         if ((e instanceof Ghost) && player.isHasWeapon()) {
           e.hurt(1);
+          if (Assets.stab != null) {
+          	Assets.stab.setFramePosition(0);
+          	Assets.stab.start();
+          }
           return;
         }
       }

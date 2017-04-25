@@ -1,20 +1,19 @@
 package ghostgame.gfx;
 
 import java.awt.Font;
-
 import java.awt.FontFormatException;
-
 import java.awt.image.BufferedImage;
-
 import java.io.File;
-
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
 
 /**
   * Kelas Assets yang merepresentasikan pengambilan gambar dari
-  * file png.
+  * file png dan musik dengan format wav. 
   * @author Kevin Iswara - 13515085.
   */
 
@@ -22,7 +21,9 @@ public class Assets {
   
   private static final int WIDTH = 32;
   private static final int HEIGHT = 32;
+  // text font for inventory
   public static Font font28;
+  // main sheet and ghost sheet
   private static BufferedImage sheet;
   private static BufferedImage ghost;
   // main menu background image
@@ -71,9 +72,15 @@ public class Assets {
   public static BufferedImage[] ghost3_left;
   public static BufferedImage[] ghost3_right;
   public static BufferedImage inventoryScreen;
+  // tile and door
   public static BufferedImage floor;
   public static BufferedImage door;
   public static BufferedImage wall;
+  // audio
+  public static Clip bgmusic;
+  public static Clip openDoor;
+  public static Clip scream;
+  public static Clip stab;
   
   /**
     * Mengambil semua gambar yang dibutuhkan dalam game ini.
@@ -181,6 +188,42 @@ public class Assets {
     floor = sheet.getSubimage(WIDTH, 0, WIDTH, HEIGHT);
     door = sheet.getSubimage(WIDTH * 2, 0, WIDTH, HEIGHT);
     wall = sheet.getSubimage(WIDTH * 3, 0, WIDTH, HEIGHT);
+    
+    bgmusic = null;
+    openDoor = null;
+    scream = null;
+    stab = null;
+    
+    try {
+      AudioInputStream audioInputStream = AudioSystem.getAudioInputStream
+      (new File("res/audio/remnant-of-twilight.wav").getAbsoluteFile());
+      bgmusic = AudioSystem.getClip();
+      bgmusic.open(audioInputStream);
+      audioInputStream = AudioSystem.getAudioInputStream
+      (new File("res/audio/door.wav").getAbsoluteFile());
+      openDoor = AudioSystem.getClip();
+      openDoor.open(audioInputStream);
+      audioInputStream = AudioSystem.getAudioInputStream
+      (new File("res/audio/scream.wav").getAbsoluteFile());
+      scream = AudioSystem.getClip();
+      scream.open(audioInputStream);
+      audioInputStream = AudioSystem.getAudioInputStream
+      (new File("res/audio/stab.wav").getAbsoluteFile());
+      stab = AudioSystem.getClip();
+      stab.open(audioInputStream);
+	  } catch(Exception e) {
+	      System.out.println("Error with playing sound.");
+	      e.printStackTrace();
+	  }
+    
+    /*try {
+    	bgmusic = new AudioStream(new FileInputStream("res/audio/remnant-of-twilight.wav"));
+    	openDoor = new AudioStream(new FileInputStream("res/audio/door.wav"));
+    	scream = new AudioStream(new FileInputStream("res/audio/scream.wav"));
+    	stab = new AudioStream(new FileInputStream("res/audio/stab.wav"));
+    } catch (IOException e) {
+    	e.printStackTrace();
+    }*/
   }
   
 }
