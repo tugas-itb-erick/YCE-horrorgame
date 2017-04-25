@@ -5,6 +5,12 @@ import ghostgame.input.KeyManager;
 import ghostgame.input.MouseManager;
 import ghostgame.worlds.World;
 
+/**
+ * File : Handler.java.
+ * Kelas Handler menghubungkan World dengan kelas lain.
+ * @author 
+ */
+
 public class Handler {
 	
 	private Game game;

@@ -6,6 +6,12 @@ import java.util.ArrayList;
 
 import ghostgame.Handler;
 
+/** 
+ * File : UIManager.java.
+ * Kelas yang merepresentasikan array of object interface yang ada pada game ini.
+ * @author
+ */
+
 public class UIManager {
 
   private Handler handler;

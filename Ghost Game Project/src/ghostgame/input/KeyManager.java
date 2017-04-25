@@ -3,6 +3,12 @@ package ghostgame.input;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
+/**
+ * File : KeyManager.java.
+ * Kelas KeyManager mengatur input dari keyboard.
+ * @author 
+ */
+
 public class KeyManager implements KeyListener {
 	
 	private boolean[] keys, justPressed, cantPress;
@@ -13,7 +19,7 @@ public class KeyManager implements KeyListener {
 	  * Constructor.
 	  */
 	
-	public KeyManager(){
+	public KeyManager() {
 		keys = new boolean[256];
 		justPressed = new boolean[keys.length];
 		cantPress = new boolean[keys.length];
@@ -23,7 +29,7 @@ public class KeyManager implements KeyListener {
 	 	* Meng-update kondisi keyboard untuk setiap satuan waktu.
 	 	*/
 
-	public void tick(){
+	public void tick() {
 		for (int i = 0;i < keys.length;i++) {
 			if (cantPress[i] && !keys[i]) {
 				cantPress[i] = false;
@@ -51,7 +57,7 @@ public class KeyManager implements KeyListener {
 	  * true jika sebaliknya
 	  */
 	
-	public boolean keyJustPressed(int keyCode){
+	public boolean keyJustPressed(int keyCode) {
 		if(keyCode < 0 || keyCode >= keys.length)
 			return false;
 		return justPressed[keyCode];

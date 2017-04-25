@@ -2,6 +2,12 @@ package ghostgame.tiles;
 
 import java.awt.Graphics;
 
+/**
+ * File : TileController.java.
+ * Kelas TileController merepresentasikan tile controller.
+ * @author 
+ */
+
 public class TileController {
 	
 	private Tile tile;

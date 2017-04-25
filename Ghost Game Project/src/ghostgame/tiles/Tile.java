@@ -1,5 +1,11 @@
 package ghostgame.tiles;
 
+/**
+ * File : Tile.java.
+ * Kelas Tile merepresentasikan object tile pada game.
+ * @author 
+ */
+
 public class Tile {
 	
 	// Static Instances

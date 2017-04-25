@@ -5,6 +5,12 @@ import java.awt.image.BufferedImage;
 
 import ghostgame.gfx.Assets;
 
+/**
+ * File : TileView.java.
+ * Kelas TileView merepresentasikan tampilan tile.
+ * @author 
+ */
+
 public class TileView {
 	
 	/**

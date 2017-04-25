@@ -20,6 +20,12 @@ import java.awt.Graphics;
 
 import java.awt.image.BufferStrategy;
 
+/**
+ * File : Game.java.
+ * Kelas Game merepresentasikan permainan.
+ * @author 
+ */
+
 public class Game implements Runnable {
 
 	private Display display;

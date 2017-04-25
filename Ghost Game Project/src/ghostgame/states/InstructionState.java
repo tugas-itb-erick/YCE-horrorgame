@@ -2,8 +2,8 @@ package ghostgame.states;
 
 /**
   * File : InstructionState.java.
-  * Kelas InstructionState merepresentasikan tampilan instruction 
-  * @author Veren Iliana K - 13515057
+  * Kelas InstructionState merepresentasikan tampilan instruction.
+  * @author Veren Iliana K - 13515057.
   */
 
 import ghostgame.Handler;
@@ -29,8 +29,8 @@ public class InstructionState extends State {
     uiManager = new UIManager(handler);
     handler.getMouseManager().setUIManager(uiManager);
     
-    for(int x=0; x<handler.getGame().getWidth(); x += 128){
-    	for(int y=0; y<handler.getGame().getHeight(); y += 128){
+    for (int x=0; x<handler.getGame().getWidth(); x += 128) {
+    	for (int y=0; y<handler.getGame().getHeight(); y += 128) {
     		uiManager.addObject(new UIImage((int)x, (int)y, 128, 128, Assets.mainMenuBackground));
     	}
     }

@@ -6,6 +6,12 @@ import java.awt.event.MouseMotionListener;
 
 import ghostgame.ui.UIManager;
 
+/**
+ * File : MouseManager.java.
+ * Kelas MouseManager mengatur input dari mouse.
+ * @author 
+ */
+
 public class MouseManager implements MouseListener, MouseMotionListener {
 
 	private boolean leftPressed, rightPressed;
@@ -16,7 +22,7 @@ public class MouseManager implements MouseListener, MouseMotionListener {
 	  * Constructor
 	  */
 
-	public MouseManager(){
+	public MouseManager() {
 		
 	}
 	
@@ -26,7 +32,7 @@ public class MouseManager implements MouseListener, MouseMotionListener {
     * @param atk Nilai yang akan dimasukkan ke atribut uiManager.
     */
 
-	public void setUIManager(UIManager uiManager){
+	public void setUIManager(UIManager uiManager) {
 		this.uiManager = uiManager;
 	}
 	
@@ -36,7 +42,7 @@ public class MouseManager implements MouseListener, MouseMotionListener {
 	  * @return Nilai dari leftPressed;
 	  */
 	
-	public boolean isLeftPressed(){
+	public boolean isLeftPressed() {
 		return leftPressed;
 	}
 
@@ -46,7 +52,7 @@ public class MouseManager implements MouseListener, MouseMotionListener {
 	  * @return Nilai dari rightPressed;
 	  */
 	
-	public boolean isRightPressed(){
+	public boolean isRightPressed() {
 		return rightPressed;
 	}
 	
@@ -55,7 +61,7 @@ public class MouseManager implements MouseListener, MouseMotionListener {
 	  * @return Nilai dari mouseX.
 	  */
 	
-	public int getMouseX(){
+	public int getMouseX() {
 		return mouseX;
 	}
 

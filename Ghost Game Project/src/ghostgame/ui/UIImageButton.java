@@ -3,6 +3,12 @@ package ghostgame.ui;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 
+/** 
+ * File : UIImageButton.java.
+ * Kelas yang merepresentasikan object button interface yang ada pada game ini.
+ * @author
+ */
+
 public class UIImageButton extends UIObject {
 
   private BufferedImage[] images;

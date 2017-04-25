@@ -45,7 +45,7 @@ public class World {
 	 * @param path path menuju file input.
 	 */
 	
-	public World(Handler handler, String path){
+	public World(Handler handler, String path) {
 		this.handler = handler;
 		entityManager = new EntityManager(handler, new Player(handler, 100, 100));
 		itemManager = new ItemManager(handler);
@@ -70,7 +70,7 @@ public class World {
 	 * F.S. seluruh entitas dan item di-update
 	 */
 	
-	public void tick(){
+	public void tick() {
 		assert(itemManager != null);
 		assert(entityManager != null);
 		
@@ -85,7 +85,7 @@ public class World {
 	 * @param g tool graphics yang digunakan.
 	 */
 	
-	public void render(Graphics g){
+	public void render(Graphics g) {
 		assert(tiles != null);
 		assert(handler != null);
 		
@@ -114,7 +114,7 @@ public class World {
 	 * @return Tile pada posisi (x,y).
 	 */
 	
-	public Tile getTile(int x, int y){
+	public Tile getTile(int x, int y) {
 		assert(tiles != null);
 		
 		if(x < 0 || y < 0 || x >= width || y >= height)
@@ -133,17 +133,17 @@ public class World {
 	 * @param path path menuju file input.
 	 */
 	
-	private void loadWorld(String path){
+	private void loadWorld(String path) {
 		StringBuilder builder = new StringBuilder();
 		
-		try{
+		try {
 			BufferedReader br = new BufferedReader(new FileReader(path));
 			String line;
 			while((line = br.readLine()) != null)
 				builder.append(line + "\n");
 			
 			br.close();
-		}catch(IOException e){
+		}catch(IOException e) {
 			e.printStackTrace();
 		}
 		
@@ -155,8 +155,8 @@ public class World {
 		spawnY = Integer.parseInt(tokens[3]);
 		
 		tiles = new int[width][height];
-		for(int y = 0;y < height;y++){
-			for(int x = 0;x < width;x++){
+		for (int y = 0;y < height;y++) {
+			for (int x = 0;x < width;x++) {
 				tiles[x][y] = Integer.parseInt(tokens[(x + y * width) + 4]);
 			}
 		}
@@ -226,7 +226,7 @@ public class World {
 	 * @return lebar world.
 	 */
 	
-	public int getWidth(){
+	public int getWidth() {
 		return width;
 	}
 	
@@ -235,7 +235,7 @@ public class World {
 	 * @return tinggi world.
 	 */
 	
-	public int getHeight(){
+	public int getHeight() {
 		return height;
 	}
 

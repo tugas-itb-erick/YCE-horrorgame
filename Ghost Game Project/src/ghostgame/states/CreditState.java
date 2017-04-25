@@ -9,6 +9,12 @@ import ghostgame.ui.UIManager;
 
 import java.awt.Graphics;
 
+/**
+ * File : CreditState.java.
+ * Kelas CreditState merepresentasikan tampilan credit game.
+ * @author Veren Iliana K - 13515057.
+ */
+
 public class CreditState extends State {
 	private UIManager uiManager;
 
@@ -22,8 +28,8 @@ public class CreditState extends State {
     uiManager = new UIManager(handler);
     handler.getMouseManager().setUIManager(uiManager);
     
-    for(int x=0; x<handler.getGame().getWidth(); x += 128){
-    	for(int y=0; y<handler.getGame().getHeight(); y += 128){
+    for (int x=0; x<handler.getGame().getWidth(); x += 128) {
+    	for (int y=0; y<handler.getGame().getHeight(); y += 128) {
     		uiManager.addObject(new UIImage((int)x, (int)y, 128, 128, Assets.mainMenuBackground));
     	}
     }

@@ -2,12 +2,18 @@ package ghostgame.ui;
 
 /**
   * File : UIImage.java.
-  * Kelas UIImage merepresentasikan objek gambar 
-  * @author Veren Iliana K - 13515057
+  * Kelas UIImage merepresentasikan objek gambar.
+  * @author Veren Iliana K - 13515057.
   */
 
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
+
+/** 
+ * File : UIImage.java.
+ * Kelas yang merepresentasikan object gambar interface yang ada pada game ini.
+ * @author
+ */
 
 public class UIImage extends UIObject {
 

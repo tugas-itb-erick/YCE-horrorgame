@@ -4,6 +4,12 @@ import java.awt.Graphics;
 import java.awt.Rectangle;
 import java.awt.event.MouseEvent;
 
+/** 
+ * File : UIObject.java.
+ * Kelas yang merepresentasikan object interface yang ada pada game ini.
+ * @author
+ */
+
 public abstract class UIObject {
 	
 	protected float x, y;
@@ -63,8 +69,9 @@ public abstract class UIObject {
    */
 	
 	public void onMouseRelease(MouseEvent e){
-		if(hovering)
+		if (hovering) {
 			onClick();
+		}
 	}
 
 	/**
