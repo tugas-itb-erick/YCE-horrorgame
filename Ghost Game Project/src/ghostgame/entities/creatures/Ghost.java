@@ -1,5 +1,9 @@
 package ghostgame.entities.creatures;
 
+import ghostgame.Handler;
+
+import ghostgame.entities.Entity;
+
 import java.util.Iterator;
 
 /** 
@@ -7,9 +11,6 @@ import java.util.Iterator;
   * Kelas abstrak yang merepresentasikan hantu-hantu yang ada pada game ini
   * @author Kevin Iswara - 13515085
   */
-
-import ghostgame.Handler;
-import ghostgame.entities.Entity;
 
 public abstract class Ghost extends Creature {
   
@@ -33,19 +34,20 @@ public abstract class Ghost extends Creature {
   
   /**
    * Memeriksa apakah posisi ghost bersinggungan dengan entitas lain.
-   * @param xOffset perubahan jarak absis ghost dari posisi awal ghost.
-   * @param yOffset perubahan jarak ordinat player dari posisi awal ghostr.
+   * @param xoffset perubahan jarak absis ghost dari posisi awal ghost.
+   * @param yoffset perubahan jarak ordinat player dari posisi awal ghostr.
    * @return true apabila posisi ghost bersinggungan dengan entitas lain.
    */
   
   @Override
-  public boolean checkEntityCollisions(float xOffset, float yOffset) {
+  public boolean checkEntityCollisions(float xoffset, float yoffset) {
     Iterator<Entity> it = handler.getWorld().getEntityManager().getEntities().iterator();
-    while(it.hasNext()){
+    while (it.hasNext()) {
       Entity e = it.next();
-      if (e.equals(this))
+      if (e.equals(this)) {
         continue;
-      if (e.getCollisionBounds(0f, 0f).intersects(getCollisionBounds(xOffset, yOffset))){
+      }
+      if (e.getCollisionBounds(0f, 0f).intersects(getCollisionBounds(xoffset, yoffset))) {
         if (e instanceof Player) {
           e.hurt(this.getAtk());
           die();

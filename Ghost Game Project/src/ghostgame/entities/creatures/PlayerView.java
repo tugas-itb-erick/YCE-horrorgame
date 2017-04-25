@@ -26,8 +26,10 @@ public class PlayerView {
     */
 
   public void render(Player player, Graphics g) {
-    g.drawImage(pc.getCurrentAnimationFrame(), (int) (player.getX() - player.getHandler().getGameCamera().getxOffset()), 
-    (int) (player.getY() - player.getHandler().getGameCamera().getyOffset()), player.getWidth(), player.getHeight(), null);
+    g.drawImage(pc.getCurrentAnimationFrame(),
+        (int) (player.getX() - player.getHandler().getGameCamera().getxOffset()),
+        (int) (player.getY() - player.getHandler().getGameCamera().getyOffset()),
+        player.getWidth(), player.getHeight(), null);
   }
 
   /**

@@ -16,8 +16,8 @@ public class Ghost1Test {
 	public void testChangeMovement() {
 		System.out.println("Test if ghost returns xMove and yMove correctly...");
 		ghost.changeMovement();
-    assertTrue(ghost.getxMove() == 0);
-    assertTrue(ghost.getyMove() == 0);
+    assertTrue(ghost.getxmove() == 0);
+    assertTrue(ghost.getymove() == 0);
 	}
 
 	@Test
