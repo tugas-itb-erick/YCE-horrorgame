@@ -1,8 +1,18 @@
 package ghostgame.worlds;
 
+import java.awt.Graphics;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.Scanner;
+
 import ghostgame.Handler;
 import ghostgame.entities.EntityManager;
+import ghostgame.entities.creatures.Ghost;
+import ghostgame.entities.creatures.Ghost1;
 import ghostgame.entities.creatures.Ghost2;
+import ghostgame.entities.creatures.Ghost3;
 import ghostgame.entities.creatures.Player;
 import ghostgame.entities.statics.StaticEntity;
 import ghostgame.items.Item;
@@ -10,12 +20,6 @@ import ghostgame.items.ItemManager;
 import ghostgame.tiles.Tile;
 import ghostgame.tiles.TileController;
 import ghostgame.tiles.TileView;
-import java.awt.Graphics;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.Scanner;
 
 /**
  * File : World.java
@@ -50,6 +54,8 @@ public class World {
 		itemManager = new ItemManager(handler);
 		loadStaticEntity("res/worlds/staticentity.txt");
 		loadItem("res/worlds/item.txt");
+		loadGhost("res/worlds/ghost.txt");
+		
 		// Temporary entity code!
 		entityManager.addEntity(new Ghost2(handler, 64*6, 64*3));
 		entityManager.addEntity(new Ghost2(handler, 64*6, 64*4));
@@ -209,6 +215,39 @@ public class World {
         int kheight = sc.nextInt();
         entityManager.addEntity(new StaticEntity(handler, id, Tile.TILEWIDTH * x, 
                       Tile.TILEHEIGHT * y, Tile.TILEWIDTH * kwidth, Tile.TILEHEIGHT * kheight));
+      }
+      sc.close();
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+  }
+  
+  /**
+   * Menerima masukkan informasi ghost dari file untuk diload ke program.
+   * I.S. entityManager terdefinisi.
+   * F.S. entityManager menyimpan data ghost dari file.
+   * @param path path menuju file input.
+   */
+  
+  private void loadGhost(String path) {
+    assert (entityManager != null);
+    
+    try {
+      Scanner sc = new Scanner(new File(path));
+      while (sc.hasNext()) {
+        int id = sc.nextInt();
+        float x = sc.nextFloat();
+        float y = sc.nextFloat();
+        Ghost ghost;
+        if (id == 0)
+        	ghost = new Ghost1(handler, x * Tile.TILEWIDTH, y * Tile.TILEHEIGHT);
+        else if (id == 2)
+        	ghost = new Ghost2(handler, x * Tile.TILEWIDTH, y * Tile.TILEHEIGHT);
+        else if (id == 3)
+        	ghost = new Ghost3(handler, x * Tile.TILEWIDTH, y * Tile.TILEHEIGHT);
+        else
+        	ghost = new Ghost1(handler, x * Tile.TILEWIDTH, y * Tile.TILEHEIGHT);
+        entityManager.addEntity(ghost);
       }
       sc.close();
     } catch (IOException e) {
