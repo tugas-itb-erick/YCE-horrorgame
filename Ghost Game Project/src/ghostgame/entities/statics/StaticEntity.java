@@ -23,7 +23,7 @@ public class StaticEntity extends Entity {
    * @param height panjang gambar yang akan dicetak.
    */
   
-  public StaticEntity(Handler handler, int id, float x, float y, int width, int height){
+  public StaticEntity(Handler handler, int id, float x, float y, int width, int height) {
     super(handler, x, y, width, height);
     this.id = id;
     bounds.x = 3;
@@ -42,9 +42,10 @@ public class StaticEntity extends Entity {
   }
   
   @Override
-  public void hurt(int amt){
-    if (id == 2)
+  public void hurt(int amt) {
+    if (id == 2) {
       active = false;
+    }
   }
   
 }

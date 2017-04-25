@@ -1,12 +1,14 @@
 package ghostgame.entities.creatures;
 
-import java.util.Iterator;
-
 import ghostgame.Handler;
+
 import ghostgame.entities.Entity;
-import ghostgame.entities.statics.StaticEntity;
+
 import ghostgame.inventory.Inventory;
+
 import ghostgame.states.LostState;
+
+import java.util.Iterator;
 
 /** 
  * File : Player.java.
@@ -46,11 +48,11 @@ public class Player extends Creature {
   }
   
   /**
-   * Mengubah current state menjadi lostState
-   */
+    * Mengubah current state menjadi lostState.
+    */
   
   @Override
-  public void die(){
+  public void die() {
     handler.getGame().setState(new LostState(handler));
   }
   
@@ -61,27 +63,30 @@ public class Player extends Creature {
   
   @Override
   public void move() {
-    if(!checkEntityCollisions(xMove, 0f))
+    if (!checkEntityCollisions(xmove, 0f)) {
       moveX();
-    if(!checkEntityCollisions(0f, yMove))
+    }
+    if (!checkEntityCollisions(0f, ymove)) {
       moveY();
+    }
   }
   
   /**
    * Memeriksa apakah posisi player bersinggungan dengan entitas lain.
-   * @param xOffset perubahan jarak absis player dari posisi terawal player.
-   * @param yOffset perubahan jarak ordinat player dari posisi terawal player.
+   * @param xoffset perubahan jarak absis player dari posisi terawal player.
+   * @param yoffset perubahan jarak ordinat player dari posisi terawal player.
    * @return true apabila posisi player bersinggungan dengan entitas lain.
    */
   
   @Override
-  public boolean checkEntityCollisions(float xOffset, float yOffset) {
+  public boolean checkEntityCollisions(float xoffset, float yoffset) {
     Iterator<Entity> it = handler.getWorld().getEntityManager().getEntities().iterator();
-    while(it.hasNext()){
+    while (it.hasNext()) {
       Entity e = it.next();
-      if (e.equals(this))
+      if (e.equals(this)) {
         continue;
-      if (e.getCollisionBounds(0f, 0f).intersects(getCollisionBounds(xOffset, yOffset))){
+      }
+      if (e.getCollisionBounds(0f, 0f).intersects(getCollisionBounds(xoffset, yoffset))) {
         if (e instanceof Ghost) {
           hurt(((Ghost) e).getAtk());
           e.setActive(false);
@@ -117,8 +122,7 @@ public class Player extends Creature {
    */
   
   public void checkCandle() {
-    assert(inventory != null);
-    
+    assert (inventory != null);
     if (inventory.containItem("Candle")) {
       sightX = 2;
       sightY = 1;
@@ -132,8 +136,7 @@ public class Player extends Creature {
    */
   
   public void checkWeapon() {
-    assert(inventory != null);
-    
+    assert (inventory != null);
     hasWeapon = inventory.containItem("Knife");
   }
   
@@ -144,8 +147,7 @@ public class Player extends Creature {
    */
   
   public void checkKey() {
-    assert(inventory != null);
-    
+    assert (inventory != null);
     hasKey = inventory.containItem("Key");
   }
   
@@ -160,7 +162,7 @@ public class Player extends Creature {
   
   /**
    * Mengubah nilai jarak seberapa dekat penglihatan player terhadap absis.
-   * @param sightX
+   * @param sightX Nilai dari sightX.
    */
 
   public void setSightX(int sightX) {
@@ -178,7 +180,7 @@ public class Player extends Creature {
   
   /**
    * Mengubah nilai jarak seberapa dekat penglihatan player terhadap ordinat.
-   * @param sightY
+   * @param sightY Nilai dari sightY.
    */
 
   public void setSightY(int sightY) {

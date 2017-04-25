@@ -50,7 +50,7 @@ public class StaticEntityController {
    */
   
   public void render(Graphics g) {
-    assert(se != null);
+    assert (se != null);
     view.render(se, g);
   }
   

@@ -1,16 +1,18 @@
 package ghostgame.entities.creatures;
 
+import ghostgame.Handler;
+
+import ghostgame.entities.Entity;
+
+import ghostgame.tiles.Tile;
+
+import java.util.ArrayList;
+
 /** 
   * File : Ghost3.java.
   * Kelas yang merepresentasikan hantu kedua yang ada pada game ini.
   * @author Kevin Iswara - 13515085.
   */
-
-import ghostgame.entities.Entity;
-import ghostgame.tiles.Tile;
-import ghostgame.Handler;
-
-import java.util.ArrayList;
 
 public class Ghost3 extends Ghost {
   
@@ -29,20 +31,22 @@ public class Ghost3 extends Ghost {
   }
 
   /**
-    * Fungsi untuk mengubah xMove atau yMove.
+    * Fungsi untuk mengubah xmove atau ymove.
     */
 
   public void changeMovement() {
-    xMove = 0;
-    yMove = 0;
-    boolean up, down, left, right;
-    up = false;
-    down = false;
-    left = false;
-    right = false;
-    int upInt, downInt, leftInt, rightInt;
-    boolean [][] mapTemp = new boolean[handler.getWorld().getWidth()][handler.getWorld().getHeight()] ;
-    int xPlayer, yPlayer;
+    xmove = 0;
+    ymove = 0;
+    boolean up = false;
+    boolean down = false;
+    boolean left = false;
+    boolean right = false;
+    int upInt;
+    int downInt;
+    int leftInt;
+    int rightInt;
+    boolean [][] mapTemp = new boolean[handler.getWorld().getWidth()]
+        [handler.getWorld().getHeight()];
     for (int i = 0; i < handler.getWorld().getWidth(); i++) {
       for (int j = 0; j < handler.getWorld().getHeight(); j++) {
         mapTemp[i][j] = handler.getWorld().getTile(i,j).isSolid();
@@ -53,11 +57,14 @@ public class Ghost3 extends Ghost {
     }
     mapTemp[(int)(handler.getWorld().getEntityManager().getPlayer().getX() / Tile.TILEWIDTH)]
     [(int)(handler.getWorld().getEntityManager().getPlayer().getY() / Tile.TILEHEIGHT)] = false;
-    xPlayer = (int)(handler.getWorld().getEntityManager().getPlayer().getX() / Tile.TILEWIDTH);
-    yPlayer = (int)(handler.getWorld().getEntityManager().getPlayer().getY() / Tile.TILEHEIGHT);
+    int xplayer;
+    int yplayer;
+    xplayer = (int)(handler.getWorld().getEntityManager().getPlayer().getX() / Tile.TILEWIDTH);
+    yplayer = (int)(handler.getWorld().getEntityManager().getPlayer().getY() / Tile.TILEHEIGHT);
     try {
-      if(mapTemp[(int)x / Tile.TILEWIDTH][(int)(y / Tile.TILEHEIGHT) - 1] == false) {
-        upInt = bfs((int)x / Tile.TILEWIDTH, (int)(y / Tile.TILEHEIGHT) - 1, (int)xPlayer, (int)yPlayer, mapTemp);
+      if (mapTemp[(int)xpos / Tile.TILEWIDTH][(int)(ypos / Tile.TILEHEIGHT) - 1] == false) {
+        upInt = bfs((int)xpos / Tile.TILEWIDTH, (int)(ypos / Tile.TILEHEIGHT) - 1,
+            (int)xplayer, (int)yplayer, mapTemp);
       } else {
         upInt = 999;
       }
@@ -65,8 +72,9 @@ public class Ghost3 extends Ghost {
       upInt = 999;
     }
     try {
-      if(mapTemp[(int)x / Tile.TILEWIDTH][(int)(y / Tile.TILEHEIGHT) + 1] == false) {
-        downInt = bfs((int)x / Tile.TILEWIDTH, (int)(y / Tile.TILEHEIGHT) + 1, (int)xPlayer, (int)yPlayer, mapTemp);
+      if (mapTemp[(int)xpos / Tile.TILEWIDTH][(int)(ypos / Tile.TILEHEIGHT) + 1] == false) {
+        downInt = bfs((int)xpos / Tile.TILEWIDTH, (int)(ypos / Tile.TILEHEIGHT) + 1, (int)xplayer,
+            (int)yplayer, mapTemp);
       } else {
         downInt = 999;
       }
@@ -74,8 +82,9 @@ public class Ghost3 extends Ghost {
       downInt = 999;
     }
     try {
-      if(mapTemp[(int)(x / Tile.TILEWIDTH) - 1][(int)y / Tile.TILEHEIGHT] == false) {
-        leftInt = bfs((int)(x / Tile.TILEWIDTH) - 1, (int)y / Tile.TILEHEIGHT, (int)xPlayer, (int)yPlayer, mapTemp);
+      if (mapTemp[(int)(xpos / Tile.TILEWIDTH) - 1][(int)ypos / Tile.TILEHEIGHT] == false) {
+        leftInt = bfs((int)(xpos / Tile.TILEWIDTH) - 1, (int)ypos / Tile.TILEHEIGHT, (int)xplayer,
+            (int)yplayer, mapTemp);
       } else {
         leftInt = 999;
       }
@@ -83,8 +92,9 @@ public class Ghost3 extends Ghost {
       leftInt = 999;
     }
     try {
-      if(mapTemp[(int)(x / Tile.TILEWIDTH) + 1][(int)y / Tile.TILEHEIGHT] == false) {
-        rightInt = bfs((int)(x / Tile.TILEWIDTH) + 1, (int)y / Tile.TILEHEIGHT, (int)xPlayer, (int)yPlayer, mapTemp);
+      if (mapTemp[(int)(xpos / Tile.TILEWIDTH) + 1][(int)ypos / Tile.TILEHEIGHT] == false) {
+        rightInt = bfs((int)(xpos / Tile.TILEWIDTH) + 1, (int)ypos / Tile.TILEHEIGHT,
+            (int)xplayer, (int)yplayer, mapTemp);
       } else {
         rightInt = 999;
       }
@@ -93,11 +103,11 @@ public class Ghost3 extends Ghost {
     }
     if (upInt <= downInt) {
       if (upInt <= leftInt) {
-         if (upInt <= rightInt) {
-           up = true;
-         } else {
-           right = true;
-         }
+        if (upInt <= rightInt) {
+          up = true;
+        } else {
+          right = true;
+        }
       } else {
         if (leftInt <= rightInt) {
           left = true;
@@ -107,11 +117,11 @@ public class Ghost3 extends Ghost {
       }
     } else {
       if (downInt <= leftInt) {
-         if (downInt <= rightInt) {
-           down = true;
-         } else {
-           right = true;
-         }
+        if (downInt <= rightInt) {
+          down = true;
+        } else {
+          right = true;
+        }
       } else {
         if (leftInt <= rightInt) {
           left = true;
@@ -121,16 +131,16 @@ public class Ghost3 extends Ghost {
       }  
     }
     if ((up) && (upInt != 999)) {
-      yMove = -speed;
+      ymove = -speed;
     }
     if ((down) && (downInt != 999)) {
-      yMove = speed;
+      ymove = speed;
     }
     if ((left) && (leftInt != 999)) {
-      xMove = -speed;
+      xmove = -speed;
     }
     if ((right) && (rightInt != 999)) {
-      xMove = speed;
+      xmove = speed;
     }
   }
 
@@ -147,11 +157,11 @@ public class Ghost3 extends Ghost {
   private int bfs(int x, int y, int playerPositionX, int playerPositionY, boolean[][] map) {
     ArrayList<Integer> tempX = new ArrayList<Integer>();
     ArrayList<Integer> tempY = new ArrayList<Integer>();
-    ArrayList<Integer> range = new ArrayList<Integer>();
-    boolean[][] mapTemp = new boolean [map.length][map[map.length-1].length];
+    boolean[][] mapTemp = new boolean [map.length][map[map.length - 1].length];
     for (int i = 0; i < map.length; i++) {
       mapTemp[i][i] = map[i][i];
     }
+    ArrayList<Integer> range = new ArrayList<Integer>();
     tempX.add(x);
     tempY.add(y);
     range.add(0);
@@ -193,7 +203,7 @@ public class Ghost3 extends Ghost {
           }
         }
         i++;
-       } else {
+      } else {
         found = true;
       }
     }

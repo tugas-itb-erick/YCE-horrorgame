@@ -1,9 +1,10 @@
 package ghostgame.entities.statics;
 
-import java.awt.Graphics;
-import java.awt.image.BufferedImage;
-
 import ghostgame.gfx.Assets;
+
+import java.awt.Graphics;
+
+import java.awt.image.BufferedImage;
 
 /**
  * File : StaticEntityView.java 
@@ -30,15 +31,19 @@ public class StaticEntityView {
       texture = Assets.tree;
     */
     
-    /*System.out.println((int)se.getHandler().getGameCamera().getxOffset() / Tile.TILEWIDTH - sightX - 1 + " " + xStart / Tile.TILEWIDTH);
-    System.out.println((int)se.getHandler().getGameCamera().getyOffset() / Tile.TILEHEIGHT - sightX - 1 + " " + yStart / Tile.TILEHEIGHT);
-    if (((int)se.getHandler().getGameCamera().getxOffset() / Tile.TILEWIDTH - sightX - 1 <= xStart / Tile.TILEWIDTH) &&
-    ((int)se.getHandler().getGameCamera().getyOffset() / Tile.TILEHEIGHT - sightY - 1 <= yStart / Tile.TILEHEIGHT) &&
-    ((int)se.getHandler().getGameCamera().getxOffset() / Tile.TILEWIDTH + sightX + 2>= xStart / Tile.TILEWIDTH) &&
-    ((int)se.getHandler().getGameCamera().getyOffset() / Tile.TILEHEIGHT + sightY + 2>= yStart / Tile.TILEHEIGHT))*/
+    /*System.out.println((int)se.getHandler().getGameCamera().getxOffset() / Tile.TILEWIDTH - 
+    sightX - 1 + " " + xstart / Tile.TILEWIDTH);
+    System.out.println((int)se.getHandler().getGameCamera().getyOffset() / Tile.TILEHEIGHT - 
+    sightX - 1 + " " + ystart / Tile.TILEHEIGHT);
+    if (((int)se.getHandler().getGameCamera().getxOffset() / Tile.TILEWIDTH - sightX - 1 <= 
+    xstart / Tile.TILEWIDTH) && ((int)se.getHandler().getGameCamera().getyOffset() /
+     Tile.TILEHEIGHT - sightY - 1 <= ystart / Tile.TILEHEIGHT) && 
+    ((int)se.getHandler().getGameCamera().getxOffset() / Tile.TILEWIDTH + sightX + 2>= xstart /
+     Tile.TILEWIDTH) && ((int)se.getHandler().getGameCamera().getyOffset() / Tile.TILEHEIGHT +
+    sightY + 2>= ystart / Tile.TILEHEIGHT))*/
     
-    int xStart = (int) (se.getX() - se.getHandler().getGameCamera().getxOffset());
-    int yStart = (int) (se.getY() - se.getHandler().getGameCamera().getyOffset());
+    int xstart = (int) (se.getX() - se.getHandler().getGameCamera().getxOffset());
+    int ystart = (int) (se.getY() - se.getHandler().getGameCamera().getyOffset());
     /*int sightX = se.getHandler().getWorld().getEntityManager().getPlayer().getSightX();
     int sightY = se.getHandler().getWorld().getEntityManager().getPlayer().getSightY();*/
     
@@ -71,7 +76,7 @@ public class StaticEntityView {
     } else {
       texture = Assets.wardrobe;
     }
-    g.drawImage(texture, xStart, yStart, se.getWidth(), se.getHeight(), null);
+    g.drawImage(texture, xstart, ystart, se.getWidth(), se.getHeight(), null);
   }
   
 }

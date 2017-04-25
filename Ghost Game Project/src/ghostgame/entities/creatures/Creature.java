@@ -1,8 +1,8 @@
 package ghostgame.entities.creatures;
 
-import ghostgame.entities.Entity;
-
 import ghostgame.Handler;
+
+import ghostgame.entities.Entity;
 
 import ghostgame.tiles.Tile;
 
@@ -14,10 +14,11 @@ import ghostgame.tiles.Tile;
 public abstract class Creature extends Entity {
   
   public static final float DEFAULT_SPEED = 3.0f;
-  public static final int DEFAULT_CREATURE_WIDTH = 64,
-                          DEFAULT_CREATURE_HEIGHT = 64;
+  public static final int DEFAULT_CREATURE_WIDTH = 64;
+  public static final int DEFAULT_CREATURE_HEIGHT = 64;
   protected float speed;
-  protected float xMove, yMove;
+  protected float xmove;
+  protected float ymove;
 
   /**
     * Constructor dengan parameter.
@@ -31,8 +32,8 @@ public abstract class Creature extends Entity {
   public Creature(Handler handler, float x, float y, int width, int height) {
     super(handler, x, y, width, height);
     speed = DEFAULT_SPEED;
-    xMove = 0;
-    yMove = 0;
+    xmove = 0;
+    ymove = 0;
   }
   
   public abstract void die();
@@ -40,7 +41,7 @@ public abstract class Creature extends Entity {
   @Override
   public void hurt(int amt) {
     health -= amt;
-    if(health <= 0){
+    if (health <= 0) {
       active = false;
       die();
     }
@@ -48,64 +49,66 @@ public abstract class Creature extends Entity {
   
   /** 
     * Memeriksa apakah sebuah Creature akan menabrak dengan Entity yang solid atau tidak.
-    * Jika tidak akan bergerak sesuai dengan xMove dan yMove.
+    * Jika tidak akan bergerak sesuai dengan xmove dan ymove.
     */
   
   public void move() {
-    if(!checkEntityCollisions(xMove, 0f))
+    if (!checkEntityCollisions(xmove, 0f)) {
       moveX();
-    if(!checkEntityCollisions(0f, yMove))
+    }
+    if (!checkEntityCollisions(0f, ymove)) {
       moveY();
+    }
   }
   
   /**
-    * Menggerakan Creature sesuai dengan xMovenya.
-    * Jika xMove bernilai positif, maka akan bergerak ke kanan.
-    * Sebaliknya jika xMove bernilai negatif, maka akan bergerak ke kiri.
+    * Menggerakan Creature sesuai dengan xmovenya.
+    * Jika xmove bernilai positif, maka akan bergerak ke kanan.
+    * Sebaliknya jika xmove bernilai negatif, maka akan bergerak ke kiri.
     */
   
   public void moveX() {
-    if (xMove > 0) {//Moving right
-      int tx = (int) (x + xMove + bounds.x + bounds.width) / Tile.TILEWIDTH;
-      if (!collisionWithTile(tx, (int) (y + bounds.y) / Tile.TILEHEIGHT) &&
-          !collisionWithTile(tx, (int) (y + bounds.y + bounds.height) / Tile.TILEHEIGHT)) {
-        x += xMove;
+    if (xmove > 0) { //Moving right
+      int tx = (int) (xpos + xmove + bounds.x + bounds.width) / Tile.TILEWIDTH;
+      if (!collisionWithTile(tx, (int) (ypos + bounds.y) / Tile.TILEHEIGHT)
+          && !collisionWithTile(tx, (int) (ypos + bounds.y + bounds.height) / Tile.TILEHEIGHT)) {
+        xpos += xmove;
       } else {
-        x = tx * Tile.TILEWIDTH - bounds.x - bounds.width - 1;
+        xpos = tx * Tile.TILEWIDTH - bounds.x - bounds.width - 1;
       }
-    } else if (xMove < 0) {//Moving left
-      int tx = (int) (x + xMove + bounds.x) / Tile.TILEWIDTH;
-      if (!collisionWithTile(tx, (int) (y + bounds.y) / Tile.TILEHEIGHT) &&
-          !collisionWithTile(tx, (int) (y + bounds.y + bounds.height) / Tile.TILEHEIGHT)) {
-        x += xMove;
+    } else if (xmove < 0) { //Moving left
+      int tx = (int) (xpos + xmove + bounds.x) / Tile.TILEWIDTH;
+      if (!collisionWithTile(tx, (int) (ypos + bounds.y) / Tile.TILEHEIGHT) 
+          && !collisionWithTile(tx, (int) (ypos + bounds.y + bounds.height) / Tile.TILEHEIGHT)) {
+        xpos += xmove;
       } else {
-        x = tx * Tile.TILEWIDTH + Tile.TILEWIDTH - bounds.x;
+        xpos = tx * Tile.TILEWIDTH + Tile.TILEWIDTH - bounds.x;
       }      
     }
   }
 
   /**
-    * Menggerakan Creature sesuai dengan yMovenya.
-    * Jika yMove bernilai positif, maka akan bergerak ke bawah.
-    * Sebaliknya jika yMove bernilai negatif, maka akan bergerak ke atas.
+    * Menggerakan Creature sesuai dengan ymovenya.
+    * Jika ymove bernilai positif, maka akan bergerak ke bawah.
+    * Sebaliknya jika ymove bernilai negatif, maka akan bergerak ke atas.
     */
   
   public void moveY() {
-    if (yMove < 0) {//Up
-      int ty = (int) (y + yMove + bounds.y) / Tile.TILEHEIGHT;
-      if (!collisionWithTile((int) (x + bounds.x) / Tile.TILEWIDTH, ty) &&
-          !collisionWithTile((int) (x + bounds.x + bounds.width) / Tile.TILEWIDTH, ty)) {
-        y += yMove;
+    if (ymove < 0) { //Up
+      int ty = (int) (ypos + ymove + bounds.y) / Tile.TILEHEIGHT;
+      if (!collisionWithTile((int) (xpos + bounds.x) / Tile.TILEWIDTH, ty) 
+          && (!collisionWithTile((int) (xpos + bounds.x + bounds.width) / Tile.TILEWIDTH, ty))) {
+        ypos += ymove;
       } else {
-        y = ty * Tile.TILEHEIGHT + Tile.TILEHEIGHT - bounds.y;
+        ypos = ty * Tile.TILEHEIGHT + Tile.TILEHEIGHT - bounds.y;
       }
-    } else if (yMove > 0) {//Down
-      int ty = (int) (y + yMove + bounds.y + bounds.height) / Tile.TILEHEIGHT;
-      if (!collisionWithTile((int) (x + bounds.x) / Tile.TILEWIDTH, ty) &&
-          !collisionWithTile((int) (x + bounds.x + bounds.width) / Tile.TILEWIDTH, ty)) {
-        y += yMove;
+    } else if (ymove > 0) { //Down
+      int ty = (int) (ypos + ymove + bounds.y + bounds.height) / Tile.TILEHEIGHT;
+      if (!collisionWithTile((int) (xpos + bounds.x) / Tile.TILEWIDTH, ty)
+          && (!collisionWithTile((int) (xpos + bounds.x + bounds.width) / Tile.TILEWIDTH, ty))) {
+        ypos += ymove;
       } else {
-        y = ty * Tile.TILEHEIGHT - bounds.y - bounds.height - 1;
+        ypos = ty * Tile.TILEHEIGHT - bounds.y - bounds.height - 1;
       }
     }
   }
@@ -114,8 +117,7 @@ public abstract class Creature extends Entity {
     * Mengecek apakah pada koordinat x, y ada entity yang solid / tidak.
     * @param x Nilai absis yang akan diperiksa.
     * @param y Nilai ordinat yang akan diperiksa.
-    * @return mengembalikan true jika ada entity yang solid pada tile x, y
-    * dan false jika tidak.
+    * @return mengembalikan true jika ada entity yang solid pada tile x, y dan false jika tidak.
     */
   
   protected boolean collisionWithTile(int x, int y) {
@@ -123,41 +125,41 @@ public abstract class Creature extends Entity {
   }
 
   /**
-    * Mengembalikan xMove dari sebuah Creature.
-    * @return Nilai xMove dari sebuah Creature.
+    * Mengembalikan xmove dari sebuah Creature.
+    * @return Nilai xmove dari sebuah Creature.
     */
   
-  public float getxMove() {
-    return xMove;
+  public float getxmove() {
+    return xmove;
   }
 
   /**
-    * I.S. nilai xMove sembarang.
-    * F.S. nilai xMove terdefinisi.
-    * @param xMove Nilai yang akan dimasukan ke dalam atribut xMove.
+    * I.S. nilai xmove sembarang.
+    * F.S. nilai xmove terdefinisi.
+    * @param xmove Nilai yang akan dimasukan ke dalam atribut xmove.
     */
   
-  public void setxMove(float xMove) {
-    this.xMove = xMove;
+  public void setxmove(float xmove) {
+    this.xmove = xmove;
   }
 
   /**
-    * Mengembalikan yMove dari sebuah Creature.
-    * @return Nilai yMove dari sebuah Creature.
+    * Mengembalikan ymove dari sebuah Creature.
+    * @return Nilai ymove dari sebuah Creature.
     */
   
-  public float getyMove() {
-    return yMove;
+  public float getymove() {
+    return ymove;
   }
 
   /**
-    * I.S. nilai yMove sembarang.
-    * F.S. nilai yMove terdefinisi.
-    * @param yMove Nilai yang akan dimasukan ke dalam atribut yMove.
+    * I.S. nilai ymove sembarang.
+    * F.S. nilai ymove terdefinisi.
+    * @param ymove Nilai yang akan dimasukan ke dalam atribut ymove.
     */
   
-  public void setyMove(float yMove) {
-    this.yMove = yMove;
+  public void setymove(float ymove) {
+    this.ymove = ymove;
   }
 
   /**

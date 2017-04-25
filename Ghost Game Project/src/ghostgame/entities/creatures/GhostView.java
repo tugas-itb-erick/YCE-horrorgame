@@ -26,7 +26,9 @@ public class GhostView {
     */
 
   public void render(Ghost ghost, Graphics g) {
-    g.drawImage(gc.getCurrentAnimationFrame(), (int) (ghost.getX() - ghost.getHandler().getGameCamera().getxOffset()),
-    (int) (ghost.getY() - ghost.getHandler().getGameCamera().getyOffset()), ghost.getWidth(), ghost.getHeight(), null);
+    g.drawImage(gc.getCurrentAnimationFrame(), 
+        (int) (ghost.getX() - ghost.getHandler().getGameCamera().getxOffset()),
+        (int) (ghost.getY() - ghost.getHandler().getGameCamera().getyOffset()),
+        ghost.getWidth(), ghost.getHeight(), null);
   }
 }

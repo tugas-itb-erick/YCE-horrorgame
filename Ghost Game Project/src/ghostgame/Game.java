@@ -29,12 +29,13 @@ import java.awt.image.BufferStrategy;
 public class Game implements Runnable {
 
   private Display display;
-  private int width, height;
+  private int width;
+  private int height;
   public String title;
   private boolean running = false;
   private Thread thread;
   private BufferStrategy bs;
-  private Graphics g;
+  private Graphics gg;
   private State state;
   private KeyManager keyManager;
   private MouseManager mouseManager;
@@ -73,15 +74,16 @@ public class Game implements Runnable {
     state = new MenuState(handler);
   }
 
-/**
-  * Meng-update kondisi objek keyManager untuk setiap satuan waktu.
-  */
+  /**
+    * Meng-update kondisi objek keyManager untuk setiap satuan waktu.
+    */
   
   private void tick() {
-    assert(keyManager != null);
+    assert (keyManager != null);
     keyManager.tick();
-    if(state != null)
+    if (state != null) {
       state.tick();
+    }
   }
 
   /**
@@ -90,26 +92,29 @@ public class Game implements Runnable {
     */
 
   private void render() {
-    assert(display != null);
+    assert (display != null);
     bs = display.getCanvas().getBufferStrategy();
     if (bs == null) {
       display.getCanvas().createBufferStrategy(3);
       return;
     }
-    g = bs.getDrawGraphics();
-    g.clearRect(0, 0, width, height);
-    g.setColor(Color.BLACK);
-    g.fillRect(0, 0, width, height);
-    if(state != null)
-      state.render(g);
+    gg = bs.getDrawGraphics();
+    gg.clearRect(0, 0, width, height);
+    gg.setColor(Color.BLACK);
+    gg.fillRect(0, 0, width, height);
+    if (state != null) {
+      state.render(gg);
+    }
     bs.show();
-    g.dispose();
+    gg.dispose();
   }
   
-  public void run() {
-    
+  /** 
+    * Menjalankan program dengan pengaturan 60 frame per sekon.
+    */
+  
+  public void run() { 
     init();
-    
     int fps = 60;
     double timePerTick = 1000000000 / fps;
     double delta = 0;
@@ -117,29 +122,24 @@ public class Game implements Runnable {
     long lastTime = System.nanoTime();
     long timer = 0;
     int ticks = 0;
-    
-    while(running){
+    while (running) {
       now = System.nanoTime();
       delta += (now - lastTime) / timePerTick;
       timer += now - lastTime;
       lastTime = now;
-      
-      if(delta >= 1){
+      if (delta >= 1) {
         tick();
         render();
         ticks++;
         delta--;
       }
-      
-      if(timer >= 1000000000){
+      if (timer >= 1000000000) {
         System.out.println("FPS: " + ticks);
         ticks = 0;
         timer = 0;
       }
     }
-    
     stop();
-    
   }
   
   /**
@@ -192,8 +192,9 @@ public class Game implements Runnable {
     */
   
   public synchronized void start() {
-    if(running)
+    if (running) {
       return;
+    }
     running = true;
     thread = new Thread(this);
     thread.start();
@@ -204,8 +205,9 @@ public class Game implements Runnable {
     */
   
   public synchronized void stop() {
-    if(!running)
+    if (!running) {
       return;
+    }
     running = false;
     try {
       thread.join();

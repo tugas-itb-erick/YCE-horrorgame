@@ -18,7 +18,10 @@ public class GhostController {
 
   private Ghost ghost;
   private GhostView view;
-  private Animation ghostDown, ghostUp, ghostLeft, ghostRight;
+  private Animation ghostDown;
+  private Animation ghostUp;
+  private Animation ghostLeft;
+  private Animation ghostRight;
   
   /**
     * Constructor dengan parameter.
@@ -36,14 +39,12 @@ public class GhostController {
       ghostUp = new Animation(500, Assets.ghost1_up);
       ghostLeft = new Animation(500, Assets.ghost1_left);
       ghostRight = new Animation(500, Assets.ghost1_right);
-    }
-    else if (ghost instanceof Ghost2) {
+    } else if (ghost instanceof Ghost2) {
       ghostDown = new Animation(500, Assets.ghost2_down);
       ghostUp = new Animation(500, Assets.ghost2_up);
       ghostLeft = new Animation(500, Assets.ghost2_left);
       ghostRight = new Animation(500, Assets.ghost2_right);
-    }
-    else {
+    } else {
       ghostDown = new Animation(500, Assets.ghost3_down);
       ghostUp = new Animation(500, Assets.ghost3_up);
       ghostLeft = new Animation(500, Assets.ghost3_left);
@@ -75,7 +76,7 @@ public class GhostController {
     * @param view Nilai yang akan dimasukan ke dalam view.
     */
   
-  public void setGhost(GhostView view) {
+  public void setView(GhostView view) {
     this.view = view;
   }
 
@@ -97,10 +98,10 @@ public class GhostController {
     ghost.setAtk(atk);
   }
 
- /** 
-   * Mengembalikan atk dari sebuah objek Ghost.
-   * @return Nilai dari atk atribut ghost.
-   */
+  /**
+    * Mengembalikan atk dari sebuah objek Ghost.
+    * @return Nilai dari atk atribut ghost.
+    */
 
   public int getGhostAtk() {
     return ghost.getAtk();
@@ -133,23 +134,23 @@ public class GhostController {
   
   /**
     * Fungsi yang mengembalikan gambar (frame) dari ghost sesuai dengan arah geraknya.
-    * Jika arah gerak sedang ke atas (yMove negatif) maka mengembalikan frame dari 
+    * Jika arah gerak sedang ke atas (ymove negatif) maka mengembalikan frame dari 
     * ghostUp.
-    * Jika arah gerak sedang ke bawah (yMove positif) maka mengembalikan frame dari 
+    * Jika arah gerak sedang ke bawah (ymove positif) maka mengembalikan frame dari 
     * ghostDown.
-    * Jika arah gerak sedang ke kanan (xMove positif) maka mengembalikan frame dari 
+    * Jika arah gerak sedang ke kanan (xmove positif) maka mengembalikan frame dari 
     * ghostRight.
-    * Jika arah gerak sedang ke kiri (xMove negatif) maka mengembalikan frame dari 
+    * Jika arah gerak sedang ke kiri (xmove negatif) maka mengembalikan frame dari 
     * ghostLeft.
     * @return Frame yang bersesuaian dengan ghost yang akan ditampilkan.
     */
 
   public BufferedImage getCurrentAnimationFrame() {
-    if (ghost.getxMove() < 0) {
+    if (ghost.getxmove() < 0) {
       return ghostLeft.getCurrentFrame();
-    } else if (ghost.getxMove() > 0) {
+    } else if (ghost.getxmove() > 0) {
       return ghostRight.getCurrentFrame();
-    } else if (ghost.getyMove() < 0) {
+    } else if (ghost.getymove() < 0) {
       return ghostUp.getCurrentFrame();
     } else {
       return ghostDown.getCurrentFrame();
@@ -157,7 +158,7 @@ public class GhostController {
   }
 
   /**
-    * Fungsi untuk mengubah xMove atau yMove.
+    * Fungsi untuk mengubah xmove atau ymove.
     */
 
   public void changeMovement() {

@@ -1,20 +1,32 @@
 package ghostgame.entities;
 
-import java.awt.Graphics;
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.Iterator;
-
 import ghostgame.Handler;
+
 import ghostgame.entities.creatures.Ghost;
+
 import ghostgame.entities.creatures.GhostController;
+
 import ghostgame.entities.creatures.GhostView;
+
 import ghostgame.entities.creatures.Player;
+
 import ghostgame.entities.creatures.PlayerController;
+
 import ghostgame.entities.creatures.PlayerView;
+
 import ghostgame.entities.statics.StaticEntity;
+
 import ghostgame.entities.statics.StaticEntityController;
+
 import ghostgame.entities.statics.StaticEntityView;
+
+import java.awt.Graphics;
+
+import java.util.ArrayList;
+
+import java.util.Comparator;
+
+import java.util.Iterator;
 
 /**
  * Kelas EntityManager merupakan kelas yang melakukan penanganan terhadap seluruh
@@ -30,8 +42,9 @@ public class EntityManager {
   private Comparator<Entity> renderSorter = new Comparator<Entity>() {
     @Override
     public int compare(Entity a, Entity b) {
-      if(a.getY() + a.getHeight() < b.getY() + b.getHeight())
+      if (a.getY() + a.getHeight() < b.getY() + b.getHeight()) {
         return -1;
+      }
       return 1;
     }
   };
@@ -59,44 +72,45 @@ public class EntityManager {
    * Mengupdate Entitas dalam setiap satuan waktu.
    */
   
-  public void tick(){
+  public void tick() {
     Iterator<Entity> it = entities.iterator();
-    while(it.hasNext()){
+    while (it.hasNext()) {
       Entity e = it.next();
       if (e instanceof StaticEntity) {
         sc.setStaticEntity((StaticEntity)e);
         //sc.tick();
-      }else if (e instanceof Player) {
+      } else if (e instanceof Player) {
         pc.tick();
-      }else if (e instanceof Ghost) {
+      } else if (e instanceof Ghost) {
         gc.setGhost((Ghost) e);
         gc.tick();
       }
-      if(!e.isActive())
+      if (!e.isActive()) {
         it.remove();
+      }
     }
-    
     entities.sort(renderSorter);
   }
   
   /**
    * Mencetak gambar entitas ke layar.
    * @param g grafik yang menggambarkan entitas.
-   * @param xStart posisi awal dalam sumbu x.
-   * @param yStart posisi awal dalam sumbu y.
-   * @param xEnd posisi akhir dalam sumbu x.
-   * @param yEnd posisi akhir dalam sumbu y.
+   * @param xstart posisi awal dalam sumbu x.
+   * @param ystart posisi awal dalam sumbu y.
+   * @param xend posisi akhir dalam sumbu x.
+   * @param yend posisi akhir dalam sumbu y.
    */
   
-  public void render(Graphics g, int xStart, int yStart, int xEnd, int yEnd) {
-    for(Entity e : entities){
-      //if (e.getX()/Tile.TILEWIDTH >= xStart && e.getX()/Tile.TILEWIDTH+1 < xEnd && e.getY()/Tile.TILEWIDTH >= yStart && e.getY()/Tile.TILEWIDTH+1 < yEnd)
+  public void render(Graphics g, int xstart, int ystart, int xend, int yend) {
+    for (Entity e : entities) {
+      //if (e.getX()/Tile.TILEWIDTH >= xstart && e.getX()/Tile.TILEWIDTH+1 < xend
+      //&& e.getY()/Tile.TILEWIDTH >= ystart && e.getY()/Tile.TILEWIDTH+1 < yend)
       if (e instanceof StaticEntity) {
         sc.setStaticEntity((StaticEntity) e);
         sc.render(g);
-      }else if (e instanceof Player) {
+      } else if (e instanceof Player) {
         pc.render(g);
-      }else if (e instanceof Ghost) {
+      } else if (e instanceof Ghost) {
         gc.setGhost((Ghost) e);
         gc.render(g);
       }
@@ -176,7 +190,6 @@ public class EntityManager {
    * I.S. entities sembarang.
    * F.S. entities terdefinisi sesuai dengan entities yang baru.
    * @param entities yang baru.
-   * @param entities
    */
   
   public void setEntities(ArrayList<Entity> entities) {

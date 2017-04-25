@@ -1,12 +1,12 @@
 package ghostgame.entities.creatures;
 
+import ghostgame.Handler;
+
 /** 
   * File : Ghost1.java.
   * Kelas yang merepresentasikan hantu pertama yang ada pada game ini.
   * @author Kevin Iswara - 13515085.
   */
-
-import ghostgame.Handler;
 
 public class Ghost1 extends Ghost {
   
@@ -25,8 +25,8 @@ public class Ghost1 extends Ghost {
   }
 
   /**
-    * Fungsi untuk mengubah xMove atau yMove.
-    * Pada Ghost1, xMove dan yMove tidak perlu diubah karena
+    * Fungsi untuk mengubah xmove atau ymove.
+    * Pada Ghost1, xmove dan ymove tidak perlu diubah karena
     * Ghost tidak dapat bergerak.
     */
 

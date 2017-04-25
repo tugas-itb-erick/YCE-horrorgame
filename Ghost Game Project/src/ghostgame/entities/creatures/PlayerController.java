@@ -1,16 +1,24 @@
 package ghostgame.entities.creatures;
 
-import java.awt.Graphics;
-import java.awt.Rectangle;
-import java.awt.image.BufferedImage;
-
 import ghostgame.entities.Entity;
+
 import ghostgame.entities.statics.StaticEntity;
+
 import ghostgame.gfx.Animation;
+
 import ghostgame.gfx.Assets;
+
 import ghostgame.inventory.InventoryController;
+
 import ghostgame.inventory.InventoryView;
+
 import ghostgame.items.Item;
+
+import java.awt.Graphics;
+
+import java.awt.Rectangle;
+
+import java.awt.image.BufferedImage;
 
 /** 
   * File : PlayerController.java.
@@ -22,8 +30,13 @@ public class PlayerController {
 
   private Player player;
   private PlayerView view;
-  private long lastAttackTimer, attackCooldown = 800, attackTimer = attackCooldown;
-  private Animation animDown, animUp, animLeft, animRight;
+  private long lastAttackTimer;
+  private long attackCooldown = 800;
+  private long attackTimer = attackCooldown;
+  private Animation animDown;
+  private Animation animUp;
+  private Animation animLeft;
+  private Animation animRight;
   private InventoryController ic;
 
   /**
@@ -79,9 +92,9 @@ public class PlayerController {
     return view;
   }
   
-/**
-  * Meng-update kondisi objek Player untuk setiap satuan waktu.
-  */
+  /**
+    * Meng-update kondisi objek Player untuk setiap satuan waktu.
+    */
   
   public void tick() {
     //Animations
@@ -104,46 +117,51 @@ public class PlayerController {
   
   /**
     * Fungsi yang mengembalikan gambar (frame) dari player sesuai dengan arah geraknya.
-    * Jika arah gerak sedang ke atas (yMove negatif) maka mengembalikan frame dari 
+    * Jika arah gerak sedang ke atas (ymove negatif) maka mengembalikan frame dari 
     * animUp.
-    * Jika arah gerak sedang ke bawah (yMove positif) maka mengembalikan frame dari 
+    * Jika arah gerak sedang ke bawah (ymove positif) maka mengembalikan frame dari 
     * animDown.
-    * Jika arah gerak sedang ke kanan (xMove positif) maka mengembalikan frame dari 
+    * Jika arah gerak sedang ke kanan (xmove positif) maka mengembalikan frame dari 
     * animRight.
-    * Jika arah gerak sedang ke kiri (xMove negatif) maka mengembalikan frame dari 
+    * Jika arah gerak sedang ke kiri (xmove negatif) maka mengembalikan frame dari 
     * animLeft.
     * @return Frame yang bersesuaian dengan player yang akan ditampilkan.
     */
   
-  public BufferedImage getCurrentAnimationFrame(){
-    if(player.getxMove() < 0){
+  public BufferedImage getCurrentAnimationFrame() {
+    if (player.getxmove() < 0) {
       return animLeft.getCurrentFrame();
-    }else if(player.getxMove() > 0){
+    } else if (player.getxmove() > 0) {
       return animRight.getCurrentFrame();
-    }else if(player.getyMove() < 0){
+    } else if (player.getymove() < 0) {
       return animUp.getCurrentFrame();
-    }else{
+    } else {
       return animDown.getCurrentFrame();
     }
   }
   
   /**
-    * Menerima input dari KeyManager dan merubah xMove atau yMove nya.
+    * Menerima input dari KeyManager dan merubah xmove atau ymove nya.
     */
   
-  private void getInput(){
-    player.setxMove(0);
-    player.setyMove(0);
-    if(ic.isInventoryActive())
+  private void getInput() {
+    player.setxmove(0);
+    player.setymove(0);
+    if (ic.isInventoryActive()) {
       return;
-    if(player.getHandler().getKeyManager().up)
-      player.setyMove(-player.getSpeed());
-    if(player.getHandler().getKeyManager().down)
-      player.setyMove(player.getSpeed());
-    if(player.getHandler().getKeyManager().left)
-      player.setxMove(-player.getSpeed());
-    if(player.getHandler().getKeyManager().right)
-      player.setxMove(player.getSpeed());
+    }
+    if (player.getHandler().getKeyManager().up) {
+      player.setymove(-player.getSpeed());
+    }
+    if (player.getHandler().getKeyManager().down) {
+      player.setymove(player.getSpeed());
+    }
+    if (player.getHandler().getKeyManager().left) {
+      player.setxmove(-player.getSpeed());
+    }
+    if (player.getHandler().getKeyManager().right) {
+      player.setxmove(player.getSpeed());
+    }
   }
   
   /**
@@ -152,41 +170,43 @@ public class PlayerController {
     * Jika ada, maka akan terserang, jika tidak, tidak terjadi apa-apa.
     */
   
-  private void checkAttacks(){
-
+  private void checkAttacks() {
     attackTimer += System.currentTimeMillis() - lastAttackTimer;
     lastAttackTimer = System.currentTimeMillis();
-    if(attackTimer < attackCooldown)
+    if (attackTimer < attackCooldown) {
       return;
-    if(ic.isInventoryActive())
+    }
+    if (ic.isInventoryActive()) {
       return;
+    }
     Rectangle cb = player.getCollisionBounds(0, 0);
     Rectangle ar = new Rectangle();
     int arSize = 20;
     ar.width = arSize;
     ar.height = arSize;
-    if(player.getHandler().getKeyManager().aUp){
+    if (player.getHandler().getKeyManager().aUp) {
       ar.x = cb.x + cb.width / 2 - arSize / 2;
       ar.y = cb.y - arSize;
-    }else if(player.getHandler().getKeyManager().aDown){
+    } else if (player.getHandler().getKeyManager().aDown) {
       ar.x = cb.x + cb.width / 2 - arSize / 2;
       ar.y = cb.y + cb.height;
-    }else if(player.getHandler().getKeyManager().aLeft){
+    } else if (player.getHandler().getKeyManager().aLeft) {
       ar.x = cb.x - arSize;
       ar.y = cb.y + cb.height / 2 - arSize / 2;
-    }else if(player.getHandler().getKeyManager().aRight){
+    } else if (player.getHandler().getKeyManager().aRight) {
       ar.x = cb.x + cb.width;
       ar.y = cb.y + cb.height / 2 - arSize / 2;
-    }else{
+    } else {
       return;
     }
     attackTimer = 0;
-    for(Entity e : player.getHandler().getWorld().getEntityManager().getEntities()){
-      if(e.equals(this))
+    for (Entity e : player.getHandler().getWorld().getEntityManager().getEntities()) {
+      if (e.equals(this)) {
         continue;
-      if(e.getCollisionBounds(0, 0).intersects(ar)){
-        if ((e instanceof StaticEntity) && player.isHasKey()){
-          if (((StaticEntity)e).getId() == 2){
+      }
+      if (e.getCollisionBounds(0, 0).intersects(ar)) {
+        if ((e instanceof StaticEntity) && player.isHasKey()) {
+          if (((StaticEntity)e).getId() == 2) {
             e.hurt(2);
             player.getInventory().removeItem(Item.keyItem);
             return;
@@ -214,13 +234,13 @@ public class PlayerController {
     * @param g Nilai grafik yang mencetak gambar (frame) dari inventoryr.
     */
   
-  public void postRender(Graphics g){
+  public void postRender(Graphics g) {
     view.postRender(player, g);
   }
 
   /**
-    * Fungsi yang menampilkan gambar (frame) dari ItemController.
-    * @param g Nilai grafik yang mencetak gambar (frame) dari inventory player.
+    * Mengembalikan InventoryController yang ada pada PlayerController.
+    * @return Nilai dari InventoryController.
     */
 
   public InventoryController getInventoryController() {
