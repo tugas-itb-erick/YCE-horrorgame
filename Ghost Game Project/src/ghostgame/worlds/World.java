@@ -1,12 +1,5 @@
 package ghostgame.worlds;
 
-import java.awt.Graphics;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.Scanner;
-
 import ghostgame.Handler;
 import ghostgame.entities.EntityManager;
 import ghostgame.entities.creatures.Ghost2;
@@ -17,6 +10,12 @@ import ghostgame.items.ItemManager;
 import ghostgame.tiles.Tile;
 import ghostgame.tiles.TileController;
 import ghostgame.tiles.TileView;
+import java.awt.Graphics;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.Scanner;
 
 /**
  * File : World.java
@@ -52,11 +51,11 @@ public class World {
     loadStaticEntity("res/worlds/staticentity.txt");
     loadItem("res/worlds/item.txt");
     // Temporary entity code!
-    entityManager.addEntity(new Ghost2(handler, 64*6, 64*3));
-    entityManager.addEntity(new Ghost2(handler, 64*6, 64*4));
-    entityManager.addEntity(new Ghost2(handler, 64*6, 64*5));
-    entityManager.addEntity(new Ghost2(handler, 64*6, 64*6));
-    entityManager.addEntity(new Ghost2(handler, 64*6, 64*7));
+    entityManager.addEntity(new Ghost2(handler, 64 * 6, 64 * 3));
+    entityManager.addEntity(new Ghost2(handler, 64 * 6, 64 * 4));
+    entityManager.addEntity(new Ghost2(handler, 64 * 6, 64 * 5));
+    entityManager.addEntity(new Ghost2(handler, 64 * 6, 64 * 6));
+    entityManager.addEntity(new Ghost2(handler, 64 * 6, 64 * 7));
     
     loadWorld(path);
     
@@ -71,8 +70,8 @@ public class World {
    */
   
   public void tick() {
-    assert(itemManager != null);
-    assert(entityManager != null);
+    assert (itemManager != null);
+    assert (entityManager != null);
     
     itemManager.tick();
     entityManager.tick();
@@ -86,16 +85,20 @@ public class World {
    */
   
   public void render(Graphics g) {
-    assert(tiles != null);
-    assert(handler != null);
+    assert (tiles != null);
+    assert (handler != null);
     
-    int xStart = (int) Math.max(0, handler.getGameCamera().getxOffset() / Tile.TILEWIDTH) + entityManager.getPlayer().getSightX();
-    int xEnd = (int) Math.min(width, (handler.getGameCamera().getxOffset() + handler.getWidth()) / Tile.TILEWIDTH + 1) - entityManager.getPlayer().getSightX();
-    int yStart = (int) Math.max(0, handler.getGameCamera().getyOffset() / Tile.TILEHEIGHT) + entityManager.getPlayer().getSightY();
-    int yEnd = (int) Math.min(height, (handler.getGameCamera().getyOffset() + handler.getHeight()) / Tile.TILEHEIGHT + 1) - entityManager.getPlayer().getSightY();
+    int xstart = (int) Math.max(0, handler.getGameCamera().getxOffset() / Tile.TILEWIDTH) 
+                  + entityManager.getPlayer().getSightX();
+    int xend = (int) Math.min(width, (handler.getGameCamera().getxOffset() + handler.getWidth()) 
+                / Tile.TILEWIDTH + 1) - entityManager.getPlayer().getSightX();
+    int ystart = (int) Math.max(0, handler.getGameCamera().getyOffset() / Tile.TILEHEIGHT) 
+                  + entityManager.getPlayer().getSightY();
+    int yend = (int) Math.min(height, (handler.getGameCamera().getyOffset() + handler.getHeight()) 
+                / Tile.TILEHEIGHT + 1) - entityManager.getPlayer().getSightY();
     
-    for(int y = yStart;y < yEnd;y++){
-      for(int x = xStart;x < xEnd;x++){
+    for (int y = ystart;y < yend;y++) {
+      for (int x = xstart;x < xend;x++) {
         TileController tc = new TileController(getTile(x, y), new TileView());
         tc.render(g, (int) (x * Tile.TILEWIDTH - handler.getGameCamera().getxOffset()),
             (int) (y * Tile.TILEHEIGHT - handler.getGameCamera().getyOffset()));
@@ -104,7 +107,7 @@ public class World {
     // Items
     itemManager.render(g);
     //Entities
-    entityManager.render(g, xStart, yStart, xEnd, yEnd);
+    entityManager.render(g, xstart, ystart, xend, yend);
   }
   
   /**
@@ -115,14 +118,16 @@ public class World {
    */
   
   public Tile getTile(int x, int y) {
-    assert(tiles != null);
+    assert (tiles != null);
     
-    if(x < 0 || y < 0 || x >= width || y >= height)
+    if (x < 0 || y < 0 || x >= width || y >= height) {
       return Tile.floorTile;
+    }
     
     Tile t = Tile.tiles[tiles[x][y]];
-    if(t == null)
+    if (t == null) {
       return Tile.floorTile;
+    }
     return t;
   }
   
@@ -139,11 +144,11 @@ public class World {
     try {
       BufferedReader br = new BufferedReader(new FileReader(path));
       String line;
-      while((line = br.readLine()) != null)
+      while ((line = br.readLine()) != null) {
         builder.append(line + "\n");
-      
+      }
       br.close();
-    }catch(IOException e) {
+    } catch (IOException e) {
       e.printStackTrace();
     }
     
@@ -161,7 +166,7 @@ public class World {
       }
     }
     
-    assert(tiles != null);
+    assert (tiles != null);
   }
   
   /**
@@ -172,7 +177,7 @@ public class World {
    */
   
   private void loadStaticEntity(String path) {
-    assert(entityManager != null);
+    assert (entityManager != null);
     
     try {
       Scanner sc = new Scanner(new File(path));
@@ -182,7 +187,8 @@ public class World {
         float y = sc.nextFloat();
         int kwidth = sc.nextInt();
         int kheight = sc.nextInt();
-        entityManager.addEntity(new StaticEntity(handler, id, Tile.TILEWIDTH * x, Tile.TILEHEIGHT * y, Tile.TILEWIDTH * kwidth, Tile.TILEHEIGHT * kheight));
+        entityManager.addEntity(new StaticEntity(handler, id, Tile.TILEWIDTH * x, 
+                      Tile.TILEHEIGHT * y, Tile.TILEWIDTH * kwidth, Tile.TILEHEIGHT * kheight));
       }
       sc.close();
     } catch (IOException e) {
@@ -198,7 +204,7 @@ public class World {
    */
   
   private void loadItem(String path) {
-    assert(itemManager != null);
+    assert (itemManager != null);
     
     try {
       Scanner sc = new Scanner(new File(path));
@@ -207,12 +213,24 @@ public class World {
         int x = sc.nextInt();
         int y = sc.nextInt();
         switch (id) {
-          case 0: itemManager.addItem(Item.keyItem.createNew(x*Tile.TILEWIDTH, y*Tile.TILEHEIGHT)); break;
-          case 1: itemManager.addItem(Item.candleItem.createNew(x*Tile.TILEWIDTH, y*Tile.TILEHEIGHT)); break;
-          case 2: itemManager.addItem(Item.knifeItem.createNew(x*Tile.TILEWIDTH, y*Tile.TILEHEIGHT)); break;
-          case 3: itemManager.addItem(Item.ghostAshItem.createNew(x*Tile.TILEWIDTH, y*Tile.TILEHEIGHT)); break;
-          case 4: itemManager.addItem(Item.goldItem.createNew(x*Tile.TILEWIDTH, y*Tile.TILEHEIGHT)); break;
-          default: itemManager.addItem(Item.ghostAshItem.createNew(x*Tile.TILEWIDTH, y*Tile.TILEHEIGHT)); break;
+          case 0: itemManager.addItem(Item.keyItem.createNew(x * Tile.TILEWIDTH, 
+                  y * Tile.TILEHEIGHT)); 
+          break;
+          case 1: itemManager.addItem(Item.candleItem.createNew(x * Tile.TILEWIDTH, 
+                  y * Tile.TILEHEIGHT)); 
+          break;
+          case 2: itemManager.addItem(Item.knifeItem.createNew(x * Tile.TILEWIDTH, 
+                  y * Tile.TILEHEIGHT)); 
+          break;
+          case 3: itemManager.addItem(Item.ghostAshItem.createNew(x * Tile.TILEWIDTH, 
+                  y * Tile.TILEHEIGHT)); 
+          break;
+          case 4: itemManager.addItem(Item.goldItem.createNew(x * Tile.TILEWIDTH, 
+                  y * Tile.TILEHEIGHT)); 
+          break;
+          default: itemManager.addItem(Item.ghostAshItem.createNew(x * Tile.TILEWIDTH, 
+                   y * Tile.TILEHEIGHT)); 
+          break;
         }
       }
       sc.close();

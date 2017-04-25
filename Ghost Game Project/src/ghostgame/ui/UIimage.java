@@ -1,8 +1,8 @@
 package ghostgame.ui;
 
 /**
-  * File : UIImage.java.
-  * Kelas UIImage merepresentasikan objek gambar.
+  * File : UIimage.java.
+  * Kelas UIimage merepresentasikan objek gambar.
   * @author Veren Iliana K - 13515057.
   */
 
@@ -10,12 +10,12 @@ import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 
 /** 
- * File : UIImage.java.
+ * File : UIimage.java.
  * Kelas yang merepresentasikan object gambar interface yang ada pada game ini.
  * @author
  */
 
-public class UIImage extends UIObject {
+public class UIimage extends UIobject {
 
   private BufferedImage image;
   
@@ -23,12 +23,12 @@ public class UIImage extends UIObject {
    * Constructor dengan parameter.
    * @param x Posisi sumbu x.
    * @param y Posisi sumbu y.
-   * @param width Lebar uiimage.
-   * @param height Tinggi uiimage.
-   * @param image gambar uiimage.
+   * @param width Lebar UIimage.
+   * @param height Tinggi UIimage.
+   * @param image gambar UIimage.
    */
 
-  public UIImage(float x, float y, int width, int height, BufferedImage image) {
+  public UIimage(float x, float y, int width, int height, BufferedImage image) {
     super(x, y, width, height);
     this.image = image;
   }
@@ -47,7 +47,7 @@ public class UIImage extends UIObject {
 
   @Override
   public void render(Graphics g) {
-    g.drawImage(image, (int) x, (int) y, width, height, null);
+    g.drawImage(image, (int) posX, (int) posY, width, height, null);
   }
 
   /**

@@ -4,7 +4,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 
-import ghostgame.ui.UIManager;
+import ghostgame.ui.UImanager;
 
 /**
  * File : MouseManager.java.
@@ -16,7 +16,7 @@ public class MouseManager implements MouseListener, MouseMotionListener {
 
   private boolean leftPressed, rightPressed;
   private int mouseX, mouseY;
-  private UIManager uiManager;
+  private UImanager UImanager;
   
   /**
     * Constructor
@@ -27,13 +27,13 @@ public class MouseManager implements MouseListener, MouseMotionListener {
   }
   
   /** 
-    * I.S. atribut uiManager sembarang.
-    * F.S. atribut uiManager terdefinisi.
-    * @param atk Nilai yang akan dimasukkan ke atribut uiManager.
+    * I.S. atribut UImanager sembarang.
+    * F.S. atribut UImanager terdefinisi.
+    * @param atk Nilai yang akan dimasukkan ke atribut UImanager.
     */
 
-  public void setUIManager(UIManager uiManager) {
-    this.uiManager = uiManager;
+  public void setUImanager(UImanager UImanager) {
+    this.UImanager = UImanager;
   }
   
   /**
@@ -89,8 +89,8 @@ public class MouseManager implements MouseListener, MouseMotionListener {
     else if(e.getButton() == MouseEvent.BUTTON3)
       rightPressed = false;
     
-    if(uiManager != null)
-      uiManager.onMouseRelease(e);
+    if(UImanager != null)
+      UImanager.onMouseRelease(e);
   }
 
   @Override
@@ -98,8 +98,8 @@ public class MouseManager implements MouseListener, MouseMotionListener {
     mouseX = e.getX();
     mouseY = e.getY();
     
-    if(uiManager != null)
-      uiManager.onMouseMove(e);
+    if(UImanager != null)
+      UImanager.onMouseMove(e);
   }
   
   @Override

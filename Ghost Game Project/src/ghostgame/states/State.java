@@ -1,9 +1,7 @@
 package ghostgame.states;
 
-import java.awt.Graphics;
-
 import ghostgame.Handler;
-
+import java.awt.Graphics;
 
 public abstract class State {
 
@@ -12,13 +10,11 @@ public abstract class State {
   /**
    * Constructor dengan parameter.
    * @param handler Menghubungkan world dengan state.
-   * I.S. sembarang
-   * F.S. handler terdefinisi dan tidak boleh null
    */
   
-  public State(Handler handler){
+  public State(Handler handler) {
     this.handler = handler;
-    assert(this.handler != null);
+    assert (this.handler != null);
   }
   
   /**

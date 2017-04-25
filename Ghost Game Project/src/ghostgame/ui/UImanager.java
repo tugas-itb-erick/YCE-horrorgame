@@ -1,39 +1,39 @@
 package ghostgame.ui;
 
+import ghostgame.Handler;
 import java.awt.Graphics;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 
-import ghostgame.Handler;
-
 /** 
- * File : UIManager.java.
+ * File : UImanager.java.
  * Kelas yang merepresentasikan array of object interface yang ada pada game ini.
  * @author
  */
 
-public class UIManager {
+public class UImanager {
 
   private Handler handler;
-  private ArrayList<UIObject> objects;
+  private ArrayList<UIobject> objects;
   
   /**
    * Constructor dengan parameter.
    * @param handler Menghubungkan world dengan UI manager.
    */
   
-  public UIManager(Handler handler){
+  public UImanager(Handler handler) {
     this.handler = handler;
-    objects = new ArrayList<UIObject>();
+    objects = new ArrayList<UIobject>();
   }
   
   /**
    * Mengupdate kondisi state setiap satuan waktu.
    */
 
-  public void tick(){
-    for(UIObject o : objects)
+  public void tick() {
+    for (UIobject o : objects) {
       o.tick();
+    }
   }
 
   /**
@@ -41,9 +41,10 @@ public class UIManager {
    * @param g Gambar.
    */
   
-  public void render(Graphics g){
-    for(UIObject o : objects)
+  public void render(Graphics g) {
+    for (UIobject o : objects) {
       o.render(g);
+    }
   }
   
   /**
@@ -51,9 +52,10 @@ public class UIManager {
    * @param e MouseEvent.
    */
 
-  public void onMouseMove(MouseEvent e){
-    for(UIObject o : objects)
+  public void onMouseMove(MouseEvent e) {
+    for (UIobject o : objects) {      
       o.onMouseMove(e);
+    }
   }
   
   /**
@@ -61,17 +63,18 @@ public class UIManager {
    * @param e MouseEvent.
    */
 
-  public void onMouseRelease(MouseEvent e){
-    for(UIObject o : objects)
+  public void onMouseRelease(MouseEvent e) {
+    for (UIobject o : objects) {
       o.onMouseRelease(e);
+    }
   }
   
   /**
    * Menambah object.
-   * @param e object.
+   * @param o object.
    */
 
-  public void addObject(UIObject o){
+  public void addObject(UIobject o) {
     objects.add(o);
   }
   
@@ -79,7 +82,7 @@ public class UIManager {
    * Menghapus object.
    * @param o object.
    */
-  public void removeObject(UIObject o){
+  public void removeObject(UIobject o) {
     objects.remove(o);
   }
 
@@ -103,15 +106,15 @@ public class UIManager {
    * Mengembalikan array of UI object.
    * @return array of UI object.
    */
-  public ArrayList<UIObject> getObjects() {
+  public ArrayList<UIobject> getObjects() {
     return objects;
   }
 
   /**
    * Mengubah array of UI object.
-   * @param array of UI object.
+   * @param objects array of UI object.
    */
-  public void setObjects(ArrayList<UIObject> objects) {
+  public void setObjects(ArrayList<UIobject> objects) {
     this.objects = objects;
   }
   
