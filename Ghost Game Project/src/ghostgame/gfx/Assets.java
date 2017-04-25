@@ -213,9 +213,9 @@ public class Assets {
       (new File("res/audio/stab.wav").getAbsoluteFile());
       stab = AudioSystem.getClip();
       stab.open(audioInputStream);
-	  } catch(Exception e) {
-	      System.out.println("Error with playing sound.");
-	      e.printStackTrace();
-	  }
+    } catch(Exception e) {
+        System.out.println("Error with playing sound.");
+        e.printStackTrace();
+    }
   }
 }

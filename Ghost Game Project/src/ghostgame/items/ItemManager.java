@@ -60,8 +60,8 @@ public class ItemManager {
     for (Item i : items) {
       if (i.getX()/Tile.TILEWIDTH >= xstart && i.getX()/Tile.TILEWIDTH < xend
       && i.getY()/Tile.TILEWIDTH >= ystart && i.getY()/Tile.TILEWIDTH < yend) {
-	      ic.setItem(i);
-	      ic.render(g);
+        ic.setItem(i);
+        ic.render(g);
       }
     }
   }
