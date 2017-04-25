@@ -7,7 +7,7 @@ import java.awt.Rectangle;
 /**
  * Kelas Entity merupakan kelas yang menggambarkan entitas-entitas
  * yang terdapat dalam permainan.
- * @author
+ * @author Erick Wijaya - 13515057
  */
 
 public abstract class Entity {

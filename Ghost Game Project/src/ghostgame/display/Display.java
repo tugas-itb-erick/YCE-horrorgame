@@ -8,7 +8,7 @@ import javax.swing.JFrame;
 /**
  * File : Display.java.
  * Kelas Display merepresentasikan tampilan.
- * @author 
+ * @author Erick Wijaya - 13515057
  */
 
 public class Display {

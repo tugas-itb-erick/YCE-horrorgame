@@ -8,7 +8,7 @@ import ghostgame.worlds.World;
 /**
  * File : Handler.java.
  * Kelas Handler menghubungkan World dengan kelas lain.
- * @author 
+ * @author Erick Wijaya - 13515057
  */
 
 public class Handler {

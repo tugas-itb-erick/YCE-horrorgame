@@ -12,9 +12,12 @@ import java.util.Iterator;
   * @author Kevin Iswara - 13515085
   */
 
-public abstract class Ghost extends Creature {
+public abstract class Ghost extends Creature implements Runnable {
   
+	protected Thread thread;
+	protected boolean running;
   protected int atk;
+  protected int index;
   
   /**
     * Constructor dengan parameter.
@@ -30,12 +33,16 @@ public abstract class Ghost extends Creature {
     bounds.y = 44;
     bounds.width = 19;
     bounds.height = 19;
+    
+    running = false;
+    index = 0;
+    start();
   }
   
   /**
    * Memeriksa apakah posisi ghost bersinggungan dengan entitas lain.
    * @param xoffset perubahan jarak absis ghost dari posisi awal ghost.
-   * @param yoffset perubahan jarak ordinat player dari posisi awal ghostr.
+   * @param yoffset perubahan jarak ordinat ghost dari posisi awal ghost.
    * @return true apabila posisi ghost bersinggungan dengan entitas lain.
    */
   
@@ -91,4 +98,70 @@ public abstract class Ghost extends Creature {
     */
 
   public abstract void changeMovement();
+	
+  /**
+   * Fungsi untuk memulai thread Ghost baru.
+   */
+	
+  public synchronized void start() {
+    if (running) {
+      return;
+    }
+    running = true;
+    thread = new Thread(this);
+    thread.start();
+  }
+  
+  /**
+    * Fungsi untuk memberhentikan thread.
+    */
+  
+  public synchronized void stop() {
+    if (!running) {
+      return;
+    }
+    running = false;
+    try {
+      thread.join();
+    } catch (InterruptedException e) {
+      e.printStackTrace();
+    }
+  }
+  
+  @SuppressWarnings("static-access")
+	@Override
+  public void run() {
+    int fps = 60;
+    double timePerTick = 1000000000 / fps;
+    double delta = 0;
+    long now;
+    long lastTime = System.nanoTime();
+    long timer = 0;
+    while (active) {
+    	try {
+				thread.sleep(600);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+      now = System.nanoTime();
+      delta += (now - lastTime) / timePerTick;
+      timer += now - lastTime;
+      lastTime = now;
+      if (delta >= 1) {
+        index = (index + 1) % 2;
+        delta--;
+      }
+      if (timer >= 1000000000) {
+        timer = 0;
+      }
+    }
+    stop();
+  }
+
+	/**
+	 * @return the index
+	 */
+	public int getIndex() {
+		return index;
+	}
 }

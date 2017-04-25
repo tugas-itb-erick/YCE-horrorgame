@@ -105,6 +105,8 @@ public class PlayerController {
     checkAttacks();
     // Inventory
     ic.tick();
+    // check win state
+    player.checkWin();
   }
   
   /**
@@ -173,7 +175,7 @@ public class PlayerController {
     }
     Rectangle cb = player.getCollisionBounds(0, 0);
     Rectangle ar = new Rectangle();
-    int arSize = 20;
+    int arSize = 50;
     ar.width = arSize;
     ar.height = arSize;
     if (player.getHandler().getKeyManager().aup) {
@@ -199,13 +201,13 @@ public class PlayerController {
       if (e.getCollisionBounds(0, 0).intersects(ar)) {
         if ((e instanceof StaticEntity) && player.isHasKey()) {
           if (((StaticEntity)e).getId() == 2) {
-            e.hurt(2);
+            e.hurt(1);
             player.getInventory().removeItem(Item.keyItem);
             return;
           }
         }
         if ((e instanceof Ghost) && player.isHasWeapon()) {
-          e.hurt(2);
+          e.hurt(1);
           return;
         }
       }

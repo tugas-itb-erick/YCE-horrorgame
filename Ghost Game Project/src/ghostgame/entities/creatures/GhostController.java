@@ -22,6 +22,7 @@ public class GhostController {
   private Animation ghostUp;
   private Animation ghostLeft;
   private Animation ghostRight;
+  private int index;
   
   /**
     * Constructor dengan parameter.
@@ -50,6 +51,8 @@ public class GhostController {
       ghostLeft = new Animation(500, Assets.ghost3_left);
       ghostRight = new Animation(500, Assets.ghost3_right);
     }
+    
+    index = 0;
   }
   
   /**
@@ -60,6 +63,24 @@ public class GhostController {
   
   public void setGhost(Ghost ghost) {
     this.ghost = ghost;
+    
+    index = ghost.getIndex();
+    if (ghost instanceof Ghost1) {
+      ghostDown = new Animation(500, Assets.ghost1_down, index);
+      ghostUp = new Animation(500, Assets.ghost1_up, index);
+      ghostLeft = new Animation(500, Assets.ghost1_left, index);
+      ghostRight = new Animation(500, Assets.ghost1_right, index);
+    } else if (ghost instanceof Ghost2) {
+      ghostDown = new Animation(500, Assets.ghost2_down, index);
+      ghostUp = new Animation(500, Assets.ghost2_up, index);
+      ghostLeft = new Animation(500, Assets.ghost2_left, index);
+      ghostRight = new Animation(500, Assets.ghost2_right, index);
+    } else {
+      ghostDown = new Animation(500, Assets.ghost3_down, index);
+      ghostUp = new Animation(500, Assets.ghost3_up, index);
+      ghostLeft = new Animation(500, Assets.ghost3_left, index);
+      ghostRight = new Animation(500, Assets.ghost3_right, index);
+    }
   }
 
   /**
@@ -120,16 +141,12 @@ public class GhostController {
     */
 
   public void tick() {
-    //Animations
     ghostDown.tick();
     ghostUp.tick();
     ghostRight.tick();
     ghostLeft.tick();
-    //Finding movement
     changeMovement();
-    //Movement
     ghost.move();
-    //checkCollision;
   }
   
   /**

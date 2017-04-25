@@ -2,7 +2,7 @@ package ghostgame;
 
 /**
  * Kelas Launcher adalah kelas yang menjalankan permainan.
- * @author 
+ * @author Erick Wijaya - 13515057
  */
 
 public class Launcher {

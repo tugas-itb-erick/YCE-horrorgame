@@ -26,10 +26,16 @@ public class StaticEntity extends Entity {
   public StaticEntity(Handler handler, int id, float x, float y, int width, int height) {
     super(handler, x, y, width, height);
     this.id = id;
+    
     bounds.x = 3;
-    bounds.y = (int) (height / 2f);
     bounds.width = width - 6;
-    bounds.height = (int) (height - height / 2f);
+    if (id == 2) {
+	    bounds.y = 0;
+	    bounds.height = (int) (height);
+    } else {
+	    bounds.y = (int) (height / 2f);
+	    bounds.height = (int) (height - height / 2f);
+    }
   }
 
   /**

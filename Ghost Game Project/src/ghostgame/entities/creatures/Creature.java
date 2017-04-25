@@ -8,7 +8,7 @@ import ghostgame.tiles.Tile;
 
 /**
   * Kelas abstrak Creature yang merepresentasikan Entity yang dapat bergerak.
-  * @author 
+  * @author Kevin Iswara - 13515085.
   */
 
 public abstract class Creature extends Entity {

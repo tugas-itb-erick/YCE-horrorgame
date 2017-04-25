@@ -6,7 +6,7 @@ import ghostgame.tiles.Tile;
 
 /**
   * Kelas GameCamera yang mengatur posisi pusat (bagian mana yang ditampilkan).
-  * @author 
+  * @author Erick Wijaya - 13515057
   */
 
 public class GameCamera {

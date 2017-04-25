@@ -1,14 +1,13 @@
 package ghostgame.entities.creatures;
 
-import ghostgame.Handler;
-
-import ghostgame.entities.Entity;
-
-import ghostgame.inventory.Inventory;
-
-import ghostgame.states.LostState;
-
 import java.util.Iterator;
+
+import ghostgame.Handler;
+import ghostgame.entities.Entity;
+import ghostgame.inventory.Inventory;
+import ghostgame.states.LostState;
+import ghostgame.states.WinState;
+import ghostgame.tiles.Tile;
 
 /** 
  * File : Player.java.
@@ -124,8 +123,8 @@ public class Player extends Creature {
   public void checkCandle() {
     assert (inventory != null);
     if (inventory.containItem("Candle")) {
-      sightX = 2;
-      sightY = 1;
+      sightX = 3;
+      sightY = 2;
     }
   }
   
@@ -203,5 +202,12 @@ public class Player extends Creature {
   
   public boolean isHasKey() {
     return hasKey;
+  }
+  
+  public void checkWin() {
+  	if (((int) (xpos / Tile.TILEWIDTH) == handler.getWorld().getWinX()-1) &&
+  			((int) (ypos / Tile.TILEHEIGHT) == handler.getWorld().getWinY()-1)) {
+  		handler.getGame().setState(new WinState(handler));
+  	}
   }
 }
