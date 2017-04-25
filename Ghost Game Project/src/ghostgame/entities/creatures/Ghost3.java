@@ -3,7 +3,8 @@ package ghostgame.entities.creatures;
 import ghostgame.Handler;
 
 import ghostgame.entities.Entity;
-
+import ghostgame.gfx.Animation;
+import ghostgame.gfx.Assets;
 import ghostgame.tiles.Tile;
 
 import java.util.ArrayList;
