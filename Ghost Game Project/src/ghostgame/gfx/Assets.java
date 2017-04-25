@@ -30,9 +30,10 @@ public class Assets {
   public static BufferedImage mainMenuBackground;
   // written images
   public static BufferedImage instructionScreen;
-  public static BufferedImage lostScreen;
-  public static BufferedImage winScreen;
+  public static BufferedImage lost;
+  public static BufferedImage win;
   public static BufferedImage creditScreen;
+  public static BufferedImage home;  
   // button images
   public static BufferedImage[] btn_start;
   public static BufferedImage[] btn_instruction;
@@ -127,12 +128,13 @@ public class Assets {
     btn_credit[0] = sheet.getSubimage(0, HEIGHT * 7, WIDTH * 3, HEIGHT);
     btn_credit[1] = sheet.getSubimage(WIDTH * 5, HEIGHT * 5, WIDTH * 3, HEIGHT);
     btn_quit = new BufferedImage[2];
-    btn_quit[0] = sheet.getSubimage(WIDTH * 5, HEIGHT * 6, WIDTH * 2, HEIGHT);
-    btn_quit[1] = sheet.getSubimage(WIDTH * 5, HEIGHT * 6, WIDTH * 2, HEIGHT);
-    instructionScreen = sheet.getSubimage(0, HEIGHT * 5, WIDTH * 2, HEIGHT * 2);
-    winScreen = sheet.getSubimage(0, HEIGHT * 5, WIDTH * 2, HEIGHT * 2);
-    lostScreen = sheet.getSubimage(0, HEIGHT * 5, WIDTH * 2, HEIGHT * 2);
-    creditScreen = sheet.getSubimage(0, HEIGHT * 5, WIDTH * 2, HEIGHT * 2);
+    btn_quit[0] = ghost.getSubimage(WIDTH * 3, HEIGHT * 4, WIDTH * 3, HEIGHT);
+    btn_quit[1] = ghost.getSubimage(0, HEIGHT * 4, WIDTH * 3, HEIGHT);
+    instructionScreen = ghost.getSubimage(WIDTH * 3, HEIGHT * 5, WIDTH * 2, HEIGHT * 2);
+    win = ghost.getSubimage(WIDTH * 6, HEIGHT * 2, WIDTH * 2, HEIGHT * 1);
+    lost = ghost.getSubimage(WIDTH * 6, 0, WIDTH * 2, HEIGHT * 2);
+    creditScreen = ghost.getSubimage(0, HEIGHT * 5, WIDTH * 2, HEIGHT * 2);
+    home = ghost.getSubimage(WIDTH * 6, HEIGHT * 3, WIDTH, HEIGHT);
     player_down = new BufferedImage[3];
     player_up = new BufferedImage[3];
     player_left = new BufferedImage[3];

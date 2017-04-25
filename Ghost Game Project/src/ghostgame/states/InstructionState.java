@@ -35,7 +35,7 @@ public class InstructionState extends State {
       }
     }
     
-    //UImanager.addObject(new UIimage(200, 200, 128, 64, Assets.instructionScreen));
+    uimanager.addObject(new UIimage(150, 100, 256, 256, Assets.instructionScreen));
 
     uimanager.addObject(new UIimageButton(425, 400, 192, 64, Assets.btn_back, new ClickListener() {
       @Override
