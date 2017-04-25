@@ -60,36 +60,16 @@ public class World {
 		loadGhost("res/worlds/ghost.txt");
 		
 		// Temporary entity code!
-		entityManager.addEntity(new Ghost1(handler, 64*7, 64*3));
+		/*entityManager.addEntity(new Ghost1(handler, 64*7, 64*3));
 		entityManager.addEntity(new Ghost2(handler, 64*7, 64*4));
 		entityManager.addEntity(new Ghost3(handler, 64*7, 64*5));
 		entityManager.addEntity(new Ghost1(handler, 64*7, 64*6));
-		entityManager.addEntity(new Ghost2(handler, 64*7, 64*7));
+		entityManager.addEntity(new Ghost2(handler, 64*7, 64*7));*/
 		
 		loadWorld(path);
 		
 		entityManager.getPlayer().setX(spawnX);
 		entityManager.getPlayer().setY(spawnY);
-		
-    /*try {
-      AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File("res/audio/remnant-of-twilight.wav").getAbsoluteFile());
-      Clip clip = AudioSystem.getClip();
-      clip.open(audioInputStream);
-      clip.start();
-	  } catch(Exception ex) {
-	      System.out.println("Error with playing sound.");
-	      ex.printStackTrace();
-	  }*/
-		/*InputStream in;
-		AudioStream as = null;
-		try {
-			in = new FileInputStream("res/audio/remnant-of-twilight.mp3");
-			as = new AudioStream(in); 
-		} catch (IOException e) {
-			e.printStackTrace();
-		}        
-		AudioPlayer.player.start(as);*/            
-		//AudioPlayer.player.stop(as); 
 	}
   
   /**

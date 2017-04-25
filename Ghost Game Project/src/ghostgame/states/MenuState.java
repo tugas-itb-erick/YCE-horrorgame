@@ -1,12 +1,13 @@
 package ghostgame.states;
 
+import java.awt.Graphics;
+
 import ghostgame.Handler;
 import ghostgame.gfx.Assets;
 import ghostgame.ui.ClickListener;
 import ghostgame.ui.UIimage;
 import ghostgame.ui.UIimageButton;
 import ghostgame.ui.UImanager;
-import java.awt.Graphics;
 
 /**
  * File : MenuState.java.
@@ -66,6 +67,10 @@ public class MenuState extends State {
         System.exit(1);
       }
     }));
+    
+    if (Assets.bgmusic != null) {
+    	Assets.bgmusic.start();
+    }
   }
 
   /**
