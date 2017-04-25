@@ -5,7 +5,7 @@ import java.awt.image.BufferedImage;
 /**
   * Kelas Animation yang merepresentasikan animasi atau pergantian 
   * gambar sesuai dengan satuan waktu tertentu.
-  * @author 
+  * @author Erick Wijaya - 13515057
   */
 
 public class Animation {

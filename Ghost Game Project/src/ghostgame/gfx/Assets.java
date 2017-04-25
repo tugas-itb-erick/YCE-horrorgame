@@ -15,7 +15,7 @@ import javax.imageio.ImageIO;
 /**
   * Kelas Assets yang merepresentasikan pengambilan gambar dari
   * file png.
-  * @author Kevin
+  * @author Kevin Iswara - 13515085.
   */
 
 public class Assets {
@@ -36,7 +36,7 @@ public class Assets {
   public static BufferedImage[] btn_start;
   public static BufferedImage[] btn_instruction;
   public static BufferedImage[] btn_credit;
-  public static BufferedImage[] btn_back
+  public static BufferedImage[] btn_back;
   public static BufferedImage[] btn_quit;
   // static item images
   public static BufferedImage candle;
@@ -89,10 +89,10 @@ public class Assets {
       inventoryScreen = ImageIO.read(new File("res/textures/inventoryScreen.png"));
     } catch (FontFormatException | IOException e) {
       e.printStackTrace();
+      // exit if program fails to load sprite
       System.exit(1);
     }
-    // Keterangan : sheet.getSubimage(X, Y, lebarGambar, panjangGambar)
-    // X dan Y adalah posisi ujung kiri atas gambar dalam file "assets.png".
+    
     mainMenuBackground = sheet.getSubimage(0, HEIGHT * 5, WIDTH * 2, HEIGHT * 2);
     knife = sheet.getSubimage(0, 0, WIDTH, HEIGHT);
     bed = sheet.getSubimage(WIDTH, HEIGHT, WIDTH * 2, HEIGHT);

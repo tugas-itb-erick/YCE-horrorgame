@@ -23,7 +23,7 @@ import java.awt.image.BufferStrategy;
 /**
  * File : Game.java.
  * Kelas Game merepresentasikan permainan.
- * @author 
+ * @author Erick Wijaya - 13515057
  */
 
 public class Game implements Runnable {

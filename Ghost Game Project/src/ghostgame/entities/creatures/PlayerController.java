@@ -184,16 +184,16 @@ public class PlayerController {
     int arSize = 20;
     ar.width = arSize;
     ar.height = arSize;
-    if (player.getHandler().getKeyManager().aUp) {
+    if (player.getHandler().getKeyManager().aup) {
       ar.x = cb.x + cb.width / 2 - arSize / 2;
       ar.y = cb.y - arSize;
-    } else if (player.getHandler().getKeyManager().aDown) {
+    } else if (player.getHandler().getKeyManager().adown) {
       ar.x = cb.x + cb.width / 2 - arSize / 2;
       ar.y = cb.y + cb.height;
-    } else if (player.getHandler().getKeyManager().aLeft) {
+    } else if (player.getHandler().getKeyManager().aleft) {
       ar.x = cb.x - arSize;
       ar.y = cb.y + cb.height / 2 - arSize / 2;
-    } else if (player.getHandler().getKeyManager().aRight) {
+    } else if (player.getHandler().getKeyManager().aright) {
       ar.x = cb.x + cb.width;
       ar.y = cb.y + cb.height / 2 - arSize / 2;
     } else {

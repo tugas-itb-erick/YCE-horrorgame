@@ -31,7 +31,7 @@ import java.util.Iterator;
 /**
  * Kelas EntityManager merupakan kelas yang melakukan penanganan terhadap seluruh
  * Entity yang terdapat pada permainan.
- * @author 
+ * @author Erick Wijaya - 13515057
  */
 
 public class EntityManager {

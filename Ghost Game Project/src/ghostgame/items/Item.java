@@ -107,8 +107,8 @@ public class Item {
   public void setPosition(int xpos, int ypos) {
     this.xpos = xpos;
     this.ypos = ypos;
-    bounds.xpos = xpos;
-    bounds.ypos = ypos;
+    bounds.x = xpos;
+    bounds.y = ypos;
   }
   
   /**

@@ -7,7 +7,7 @@ import java.awt.Graphics;
 
 /**
   * Kelas Text yang merepresentasikan teks yang akan ditampilkan pada layar.
-  * @author
+  * @author Erick Wijaya - 13515057
   */
 
 public class Text {

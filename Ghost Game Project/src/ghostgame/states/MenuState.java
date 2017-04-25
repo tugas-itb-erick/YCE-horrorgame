@@ -26,7 +26,7 @@ public class MenuState extends State {
   public MenuState(final Handler handler) {
     super(handler);
     uimanager = new UImanager(handler);
-    handler.getMouseManager().setUImanager(UImanager);
+    handler.getMouseManager().setUImanager(uimanager);
     
     for (int x = 0; x < handler.getGame().getWidth(); x += 128) {
       for (int y = 0; y < handler.getGame().getHeight(); y += 128) {
@@ -74,11 +74,8 @@ public class MenuState extends State {
 
   @Override
   public void tick() {
+  	assert (uimanager != null);
     uimanager.tick();
-    
-    // Temporarily just go directly to the GameState, skip the menu state!
-    //handler.getMouseManager().setUImanager(null);
-    //State.setState(handler.getGame().gameState);
   }
 
   /**
@@ -87,6 +84,7 @@ public class MenuState extends State {
 
   @Override
   public void render(Graphics g) {
+  	assert (uimanager != null);
     uimanager.render(g);
   }
 

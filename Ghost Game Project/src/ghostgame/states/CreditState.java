@@ -16,7 +16,7 @@ import java.awt.Graphics;
  */
 
 public class CreditState extends State {
-  private UImanager uiManager;
+  private UImanager uimanager;
 
   /**
    * Constructor dengan parameter.
@@ -25,18 +25,18 @@ public class CreditState extends State {
 
   public CreditState(final Handler handler) {
     super(handler);
-    uiManager = new UImanager(handler);
-    handler.getMouseManager().setUImanager(uiManager);
+    uimanager = new UImanager(handler);
+    handler.getMouseManager().setUImanager(uimanager);
     
     for (int x = 0; x < handler.getGame().getWidth(); x += 128) {
       for (int y = 0; y < handler.getGame().getHeight(); y += 128) {
-        uiManager.addObject(new UIimage((int)x, (int)y, 128, 128, Assets.mainMenuBackground));
+        uimanager.addObject(new UIimage((int)x, (int)y, 128, 128, Assets.mainMenuBackground));
       }
     }
     
-    uiManager.addObject(new UIimage(200, 200, 128, 64, Assets.creditScreen));
+    uimanager.addObject(new UIimage(200, 200, 128, 64, Assets.creditScreen));
 
-    uiManager.addObject(new UIimageButton(425, 400, 192, 64, Assets.btn_back, new ClickListener() {
+    uimanager.addObject(new UIimageButton(425, 400, 192, 64, Assets.btn_back, new ClickListener() {
       @Override
       public void onClick() {
         handler.getMouseManager().setUImanager(null);
@@ -51,7 +51,8 @@ public class CreditState extends State {
 
   @Override
   public void tick() {
-    uiManager.tick();
+  	assert (uimanager != null);
+    uimanager.tick();
   }
 
   /**
@@ -60,6 +61,7 @@ public class CreditState extends State {
 
   @Override
   public void render(Graphics g) {
-    uiManager.render(g);
+  	assert (uimanager != null);
+    uimanager.render(g);
   }
 }
