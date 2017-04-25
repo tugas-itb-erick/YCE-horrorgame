@@ -1,13 +1,18 @@
 package ghostgame.entities.creatures;
 
-import java.util.Iterator;
-
 import ghostgame.Handler;
+
 import ghostgame.entities.Entity;
+
 import ghostgame.inventory.Inventory;
+
 import ghostgame.states.LostState;
+
 import ghostgame.states.WinState;
+
 import ghostgame.tiles.Tile;
+
+import java.util.Iterator;
 
 /** 
  * File : Player.java.
@@ -204,10 +209,14 @@ public class Player extends Creature {
     return hasKey;
   }
   
+  /**
+    * Memeriksa status kemenangan dari player.
+    */
+
   public void checkWin() {
-  	if (((int) (xpos / Tile.TILEWIDTH) == handler.getWorld().getWinX()-1) &&
-  			((int) (ypos / Tile.TILEHEIGHT) == handler.getWorld().getWinY()-1)) {
-  		handler.getGame().setState(new WinState(handler));
-  	}
+    if (((int) (xpos / Tile.TILEWIDTH) == handler.getWorld().getWinX() - 1) 
+        && ((int) (ypos / Tile.TILEHEIGHT) == handler.getWorld().getWinY() - 1)) {
+      handler.getGame().setState(new WinState(handler));
+    }
   }
 }

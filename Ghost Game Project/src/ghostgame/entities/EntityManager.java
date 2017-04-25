@@ -1,24 +1,40 @@
 package ghostgame.entities;
 
-import java.awt.Graphics;
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.Iterator;
-
 import ghostgame.Handler;
+
 import ghostgame.entities.creatures.Ghost;
+
 import ghostgame.entities.creatures.Ghost1;
+
 import ghostgame.entities.creatures.Ghost2;
+
 import ghostgame.entities.creatures.Ghost3;
+
 import ghostgame.entities.creatures.GhostController;
+
 import ghostgame.entities.creatures.GhostView;
+
 import ghostgame.entities.creatures.Player;
+
 import ghostgame.entities.creatures.PlayerController;
+
 import ghostgame.entities.creatures.PlayerView;
+
 import ghostgame.entities.statics.StaticEntity;
+
 import ghostgame.entities.statics.StaticEntityController;
+
 import ghostgame.entities.statics.StaticEntityView;
+
 import ghostgame.tiles.Tile;
+
+import java.awt.Graphics;
+
+import java.util.ArrayList;
+
+import java.util.Comparator;
+
+import java.util.Iterator;
 
 /**
  * Kelas EntityManager merupakan kelas yang melakukan penanganan terhadap seluruh
@@ -74,17 +90,14 @@ public class EntityManager {
       } else if (e instanceof Player) {
         pc.tick();
       } else if (e instanceof Ghost) {
-      	if (e instanceof Ghost1) {
-      		gc.setGhost((Ghost1) e);
-      	}
-      	else if (e instanceof Ghost2) {
-      		gc.setGhost((Ghost2) e);
-      	}
-      	else {
-      		gc.setGhost((Ghost3) e);
-      	}
-      	
-      	// gc = new GhostController((Ghost) e, new GhostView());
+        if (e instanceof Ghost1) {
+          gc.setGhost((Ghost1) e);
+        } else if (e instanceof Ghost2) {
+          gc.setGhost((Ghost2) e);
+        } else {
+          gc.setGhost((Ghost3) e);
+        }
+        // gc = new GhostController((Ghost) e, new GhostView());
         // gc.setGhost((Ghost) e);
         gc.tick();
       }
@@ -106,19 +119,19 @@ public class EntityManager {
   
   public void render(Graphics g, int xstart, int ystart, int xend, int yend) {
     for (Entity e : entities) {
-    	if (e instanceof Player) {
+      if (e instanceof Player) {
         pc.render(g);
       } else {
-	      if (e.getX()/Tile.TILEWIDTH >= xstart && e.getX()/Tile.TILEWIDTH < xend
-	      && e.getY()/Tile.TILEWIDTH >= ystart && e.getY()/Tile.TILEWIDTH < yend){
-		      if (e instanceof StaticEntity) {
-		        sc.setStaticEntity((StaticEntity) e);
-		        sc.render(g);
-		      } else if (e instanceof Ghost) {
-		        gc.setGhost((Ghost) e);
-		        gc.render(g);
-		      }
-	      }
+        if (e.getX() / Tile.TILEWIDTH >= xstart && e.getX() / Tile.TILEWIDTH < xend
+            && e.getY() / Tile.TILEWIDTH >= ystart && e.getY() / Tile.TILEWIDTH < yend) {
+          if (e instanceof StaticEntity) {
+            sc.setStaticEntity((StaticEntity) e);
+            sc.render(g);
+          } else if (e instanceof Ghost) {
+            gc.setGhost((Ghost) e);
+            gc.render(g);
+          }
+        }
       }
     }
     pc.postRender(g);
