@@ -60,11 +60,11 @@ public class World {
 		loadGhost("res/worlds/ghost.txt");
 		
 		// Temporary entity code!
-		entityManager.addEntity(new Ghost1(handler, 64*7, 64*3));
+		/*entityManager.addEntity(new Ghost1(handler, 64*7, 64*3));
 		entityManager.addEntity(new Ghost2(handler, 64*7, 64*4));
 		entityManager.addEntity(new Ghost3(handler, 64*7, 64*5));
 		entityManager.addEntity(new Ghost1(handler, 64*7, 64*6));
-		entityManager.addEntity(new Ghost2(handler, 64*7, 64*7));
+		entityManager.addEntity(new Ghost2(handler, 64*7, 64*7));*/
 		
 		loadWorld(path);
 		

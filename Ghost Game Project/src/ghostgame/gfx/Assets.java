@@ -215,15 +215,5 @@ public class Assets {
 	      System.out.println("Error with playing sound.");
 	      e.printStackTrace();
 	  }
-    
-    /*try {
-    	bgmusic = new AudioStream(new FileInputStream("res/audio/remnant-of-twilight.wav"));
-    	openDoor = new AudioStream(new FileInputStream("res/audio/door.wav"));
-    	scream = new AudioStream(new FileInputStream("res/audio/scream.wav"));
-    	stab = new AudioStream(new FileInputStream("res/audio/stab.wav"));
-    } catch (IOException e) {
-    	e.printStackTrace();
-    }*/
   }
-  
 }
