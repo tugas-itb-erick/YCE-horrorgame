@@ -195,34 +195,34 @@ public class Assets {
     stab = null;
     
     try {
-      AudioInputStream audioInputStream = AudioSystem.getAudioInputStream
-      (new File("res/audio/remnant-of-twilight.wav").getAbsoluteFile());
+      AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(
+          new File("res/audio/remnant-of-twilight.wav").getAbsoluteFile());
       bgmusic = AudioSystem.getClip();
       bgmusic.open(audioInputStream);
-      audioInputStream = AudioSystem.getAudioInputStream
-      (new File("res/audio/door.wav").getAbsoluteFile());
+      audioInputStream = AudioSystem.getAudioInputStream(
+      new File("res/audio/door.wav").getAbsoluteFile());
       openDoor = AudioSystem.getClip();
       openDoor.open(audioInputStream);
-      audioInputStream = AudioSystem.getAudioInputStream
-      (new File("res/audio/scream.wav").getAbsoluteFile());
+      audioInputStream = AudioSystem.getAudioInputStream(
+      new File("res/audio/scream.wav").getAbsoluteFile());
       scream = AudioSystem.getClip();
       scream.open(audioInputStream);
-      audioInputStream = AudioSystem.getAudioInputStream
-      (new File("res/audio/stab.wav").getAbsoluteFile());
+      audioInputStream = AudioSystem.getAudioInputStream(
+      new File("res/audio/stab.wav").getAbsoluteFile());
       stab = AudioSystem.getClip();
       stab.open(audioInputStream);
-	  } catch(Exception e) {
-	      System.out.println("Error with playing sound.");
-	      e.printStackTrace();
-	  }
+    } catch (Exception e) {
+      System.out.println("Error with playing sound.");
+      e.printStackTrace();
+    }
     
     /*try {
-    	bgmusic = new AudioStream(new FileInputStream("res/audio/remnant-of-twilight.wav"));
-    	openDoor = new AudioStream(new FileInputStream("res/audio/door.wav"));
-    	scream = new AudioStream(new FileInputStream("res/audio/scream.wav"));
-    	stab = new AudioStream(new FileInputStream("res/audio/stab.wav"));
+      bgmusic = new AudioStream(new FileInputStream("res/audio/remnant-of-twilight.wav"));
+      openDoor = new AudioStream(new FileInputStream("res/audio/door.wav"));
+      scream = new AudioStream(new FileInputStream("res/audio/scream.wav"));
+      stab = new AudioStream(new FileInputStream("res/audio/stab.wav"));
     } catch (IOException e) {
-    	e.printStackTrace();
+      e.printStackTrace();
     }*/
   }
   
