@@ -51,7 +51,7 @@ public class CreditState extends State {
 
   @Override
   public void tick() {
-  	assert (uimanager != null);
+    assert (uimanager != null);
     uimanager.tick();
   }
 
@@ -61,7 +61,7 @@ public class CreditState extends State {
 
   @Override
   public void render(Graphics g) {
-  	assert (uimanager != null);
+    assert (uimanager != null);
     uimanager.render(g);
   }
 }

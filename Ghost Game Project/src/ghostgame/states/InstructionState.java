@@ -31,7 +31,7 @@ public class InstructionState extends State {
     
     for (int x = 0; x < handler.getGame().getWidth(); x += 128) {
       for (int y = 0; y < handler.getGame().getHeight(); y += 128) {
-        uimanager.addObject(new UIimage((int)x, (int)y, 128, 128, Assets.mainMenuBackground));
+      	uimanager.addObject(new UIimage(64, 0, 512, 512, Assets.instructionScreen));
       }
     }
     
@@ -52,7 +52,7 @@ public class InstructionState extends State {
 
   @Override
   public void tick() {
-  	assert (uimanager != null);
+    assert (uimanager != null);
     uimanager.tick();
   }
 
@@ -62,7 +62,7 @@ public class InstructionState extends State {
 
   @Override
   public void render(Graphics g) {
-  	assert (uimanager != null);
+    assert (uimanager != null);
     uimanager.render(g);
   }
 }

@@ -94,6 +94,10 @@ public class Assets {
       sheet = ImageIO.read(new File("res/textures/asset.png"));
       ghost = ImageIO.read(new File("res/textures/ghost.png"));
       inventoryScreen = ImageIO.read(new File("res/textures/inventoryScreen.png"));
+      instructionScreen = ImageIO.read(new File("res/textures/instruction.png"));
+      creditScreen = ImageIO.read(new File("res/textures/credit.png"));
+      winScreen = ImageIO.read(new File("res/textures/win.png"));
+      lostScreen = ImageIO.read(new File("res/textures/lose.png"));
     } catch (FontFormatException | IOException e) {
       e.printStackTrace();
       // exit if program fails to load sprite
@@ -129,10 +133,10 @@ public class Assets {
     btn_quit = new BufferedImage[2];
     btn_quit[0] = sheet.getSubimage(WIDTH * 5, HEIGHT * 6, WIDTH * 2, HEIGHT);
     btn_quit[1] = sheet.getSubimage(WIDTH * 5, HEIGHT * 6, WIDTH * 2, HEIGHT);
-    instructionScreen = sheet.getSubimage(0, HEIGHT * 5, WIDTH * 2, HEIGHT * 2);
-    winScreen = sheet.getSubimage(0, HEIGHT * 5, WIDTH * 2, HEIGHT * 2);
-    lostScreen = sheet.getSubimage(0, HEIGHT * 5, WIDTH * 2, HEIGHT * 2);
-    creditScreen = sheet.getSubimage(0, HEIGHT * 5, WIDTH * 2, HEIGHT * 2);
+    //instructionScreen = sheet.getSubimage(0, HEIGHT * 5, WIDTH * 2, HEIGHT * 2);
+    //winScreen = sheet.getSubimage(0, HEIGHT * 5, WIDTH * 2, HEIGHT * 2);
+    //lostScreen = sheet.getSubimage(0, HEIGHT * 5, WIDTH * 2, HEIGHT * 2);
+    //creditScreen = sheet.getSubimage(0, HEIGHT * 5, WIDTH * 2, HEIGHT * 2);
     player_down = new BufferedImage[3];
     player_up = new BufferedImage[3];
     player_left = new BufferedImage[3];

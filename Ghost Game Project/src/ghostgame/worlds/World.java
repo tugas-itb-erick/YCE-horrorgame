@@ -1,12 +1,5 @@
 package ghostgame.worlds;
 
-import java.awt.Graphics;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.Scanner;
-
 import ghostgame.Handler;
 import ghostgame.entities.EntityManager;
 import ghostgame.entities.creatures.Ghost;
@@ -21,6 +14,13 @@ import ghostgame.tiles.Tile;
 import ghostgame.tiles.TileController;
 import ghostgame.tiles.TileView;
 
+import java.awt.Graphics;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.Scanner;
+
 /**
  * File : World.java
  * Kelas World adalah kelas yang mendefinisikan ukuran level permainan
@@ -30,47 +30,47 @@ import ghostgame.tiles.TileView;
 
 public class World {
 
-	private Handler handler;
-	private int width;
-	private int height;
-	
-	private int spawnX;
-	private int spawnY;
-	
-	private int winX; // posisi dalam satuan Tiles
-	private int winY; // posisi dalam satuan Tiles
-	
-	private int[][] tiles;
-	
-	private EntityManager entityManager;
-	private ItemManager itemManager;
-	
-	/**
-	 * Constructor dengan parameter.
-	 * @param handler handler game.
-	 * @param path path menuju file input.
-	 */
-	
-	public World(Handler handler, String path){
-		this.handler = handler;
-		entityManager = new EntityManager(handler, new Player(handler, 100, 100));
-		itemManager = new ItemManager(handler);
-		loadStaticEntity("res/worlds/staticentity.txt");
-		loadItem("res/worlds/item.txt");
-		loadGhost("res/worlds/ghost.txt");
-		
-		// Temporary entity code!
-		/*entityManager.addEntity(new Ghost1(handler, 64*7, 64*3));
-		entityManager.addEntity(new Ghost2(handler, 64*7, 64*4));
-		entityManager.addEntity(new Ghost3(handler, 64*7, 64*5));
-		entityManager.addEntity(new Ghost1(handler, 64*7, 64*6));
-		entityManager.addEntity(new Ghost2(handler, 64*7, 64*7));*/
-		
-		loadWorld(path);
-		
-		entityManager.getPlayer().setX(spawnX);
-		entityManager.getPlayer().setY(spawnY);
-	}
+  private Handler handler;
+  private int width;
+  private int height;
+  
+  private int spawnX;
+  private int spawnY;
+  
+  private int winX; // posisi dalam satuan Tiles
+  private int winY; // posisi dalam satuan Tiles
+  
+  private int[][] tiles;
+  
+  private EntityManager entityManager;
+  private ItemManager itemManager;
+  
+  /**
+   * Constructor dengan parameter.
+   * @param handler handler game.
+   * @param path path menuju file input.
+   */
+  
+  public World(Handler handler, String path) {
+    this.handler = handler;
+    entityManager = new EntityManager(handler, new Player(handler, 100, 100));
+    itemManager = new ItemManager(handler);
+    loadStaticEntity("res/worlds/staticentity.txt");
+    loadItem("res/worlds/item.txt");
+    loadGhost("res/worlds/ghost.txt");
+    
+    // Temporary entity code!
+    /*entityManager.addEntity(new Ghost1(handler, 64*7, 64*3));
+    entityManager.addEntity(new Ghost2(handler, 64*7, 64*4));
+    entityManager.addEntity(new Ghost3(handler, 64*7, 64*5));
+    entityManager.addEntity(new Ghost1(handler, 64*7, 64*6));
+    entityManager.addEntity(new Ghost2(handler, 64*7, 64*7));*/
+    
+    loadWorld(path);
+    
+    entityManager.getPlayer().setX(spawnX);
+    entityManager.getPlayer().setY(spawnY);
+  }
   
   /**
    * Mengupdate seluruh item dan entitas pada world.
@@ -224,14 +224,15 @@ public class World {
         float x = sc.nextFloat();
         float y = sc.nextFloat();
         Ghost ghost;
-        if (id == 0)
-        	ghost = new Ghost1(handler, x * Tile.TILEWIDTH, y * Tile.TILEHEIGHT);
-        else if (id == 2)
-        	ghost = new Ghost2(handler, x * Tile.TILEWIDTH, y * Tile.TILEHEIGHT);
-        else if (id == 3)
-        	ghost = new Ghost3(handler, x * Tile.TILEWIDTH, y * Tile.TILEHEIGHT);
-        else
-        	ghost = new Ghost1(handler, x * Tile.TILEWIDTH, y * Tile.TILEHEIGHT);
+        if (id == 0) {
+          ghost = new Ghost1(handler, x * Tile.TILEWIDTH, y * Tile.TILEHEIGHT);
+        } else if (id == 2) {
+          ghost = new Ghost2(handler, x * Tile.TILEWIDTH, y * Tile.TILEHEIGHT);
+        } else if (id == 3) {
+          ghost = new Ghost3(handler, x * Tile.TILEWIDTH, y * Tile.TILEHEIGHT);
+        } else {
+          ghost = new Ghost1(handler, x * Tile.TILEWIDTH, y * Tile.TILEHEIGHT);
+        }
         entityManager.addEntity(ghost);
       }
       sc.close();
@@ -346,23 +347,23 @@ public class World {
     this.itemManager = itemManager;
   }
 
-	/**
-	 * Mengembalikan posisi absis untuk memenangkan permainan
-	 * @return the winX
-	 */
+  /**
+   * Mengembalikan posisi absis untuk memenangkan permainan.
+   * @return the winX
+   */
   
-	public int getWinX() {
-		return winX;
-	}
+  public int getWinX() {
+    return winX;
+  }
 
-	/**
-	 * Mengembalikan posisi ordinat untuk memenangkan permainan
-	 * @return the winY
-	 */
-	
-	public int getWinY() {
-		return winY;
-	}
+  /**
+   * Mengembalikan posisi ordinat untuk memenangkan permainan.
+   * @return the winY
+   */
+  
+  public int getWinY() {
+    return winY;
+  }
 }
 
 
