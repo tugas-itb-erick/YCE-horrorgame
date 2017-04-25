@@ -26,7 +26,7 @@ public class MenuState extends State {
   public MenuState(final Handler handler) {
     super(handler);
     uimanager = new UImanager(handler);
-    handler.getMouseManager().setUImanager(UImanager);
+    handler.getMouseManager().setUImanager(uimanager);
     
     for (int x = 0; x < handler.getGame().getWidth(); x += 128) {
       for (int y = 0; y < handler.getGame().getHeight(); y += 128) {

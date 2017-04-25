@@ -36,7 +36,7 @@ public class Assets {
   public static BufferedImage[] btn_start;
   public static BufferedImage[] btn_instruction;
   public static BufferedImage[] btn_credit;
-  public static BufferedImage[] btn_back
+  public static BufferedImage[] btn_back;
   public static BufferedImage[] btn_quit;
   // static item images
   public static BufferedImage candle;
