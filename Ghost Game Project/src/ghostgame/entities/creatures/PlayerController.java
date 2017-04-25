@@ -1,12 +1,5 @@
 package ghostgame.entities.creatures;
 
-<<<<<<< HEAD
-=======
-import java.awt.Graphics;
-import java.awt.Rectangle;
-import java.awt.image.BufferedImage;
-
->>>>>>> 03fb9e7e81fcecc02a64bab240124964dfe9bd69
 import ghostgame.entities.Entity;
 import ghostgame.entities.statics.StaticEntity;
 import ghostgame.gfx.Animation;
@@ -15,13 +8,10 @@ import ghostgame.inventory.InventoryController;
 import ghostgame.inventory.InventoryView;
 import ghostgame.items.Item;
 
-<<<<<<< HEAD
 import java.awt.Graphics;
 import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
 
-=======
->>>>>>> 03fb9e7e81fcecc02a64bab240124964dfe9bd69
 /** 
   * File : PlayerController.java.
   * Kelas yang merepresentasikan pengatur pemain yang ada pada game ini.
