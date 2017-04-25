@@ -1,10 +1,10 @@
 package ghostgame.items;
 
-import java.awt.Graphics;
-
 import ghostgame.Handler;
 import ghostgame.inventory.InventoryController;
 import ghostgame.inventory.InventoryView;
+
+import java.awt.Graphics;
 
 /**
  * File : ItemController.java 
@@ -33,10 +33,12 @@ public class ItemController {
    * Menyatakan pergerakan permainan pada setiap sataun waktu.
    */
   
-  public void tick(){
-    if(item.getHandler().getWorld().getEntityManager().getPlayer().getCollisionBounds(0f, 0f).intersects(item.getBounds())){
+  public void tick() {
+    if (item.getHandler().getWorld().getEntityManager().getPlayer().getCollisionBounds(0f, 0f)
+        .intersects(item.getBounds())) {
       item.setPickedUp(true);
-      InventoryController ic = new InventoryController(item.getHandler().getWorld().getEntityManager().getPlayer().getInventory(), new InventoryView());
+      InventoryController ic = new InventoryController(item.getHandler().getWorld()
+          .getEntityManager().getPlayer().getInventory(), new InventoryView());
       ic.addItem(item);
     }
   }
@@ -47,7 +49,7 @@ public class ItemController {
    * @return item yang baru dibuat.
    */
   
-  public Item createNew(int count){
+  public Item createNew(int count) {
     Item i = new Item(item.getName(), item.getId());
     i.setPickedUp(true);
     i.setCount(count);
@@ -61,7 +63,7 @@ public class ItemController {
    * @return item yang baru dibuat.
    */
   
-  public Item createNew(int x, int y){
+  public Item createNew(int x, int y) {
     Item i = new Item(item.getName(), item.getId());
     i.setPosition(x, y);
     return i;

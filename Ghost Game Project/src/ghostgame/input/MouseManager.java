@@ -1,10 +1,11 @@
 package ghostgame.input;
 
+import ghostgame.ui.UImanager;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 
-import ghostgame.ui.UImanager;
+
 
 /**
  * File : MouseManager.java.
@@ -14,12 +15,14 @@ import ghostgame.ui.UImanager;
 
 public class MouseManager implements MouseListener, MouseMotionListener {
 
-  private boolean leftPressed, rightPressed;
-  private int mouseX, mouseY;
-  private UImanager UImanager;
+  private boolean leftPressed;
+  private boolean rightPressed;
+  private int mouseX;
+  private int mouseY;
+  private UImanager uimanager;
   
   /**
-    * Constructor
+    * Constructor.
     */
 
   public MouseManager() {
@@ -29,11 +32,11 @@ public class MouseManager implements MouseListener, MouseMotionListener {
   /** 
     * I.S. atribut UImanager sembarang.
     * F.S. atribut UImanager terdefinisi.
-    * @param atk Nilai yang akan dimasukkan ke atribut UImanager.
+    * @param uimanager Nilai yang akan dimasukkan ke atribut UImanager.
     */
 
-  public void setUImanager(UImanager UImanager) {
-    this.UImanager = UImanager;
+  public void setUImanager(UImanager uimanager) {
+    this.uimanager = uimanager;
   }
   
   /**
@@ -70,27 +73,29 @@ public class MouseManager implements MouseListener, MouseMotionListener {
     * @return Nilai dari mouseY.
     */
   
-  public int getMouseY(){
+  public int getMouseY() {
     return mouseY;
   }
   
   @Override
   public void mousePressed(MouseEvent e) {
-    if(e.getButton() == MouseEvent.BUTTON1)
+    if (e.getButton() == MouseEvent.BUTTON1) {
       leftPressed = true;
-    else if(e.getButton() == MouseEvent.BUTTON3)
+    } else if (e.getButton() == MouseEvent.BUTTON3) {
       rightPressed = true;
+    }
   }
 
   @Override
   public void mouseReleased(MouseEvent e) {
-    if(e.getButton() == MouseEvent.BUTTON1)
+    if (e.getButton() == MouseEvent.BUTTON1) {
       leftPressed = false;
-    else if(e.getButton() == MouseEvent.BUTTON3)
+    } else if (e.getButton() == MouseEvent.BUTTON3) {
       rightPressed = false;
-    
-    if(UImanager != null)
-      UImanager.onMouseRelease(e);
+    }
+    if (uimanager != null) {
+      uimanager.onMouseRelease(e);
+    }
   }
 
   @Override
@@ -98,8 +103,9 @@ public class MouseManager implements MouseListener, MouseMotionListener {
     mouseX = e.getX();
     mouseY = e.getY();
     
-    if(UImanager != null)
-      UImanager.onMouseMove(e);
+    if (uimanager != null) {
+      uimanager.onMouseMove(e);
+    }
   }
   
   @Override

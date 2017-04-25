@@ -16,7 +16,7 @@ import java.awt.Graphics;
 
 public class WinState extends State {
 
-  private UImanager UImanager;
+  private UImanager uimanager;
 
   /**
    * Constructor dengan parameter.
@@ -25,20 +25,20 @@ public class WinState extends State {
 
   public WinState(final Handler handler) {
     super(handler);
-    UImanager = new UImanager(handler);
-    handler.getMouseManager().setUImanager(UImanager);
+    uimanager = new UImanager(handler);
+    handler.getMouseManager().setUImanager(uimanager);
     
     for (int x = 0; x < handler.getGame().getWidth(); x += 128) {
       for (int y = 0; y < handler.getGame().getHeight(); y += 128) {
-        UImanager.addObject(new UIimage((int)x, (int)y, 128, 128, Assets.mainMenuBackground));
+        uimanager.addObject(new UIimage((int)x, (int)y, 128, 128, Assets.mainMenuBackground));
       }
     }
     
     //posisi blm diganti
-    UImanager.addObject(new UIimage(200, 200, 128, 64, Assets.winScreen));
+    uimanager.addObject(new UIimage(200, 200, 128, 64, Assets.winScreen));
 
     //posisi blm diganti
-    UImanager.addObject(new UIimageButton(200, 200, 128, 64, Assets.btn_back, new ClickListener() {
+    uimanager.addObject(new UIimageButton(200, 200, 128, 64, Assets.btn_back, new ClickListener() {
       @Override
       public void onClick() {
         handler.getMouseManager().setUImanager(null);
@@ -53,7 +53,7 @@ public class WinState extends State {
 
   @Override
   public void tick() {
-    UImanager.tick();
+    uimanager.tick();
   }
 
   /**
@@ -62,7 +62,7 @@ public class WinState extends State {
 
   @Override
   public void render(Graphics g) {
-    UImanager.render(g);
+    uimanager.render(g);
   }
 
 }

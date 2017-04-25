@@ -16,7 +16,7 @@ import java.awt.Graphics;
 
 public class MenuState extends State {
 
-  private UImanager UImanager;
+  private UImanager uimanager;
 
   /**
    * Constructor dengan parameter.
@@ -25,16 +25,16 @@ public class MenuState extends State {
 
   public MenuState(final Handler handler) {
     super(handler);
-    UImanager = new UImanager(handler);
+    uimanager = new UImanager(handler);
     handler.getMouseManager().setUImanager(UImanager);
     
     for (int x = 0; x < handler.getGame().getWidth(); x += 128) {
       for (int y = 0; y < handler.getGame().getHeight(); y += 128) {
-        UImanager.addObject(new UIimage((int)x, (int)y, 128, 128, Assets.mainMenuBackground));
+        uimanager.addObject(new UIimage((int)x, (int)y, 128, 128, Assets.mainMenuBackground));
       }
     }
 
-    UImanager.addObject(new UIimageButton(200, 200, 192, 60, Assets.btn_start, new ClickListener() {
+    uimanager.addObject(new UIimageButton(200, 200, 192, 60, Assets.btn_start, new ClickListener() {
       @Override
       public void onClick() {
         handler.getMouseManager().setUImanager(null);
@@ -42,7 +42,7 @@ public class MenuState extends State {
       }
     }));
 
-    UImanager.addObject(new UIimageButton(200, 270, 192, 60, Assets.btn_instruction, 
+    uimanager.addObject(new UIimageButton(200, 270, 192, 60, Assets.btn_instruction, 
                         new ClickListener() {
         @Override
         public void onClick() {
@@ -51,7 +51,7 @@ public class MenuState extends State {
         }
       }));
     
-    UImanager.addObject(new UIimageButton(200, 340, 192, 60, Assets.btn_credit, 
+    uimanager.addObject(new UIimageButton(200, 340, 192, 60, Assets.btn_credit, 
                         new ClickListener() {
         @Override
         public void onClick() {
@@ -60,7 +60,7 @@ public class MenuState extends State {
         }
       }));
     
-    UImanager.addObject(new UIimageButton(200, 410, 192, 60, Assets.btn_quit, new ClickListener() {
+    uimanager.addObject(new UIimageButton(200, 410, 192, 60, Assets.btn_quit, new ClickListener() {
       @Override
       public void onClick() {
         System.exit(1);
@@ -74,7 +74,7 @@ public class MenuState extends State {
 
   @Override
   public void tick() {
-    UImanager.tick();
+    uimanager.tick();
     
     // Temporarily just go directly to the GameState, skip the menu state!
     //handler.getMouseManager().setUImanager(null);
@@ -87,7 +87,7 @@ public class MenuState extends State {
 
   @Override
   public void render(Graphics g) {
-    UImanager.render(g);
+    uimanager.render(g);
   }
 
 }

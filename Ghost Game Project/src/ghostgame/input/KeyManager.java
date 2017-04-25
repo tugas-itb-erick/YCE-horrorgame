@@ -11,9 +11,17 @@ import java.awt.event.KeyListener;
 
 public class KeyManager implements KeyListener {
   
-  private boolean[] keys, justPressed, cantPress;
-  public boolean up, down, left, right;
-  public boolean aUp, aDown, aLeft, aRight;
+  private boolean[] keys;
+  private boolean[] justPressed;
+  private boolean[] cantPress;
+  public boolean up;
+  public boolean down;
+  public boolean left;
+  public boolean right;
+  public boolean aup;
+  public boolean adown;
+  public boolean aleft;
+  public boolean aright;
   
   /**
     * Constructor.
@@ -45,28 +53,29 @@ public class KeyManager implements KeyListener {
     down = keys[KeyEvent.VK_S];
     left = keys[KeyEvent.VK_A];
     right = keys[KeyEvent.VK_D];
-    aUp = keys[KeyEvent.VK_UP];
-    aDown = keys[KeyEvent.VK_DOWN];
-    aLeft = keys[KeyEvent.VK_LEFT];
-    aRight = keys[KeyEvent.VK_RIGHT];
+    aup = keys[KeyEvent.VK_UP];
+    adown = keys[KeyEvent.VK_DOWN];
+    aleft = keys[KeyEvent.VK_LEFT];
+    aright = keys[KeyEvent.VK_RIGHT];
   }
   
   /**
     * @param keyCode Nilai yang akan di cek.
-    * @return mengembalikan false jika keyCode melebihi batas dan
-    * true jika sebaliknya
+    * @return mengembalikan false jika keyCode melebihi batas dan true jika sebaliknya
     */
   
   public boolean keyJustPressed(int keyCode) {
-    if(keyCode < 0 || keyCode >= keys.length)
+    if (keyCode < 0 || keyCode >= keys.length) {
       return false;
+    }
     return justPressed[keyCode];
   }
 
   @Override
   public void keyPressed(KeyEvent e) {
-    if(e.getKeyCode() < 0 || e.getKeyCode() >= keys.length)
+    if (e.getKeyCode() < 0 || e.getKeyCode() >= keys.length) {
       return;
+    }
     keys[e.getKeyCode()] = true;
   }
 
@@ -75,14 +84,15 @@ public class KeyManager implements KeyListener {
    */
   @Override
   public void keyReleased(KeyEvent e) {
-    if(e.getKeyCode() < 0 || e.getKeyCode() >= keys.length)
-      
-      /**
-        * Meng-update kondisi objek Ghost untuk setiap satuan waktu.
-        */
-  return;
+    if (e.getKeyCode() < 0 || e.getKeyCode() >= keys.length) {  
+      return;
+    }
     keys[e.getKeyCode()] = false;
   }
+
+  /**
+    * Meng-update kondisi objek Ghost untuk setiap satuan waktu.
+    */
 
   @Override
   public void keyTyped(KeyEvent e) {

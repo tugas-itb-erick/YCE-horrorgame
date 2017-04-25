@@ -27,7 +27,7 @@ public class Inventory {
    * @param handler nilai handler dari inventory.
    */
   
-  public Inventory(Handler handler){
+  public Inventory(Handler handler) {
     this.handler = handler;
     inventoryItems = new ArrayList<Item>();
   }
@@ -37,9 +37,9 @@ public class Inventory {
    * @param item yang ingin ditambah pada inventory.
    */
   
-  public void addItem(Item item){
-    for(Item i : inventoryItems){
-      if(i.getId() == item.getId()){
+  public void addItem(Item item) {
+    for (Item i : inventoryItems) {
+      if (i.getId() == item.getId()) {
         i.setCount(i.getCount() + item.getCount());
         return;
       }
@@ -52,13 +52,15 @@ public class Inventory {
    * @param item yang ingin dikurangi dari inventory.
    */
   
-  public void removeItem(Item item){
-    for(Iterator<Item> it = inventoryItems.iterator(); it.hasNext(); ){
+  public void removeItem(Item item) {
+    for (Iterator<Item> it = inventoryItems.iterator(); it.hasNext(); ) {
       Item i = it.next();
-      if (i.getId() == item.getId())
+      if (i.getId() == item.getId()) {
         i.setCount(i.getCount() - 1);
-        if (i.getCount() <= 0)
-          it.remove();
+      }
+      if (i.getCount() <= 0) {
+        it.remove();
+      }
     }
   }
   
@@ -69,8 +71,8 @@ public class Inventory {
    */
   
   public boolean containItem(String name) {
-    for(Item i : inventoryItems){
-      if(i.getName() == name){
+    for (Item i : inventoryItems) {
+      if (i.getName() == name) {
         return true;
       }
     }
@@ -84,8 +86,8 @@ public class Inventory {
    */
   
   public boolean containItem(Item item) {
-    for(Item i : inventoryItems){
-      if(i.getName() == item.getName()){
+    for (Item i : inventoryItems) {
+      if (i.getName() == item.getName()) {
         return true;
       }
     }
