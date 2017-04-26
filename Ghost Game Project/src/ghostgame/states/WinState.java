@@ -34,11 +34,8 @@ public class WinState extends State {
       }
     }
     
-    //posisi blm diganti
-    uimanager.addObject(new UIimage(20, 20, 56, 56, Assets.home));
-    uimanager.addObject(new UIimage(200, 200, 128, 64, Assets.win));
+    uimanager.addObject(new UIimage(64, 0, 512, 512, Assets.winScreen));
 
-    //posisi blm diganti
     uimanager.addObject(new UIimageButton(425, 400, 192, 64, Assets.btn_back, new ClickListener() {
       @Override
       public void onClick() {

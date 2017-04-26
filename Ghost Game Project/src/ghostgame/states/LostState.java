@@ -34,9 +34,8 @@ public class LostState extends State {
         uimanager.addObject(new UIimage((int)x, (int)y, 128, 128, Assets.mainMenuBackground));
       }
     }
-    // pos
-    uimanager.addObject(new UIimage(20, 20, 56, 56, Assets.home));
-    uimanager.addObject(new UIimage(200, 150, 192, 192, Assets.lost));
+    
+    uimanager.addObject(new UIimage(64, 0, 512, 512, Assets.lostScreen));
 
     uimanager.addObject(new UIimageButton(425, 400, 192, 64, Assets.btn_back, new ClickListener() {
       @Override
