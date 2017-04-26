@@ -1,5 +1,11 @@
 package ghostgame.states;
 
+/**
+  * File : LostState.java.
+  * Kelas LostState merepresentasikan tampilan lost game.
+  * @author Veren Iliana K - 13515057.
+  */
+
 import ghostgame.Handler;
 import ghostgame.gfx.Assets;
 import ghostgame.ui.ClickListener;
@@ -8,12 +14,6 @@ import ghostgame.ui.UIimageButton;
 import ghostgame.ui.UImanager;
 
 import java.awt.Graphics;
-
-/**
-  * File : LostState.java.
-  * Kelas LostState merepresentasikan tampilan lost game.
-  * @author Veren Iliana K - 13515057.
-  */
 
 public class LostState extends State {
 

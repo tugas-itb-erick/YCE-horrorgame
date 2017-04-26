@@ -34,6 +34,7 @@ public class Assets {
   public static BufferedImage lostScreen;
   public static BufferedImage winScreen;
   public static BufferedImage creditScreen;
+  public static BufferedImage home;  
   // button images
   public static BufferedImage[] btn_start;
   public static BufferedImage[] btn_instruction;

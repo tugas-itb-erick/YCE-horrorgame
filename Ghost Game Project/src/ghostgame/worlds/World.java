@@ -339,7 +339,7 @@ public class World {
   }
 
   /**
-   * Mengubah manager item
+   * Mengubah manager item.
    * @param itemManager manager item.
    */
   

@@ -6,7 +6,6 @@ import ghostgame.ui.ClickListener;
 import ghostgame.ui.UIimage;
 import ghostgame.ui.UIimageButton;
 import ghostgame.ui.UImanager;
-
 import java.awt.Graphics;
 
 import javax.sound.sampled.Clip;
