@@ -217,15 +217,9 @@ public class Assets {
       new File("res/audio/stab.wav").getAbsoluteFile());
       stab = AudioSystem.getClip();
       stab.open(audioInputStream);
-<<<<<<< HEAD
     } catch(Exception e) {
         System.out.println("Error with playing sound.");
         e.printStackTrace();
-=======
-    } catch (Exception e) {
-      System.out.println("Error with playing sound.");
-      e.printStackTrace();
->>>>>>> db9c1d9ef461171343073f424144107bd379b436
-    }
+    } 
   }
 }
