@@ -216,14 +216,8 @@ public class Assets {
       stab = AudioSystem.getClip();
       stab.open(audioInputStream);
     } catch (Exception e) {
-<<<<<<< HEAD:v01/src/ghostgame/gfx/Assets.java
       System.out.println("Audio file not found.");
       //e.printStackTrace();
     }
-=======
-      System.out.println("Error with playing sound.");
-      e.printStackTrace();
-    } 
->>>>>>> be679e9ff210dd2bf7195ea85f79cf744c38e2be:Ghost Game Project/src/ghostgame/gfx/Assets.java
   }
 }
