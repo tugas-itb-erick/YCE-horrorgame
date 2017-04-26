@@ -1,12 +1,5 @@
 package ghostgame.worlds;
 
-import java.awt.Graphics;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.Scanner;
-
 import ghostgame.Handler;
 import ghostgame.entities.EntityManager;
 import ghostgame.entities.creatures.Player;
@@ -16,6 +9,13 @@ import ghostgame.items.ItemManager;
 import ghostgame.tiles.Tile;
 import ghostgame.tiles.TileController;
 import ghostgame.tiles.TileView;
+
+import java.awt.Graphics;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.Scanner;
 
 /**
  * File : World.java
