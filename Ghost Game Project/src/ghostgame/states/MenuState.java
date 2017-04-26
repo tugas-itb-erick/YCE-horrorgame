@@ -9,6 +9,8 @@ import ghostgame.ui.UImanager;
 
 import java.awt.Graphics;
 
+import javax.sound.sampled.Clip;
+
 /**
  * File : MenuState.java.
  * Kelas MenuState merepresentasikan tampilan main menu.
@@ -34,6 +36,8 @@ public class MenuState extends State {
         uimanager.addObject(new UIimage((int)x, (int)y, 128, 128, Assets.mainMenuBackground));
       }
     }
+    
+    uimanager.addObject(new UIimage(90, 80, 64*7, 75, Assets.mainTitle));
 
     uimanager.addObject(new UIimageButton(200, 200, 192, 60, Assets.btn_start, new ClickListener() {
       @Override
@@ -57,7 +61,7 @@ public class MenuState extends State {
         @Override
         public void onClick() {
           handler.getMouseManager().setUImanager(null);
-          handler.getGame().setState(new InstructionState(handler));
+          handler.getGame().setState(new CreditState(handler));
         }
       }));
     
@@ -70,6 +74,7 @@ public class MenuState extends State {
     
     if (Assets.bgmusic != null) {
       Assets.bgmusic.start();
+      Assets.bgmusic.loop(Clip.LOOP_CONTINUOUSLY);
     }
   }
 

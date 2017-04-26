@@ -34,7 +34,7 @@ public class CreditState extends State {
       }
     }
     
-    uimanager.addObject(new UIimage(200, 200, 128, 64, Assets.creditScreen));
+    uimanager.addObject(new UIimage(64, 0, 512, 512, Assets.creditScreen));
 
     uimanager.addObject(new UIimageButton(425, 400, 192, 64, Assets.btn_back, new ClickListener() {
       @Override

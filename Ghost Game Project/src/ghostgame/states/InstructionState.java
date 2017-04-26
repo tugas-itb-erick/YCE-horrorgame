@@ -31,11 +31,11 @@ public class InstructionState extends State {
     
     for (int x = 0; x < handler.getGame().getWidth(); x += 128) {
       for (int y = 0; y < handler.getGame().getHeight(); y += 128) {
-      	uimanager.addObject(new UIimage(64, 0, 512, 512, Assets.instructionScreen));
+      	uimanager.addObject(new UIimage((int)x, (int)y, 128, 128, Assets.mainMenuBackground));
       }
     }
     
-    //UImanager.addObject(new UIimage(200, 200, 128, 64, Assets.instructionScreen));
+    uimanager.addObject(new UIimage(64, 0, 512, 512, Assets.instructionScreen));
 
     uimanager.addObject(new UIimageButton(425, 400, 192, 64, Assets.btn_back, new ClickListener() {
       @Override
