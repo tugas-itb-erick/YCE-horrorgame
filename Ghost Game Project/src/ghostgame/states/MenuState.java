@@ -13,7 +13,7 @@ import javax.sound.sampled.Clip;
 /**
  * File : MenuState.java.
  * Kelas MenuState merepresentasikan tampilan main menu.
- * @author Veren Iliana K - 13515057.
+ * @author Veren Iliana K - 13515078.
  */
 
 public class MenuState extends State {

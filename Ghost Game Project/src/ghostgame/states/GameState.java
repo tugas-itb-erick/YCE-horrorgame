@@ -8,7 +8,7 @@ import java.awt.Graphics;
 /**
  * File : GameState.java.
  * Kelas GameState merepresentasikan tampilan game. 
- * @author Veren Iliana K - 13515057.
+ * @author Veren Iliana K - 13515078.
  */
 
 public class GameState extends State {

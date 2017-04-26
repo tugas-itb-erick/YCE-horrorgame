@@ -3,7 +3,7 @@ package ghostgame.states;
 /**
   * File : InstructionState.java.
   * Kelas InstructionState merepresentasikan tampilan instruction.
-  * @author Veren Iliana K - 13515057.
+  * @author Veren Iliana K - 13515078.
   */
 
 import ghostgame.Handler;
