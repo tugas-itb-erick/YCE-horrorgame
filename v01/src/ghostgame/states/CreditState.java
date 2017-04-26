@@ -12,7 +12,7 @@ import java.awt.Graphics;
 /**
  * File : CreditState.java.
  * Kelas CreditState merepresentasikan tampilan credit game.
- * @author Veren Iliana K - 13515057.
+ * @author Veren Iliana K - 13515078.
  */
 
 public class CreditState extends State {

@@ -11,7 +11,7 @@ import java.awt.Graphics;
 /**
  * File : WinState.java.
  * Kelas WinState merepresentasikan tampilan win game. 
- * @author Veren Iliana K - 13515057.
+ * @author Veren Iliana K - 135150578.
  */
 
 public class WinState extends State {

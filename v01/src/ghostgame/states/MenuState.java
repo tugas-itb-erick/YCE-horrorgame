@@ -13,7 +13,7 @@ import javax.sound.sampled.Clip;
 /**
  * File : MenuState.java.
  * Kelas MenuState merepresentasikan tampilan main menu.
- * @author Veren Iliana K - 13515057.
+ * @author Veren Iliana K - 13515078.
  */
 
 public class MenuState extends State {
@@ -36,7 +36,7 @@ public class MenuState extends State {
       }
     }
     
-    uimanager.addObject(new UIimage(90, 80, 64*7, 75, Assets.mainTitle));
+    uimanager.addObject(new UIimage(90, 80, 64 * 7, 75, Assets.mainTitle));
 
     uimanager.addObject(new UIimageButton(200, 200, 192, 60, Assets.btn_start, new ClickListener() {
       @Override

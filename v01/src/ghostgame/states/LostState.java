@@ -3,7 +3,7 @@ package ghostgame.states;
 /**
   * File : LostState.java.
   * Kelas LostState merepresentasikan tampilan lost game.
-  * @author Veren Iliana K - 13515057.
+  * @author Veren Iliana K - 13515078.
   */
 
 import ghostgame.Handler;
