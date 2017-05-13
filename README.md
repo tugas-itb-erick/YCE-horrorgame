@@ -1,7 +1,7 @@
 # You Can't Escape
 ### A horror minigame based on Java Swing
 ### Tugas Besar 3 Pemrograman Berorientasi Objek
-![alt](screenshot/sc1.PNG)
+<img src="screenshot/sc1.PNG" alt="sc3" width="450" height="360"/>
 
 ### Execute
 v01:
@@ -14,10 +14,15 @@ v02:
 
 ### Contributors
 13515057 - Erick Wijaya
+
 13515078 - Veren Iliana
+
 13515087 - Audry Nyonata
+
 13515111 - William
 
-![alt](screenshot/sc3.PNG)
+## Screenshot
+<img src="screenshot/sc3.PNG" alt="sc3" width="450" height="360"/>
 
-![alt](screenshot/sc2.PNG)
+
+<img src="screenshot/sc2.PNG" alt="sc3" width="450" height="360"/>
