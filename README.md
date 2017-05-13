@@ -1,6 +1,9 @@
 # You Can't Escape
-### A horror minigame based on Java Swing
-### Tugas Besar 3 Pemrograman Berorientasi Objek
+### Overview
+A simple horror minigame based on Java Swing
+
+Tugas Besar 3 Pemrograman Berorientasi Objek
+
 <img src="screenshot/sc1.PNG" alt="sc3" width="450" height="360"/>
 
 ### Execute
