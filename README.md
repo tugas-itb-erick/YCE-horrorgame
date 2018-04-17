@@ -18,7 +18,7 @@ The objective is to escape from the haunted house. The player needs to collect k
 
 13515078 - Veren Iliana
 
-13515087 - Kevin Iswara
+13515085 - Kevin Iswara
 
 13515111 - Catherine Almira
 
