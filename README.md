@@ -18,9 +18,9 @@ The objective is to escape from the haunted house. The player needs to collect k
 
 13515078 - Veren Iliana
 
-13515087 - Audry Nyonata
+13515087 - Kevin Iswara
 
-13515111 - William
+13515111 - Catherine Almira
 
 ## Screenshot
 <img src="screenshot/sc3.PNG" alt="sc3" width="450" height="360"/>
